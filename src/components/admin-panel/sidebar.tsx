@@ -34,17 +34,17 @@ export function Sidebar() {
           variant="link"
           asChild
         >
-          <Link href="/dashboard" className="flex items-center gap-2">
-            <PanelsTopLeft className="w-6 h-6 mr-1" />
+          <Link href="/inicio" className="flex items-center gap-2">
+            <img src="/escudoPisco.png" alt="Logo" className="w-7 h-8"/>
             <h1
               className={cn(
-                "font-bold text-lg whitespace-nowrap transition-[transform,opacity,display] ease-in-out duration-300",
+                "font-bold text-center whitespace-nowrap transition-[transform,opacity,display] ease-in-out duration-300",
                 !getOpenState()
                   ? "-translate-x-96 opacity-0 hidden"
                   : "translate-x-0 opacity-100"
               )}
             >
-              Brand
+              SISTEMA DE HELP DESK <br /> Y REGISTRO US
             </h1>
           </Link>
         </Button>

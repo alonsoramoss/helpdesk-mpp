@@ -1,5 +1,5 @@
 {
-  "name": "shadcn-sidebar",
+  "name": "help-desk",
   "type": "registry:block",
   "registryDependencies": [
     "avatar",
@@ -97,7 +97,7 @@
     },
     {
       "type": "registry:component",
-      "content": "import Link from \"next/link\";\n\nexport function Footer() {\n  return (\n    <div className=\"z-20 w-full bg-background/95 shadow backdrop-blur supports-[backdrop-filter]:bg-background/60\">\n      <div className=\"mx-4 md:mx-8 flex h-14 items-center\">\n        <p className=\"text-xs md:text-sm leading-loose text-muted-foreground text-left\">\n          Built on top of{\" \"}\n          <Link\n            href=\"https://ui.shadcn.com\"\n            target=\"_blank\"\n            rel=\"noopener noreferrer\"\n            className=\"font-medium underline underline-offset-4\"\n          >\n            shadcn/ui\n          </Link>\n          . The source code is available on{\" \"}\n          <Link\n            href=\"https://github.com/salimi-my/shadcn-ui-sidebar\"\n            target=\"_blank\"\n            rel=\"noopener noreferrer\"\n            className=\"font-medium underline underline-offset-4\"\n          >\n            GitHub\n          </Link>\n          .\n        </p>\n      </div>\n    </div>\n  );\n}\n",
+      "content": "import Link from \"next/link\";\n\nexport function Footer() {\n  return (\n    <div className=\"z-20 w-full bg-background/95 shadow backdrop-blur supports-[backdrop-filter]:bg-background/60\">\n      <div className=\"mx-4 md:mx-8 flex h-14 items-center\">\n        <p className=\"text-xs md:text-sm leading-loose text-muted-foreground text-left\">\n          Built on top of{\" \"}\n          <Link\n            href=\"https://ui.shadcn.com\"\n            target=\"_blank\"\n            rel=\"noopener noreferrer\"\n            className=\"font-medium underline underline-offset-4\"\n          >\n            shadcn/ui\n          </Link>\n          . The source code is available on{\" \"}\n            target=\"_blank\"\n            rel=\"noopener noreferrer\"\n            className=\"font-medium underline underline-offset-4\"\n          >\n            GitHub\n          </Link>\n          .\n        </p>\n      </div>\n    </div>\n  );\n}\n",
       "path": "components/admin-panel/footer.tsx",
       "target": "components/admin-panel/footer.tsx"
     },

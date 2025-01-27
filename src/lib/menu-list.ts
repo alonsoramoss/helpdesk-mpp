@@ -1,11 +1,13 @@
 import {
   Tag,
-  Users,
+  HelpCircle,
   Settings,
-  Bookmark,
+  FileText,
   SquarePen,
   LayoutGrid,
-  LucideIcon
+  LucideIcon,
+  Wrench,
+  BarChart,
 } from "lucide-react";
 
 type Submenu = {
@@ -33,56 +35,74 @@ export function getMenuList(pathname: string): Group[] {
       groupLabel: "",
       menus: [
         {
-          href: "/dashboard",
-          label: "Dashboard",
+          href: "/inicio",
+          label: "INICIO",
           icon: LayoutGrid,
           submenus: []
         }
       ]
     },
     {
-      groupLabel: "Contents",
+      groupLabel: "Contenido",
       menus: [
         {
+          href: "/configuracion",
+          label: "CONFIGURACIÓN",
+          icon: Settings,
+        },
+        {
+          href: "/tickets",
+          label: "TICKETS",
+          icon: Tag,
+        },
+        {
+          href: "/mantenimiento-pc-accesorios",
+          label: "MANTENIMIENTO DE PCS Y ACCESORIOS",
+          icon: Wrench,
+        },
+        {
           href: "",
-          label: "Posts",
+          label: "INVENTARIO DE EQUIPO TECNOLÓGICO",
           icon: SquarePen,
           submenus: [
             {
-              href: "/posts",
-              label: "All Posts"
+              href: "/inventario-equipo-tecnologico/hardware",
+              label: "Hardware"
             },
             {
-              href: "/posts/new",
-              label: "New Post"
+              href: "/inventario-equipo-tecnologico/software",
+              label: "Software"
+            },
+            {
+              href: "/inventario-equipo-tecnologico/inventario-accesorios",
+              label: "Inventario y Accesorios"
+            },
+            {
+              href: "/inventario-equipo-tecnologico/reportes-estadisticas",
+              label: "Reportes y Estadísticas"
             }
           ]
         },
         {
-          href: "/categories",
-          label: "Categories",
-          icon: Bookmark
+          href: "/informes-tecnicos",
+          label: "INFORMES TÉCNICOS",
+          icon: FileText,
         },
         {
-          href: "/tags",
-          label: "Tags",
-          icon: Tag
-        }
+          href: "/reporte-general",
+          label: "REPORTE GENERAL",
+          icon: BarChart,
+        },
       ]
     },
     {
-      groupLabel: "Settings",
+      groupLabel: "Soporte",
       menus: [
         {
-          href: "/users",
-          label: "Users",
-          icon: Users
+          href: "/ayuda",
+          label: "AYUDA",
+          icon: HelpCircle,
         },
-        {
-          href: "/account",
-          label: "Account",
-          icon: Settings
-        }
       ]
     }
   ];

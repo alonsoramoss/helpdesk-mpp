@@ -17,7 +17,7 @@ function getAllFiles(dirPath: string, arrayOfFiles: string[] = []): string[] {
   return arrayOfFiles;
 }
 
-const ignoreFolders = ["src/components/ui", "src/components/demo"];
+const ignoreFolders = ["src/components/ui", "src/components/content"];
 
 const hooks = getAllFiles("./src/hooks").map((x) => {
   return x.split("src/")[1];
