@@ -40,21 +40,6 @@ export default function InicioPage() {
               <p>Al pasar el cursor sobre la barra lateral en estado mini, se abrirá</p>
             </TooltipContent>
           </Tooltip>
-          <Tooltip>
-            <TooltipTrigger asChild>
-              <div className="flex items-center space-x-2">
-                <Switch
-                  id="disable-sidebar"
-                  onCheckedChange={(x) => setSettings({ disabled: x })}
-                  checked={settings.disabled}
-                />
-                <Label htmlFor="disable-sidebar">Desactivar Sidebar</Label>
-              </div>
-            </TooltipTrigger>
-            <TooltipContent>
-              <p>Ocultar Sidebar</p>
-            </TooltipContent>
-          </Tooltip>
         </div>
       </TooltipProvider>
     </ContentLayout>
