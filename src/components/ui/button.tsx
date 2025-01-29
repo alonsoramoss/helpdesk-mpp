@@ -13,11 +13,11 @@ const buttonVariants = cva(
           "bg-primary text-green-500 shadow hover:bg-primary/90",
         destructive:
           "bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/90",
-        outline:
+        outline: //icono de desplegar y cerrar sesion
           "border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground",
-        secondary:
-          "bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80",
-        ghost: "hover:bg-accent hover:text-accent-foreground",
+        secondary: //active de menu
+          "bg-primary text-secondary-foreground shadow-sm hover:bg-primary",
+        ghost: "hover:bg-primary hover:text-accent-foreground", //hover de menu
         link: "",
       },
       size: {
