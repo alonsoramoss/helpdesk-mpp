@@ -24,7 +24,7 @@ export function Sidebar() {
       <div
         onMouseEnter={() => setIsHover(true)}
         onMouseLeave={() => setIsHover(false)}
-        className="relative h-full flex flex-col px-3 py-4 overflow-y-auto shadow-md dark:shadow-zinc-800"
+        className="relative h-full flex flex-col px-3 py-4 overflow-y-auto shadow-md dark:shadow-neutral-800"
       >
         <Button
           className={cn(
@@ -38,7 +38,7 @@ export function Sidebar() {
             <img src="/escudoPisco.png" alt="Logo" className="w-7 h-8"/>
             <h1
               className={cn(
-                "font-bold text-center whitespace-nowrap transition-[transform,opacity,display] ease-in-out duration-300",
+                "text-base font-black text-center whitespace-nowrap transition-[transform,opacity,display] ease-in-out duration-300",
                 !getOpenState()
                   ? "-translate-x-96 opacity-0 hidden"
                   : "translate-x-0 opacity-100"
