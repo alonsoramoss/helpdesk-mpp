@@ -1,14 +1,4 @@
-import {
-  Tag,
-  HelpCircle,
-  Settings,
-  FileText,
-  SquarePen,
-  LayoutGrid,
-  LucideIcon,
-  Wrench,
-  BarChart,
-} from "lucide-react";
+import { Tag, HelpCircle, Settings, FileText, SquarePen, LayoutGrid, LucideIcon, Wrench, BarChart } from "lucide-react";
 
 type Submenu = {
   href: string;
