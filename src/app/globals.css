@@ -85,6 +85,7 @@
   background-color: #0e82ff
 }
 
-.no-transition * {
+.desactivar-transicion * {
   transition: none !important;
+  animation: none !important;
 }
