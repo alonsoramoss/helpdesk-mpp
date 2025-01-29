@@ -5,16 +5,19 @@ import { useTheme } from "next-themes";
 import { MoonIcon, SunIcon } from "@radix-ui/react-icons";
 
 import { Button } from "@/components/ui/button";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger,
-  TooltipProvider
-} from "@/components/ui/tooltip";
+import { Tooltip, TooltipContent, TooltipTrigger, TooltipProvider } from "@/components/ui/tooltip";
 
 export function CambioTema() {
   const { setTheme, theme } = useTheme();
 
+  const desactivTransition = () => {
+    document.body.classList.add("no-transition");
+    setTimeout(() => {
+      document.body.classList.remove("no-transition");
+    }, 1);
+  };
+  desactivTransition();
+  
   return (
     <TooltipProvider disableHoverableContent>
       <Tooltip delayDuration={100}>
