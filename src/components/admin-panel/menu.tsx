@@ -8,13 +8,8 @@ import { cn } from "@/lib/utils";
 import { getMenuList } from "@/lib/menu-list";
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { CollapseMenuButton } from "@/components/admin-panel/collapse-menu-button";
-import {
-  Tooltip,
-  TooltipTrigger,
-  TooltipContent,
-  TooltipProvider
-} from "@/components/ui/tooltip";
+import { SubMenuButton } from "@/components/admin-panel/submenu-button";
+import { Tooltip, TooltipTrigger, TooltipContent, TooltipProvider } from "@/components/ui/tooltip";
 
 interface MenuProps {
   isOpen: boolean | undefined;
@@ -39,7 +34,7 @@ export function Menu({ isOpen }: MenuProps) {
                   <Tooltip delayDuration={100}>
                     <TooltipTrigger className="w-full">
                       <div className="w-full flex justify-center items-center">
-                        <Ellipsis className="h-5 w-5" />
+                        <Ellipsis className="h-5 w-5 text-gray-500" />
                       </div>
                     </TooltipTrigger>
                     <TooltipContent side="right">
@@ -97,7 +92,7 @@ export function Menu({ isOpen }: MenuProps) {
                     </div>
                   ) : (
                     <div className="w-full" key={index}>
-                      <CollapseMenuButton
+                      <SubMenuButton
                         icon={Icon}
                         label={label}
                         active={
