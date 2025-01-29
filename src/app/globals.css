@@ -77,10 +77,14 @@
 
 *::selection {
   color: #000;
-  background-color: #00bff9
+  background-color: #0e82ff
 }
 
 *::-moz-selection {
   color: #000;
-  background-color: #00bff9
+  background-color: #0e82ff
+}
+
+.no-transition * {
+  transition: none !important;
 }

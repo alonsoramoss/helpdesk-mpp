@@ -1,5 +1,4 @@
 
-
 function Login() {
   return (
 
@@ -9,7 +8,7 @@ function Login() {
           <div
             className="bg-cover bg-center h-full w-full"
             style={{
-              backgroundImage: `url("https://images.pexels.com/photos/989936/pexels-photo-989936.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2")`,
+              backgroundImage: `url("placeholder.png")`,
             }}
           />
         </div>
@@ -17,9 +16,10 @@ function Login() {
 
       <div className="w-full md:w-1/3 flex justify-center items-center h-screen">
         <div className="max-w-md w-full">
-          <h2 className="text-3xl font-bold text-center uppercase">Inciar Sesión</h2>
+          <a href="/inicio">
+            <h2 className="text-3xl font-bold text-center uppercase">Iniciar Sesión</h2>
+          </a>
           <div className="p-4 rounded-md overflow-hidden shadow-md">
-
           </div>
         </div>
       </div>
