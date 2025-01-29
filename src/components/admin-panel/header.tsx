@@ -29,7 +29,7 @@ export function Header({ title }: HeaderProps) {
         </div>
       </header>
       
-      <div className="bg-neutral-200 dark:bg-neutral-800 py-2">
+      <div className="bg-neutral-200 dark:bg-neutral-800 py-1">
         <p className="flex justify-center items-center font-medium">{fechaActual}</p>
       </div>
     </>

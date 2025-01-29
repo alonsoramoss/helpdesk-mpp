@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { Ellipsis, LogOut } from "lucide-react";
 import { usePathname } from "next/navigation";
-
 import { cn } from "@/lib/utils";
 import { getMenuList } from "@/lib/menu-list";
 import { Button } from "@/components/ui/button";
@@ -108,10 +107,11 @@ export function Menu({ isOpen }: MenuProps) {
               )}
             </li>
           ))}
-          <li className="w-full grow flex items-end">
+          <li className="w-full grow flex justify-center items-end">
             <TooltipProvider disableHoverableContent>
               <Tooltip delayDuration={100}>
                 <TooltipTrigger asChild>
+                  <Link href={"/"} className="w-full">
                   <Button
                     onClick={() => {}}
                     variant="outline"
@@ -129,9 +129,10 @@ export function Menu({ isOpen }: MenuProps) {
                       Cerrar Sesión
                     </p>
                   </Button>
+                  </Link>
                 </TooltipTrigger>
                 {isOpen === false && (
-                  <TooltipContent side="right">Cerrar Sesión</TooltipContent>
+                  <TooltipContent className="mt-5" side="right">Cerrar Sesión</TooltipContent>
                 )}
               </Tooltip>
             </TooltipProvider>

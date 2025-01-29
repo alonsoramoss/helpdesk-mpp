@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { useState } from "react";
 import { ChevronDown, Dot, LucideIcon } from "lucide-react";
-
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { DropdownMenuArrow } from "@radix-ui/react-dropdown-menu";
@@ -144,7 +143,7 @@ export function SubMenuButton({
               </Button>
             </MenuDesplegableTrigger>
           </TooltipTrigger>
-          <TooltipContent side="right" align="start" alignOffset={2}>
+          <TooltipContent className="mt-1" side="right" align="start" alignOffset={2}>
             {label}
           </TooltipContent>
         </Tooltip>
