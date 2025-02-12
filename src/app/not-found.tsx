@@ -1,7 +1,7 @@
 
 export const metadata = {
-  title: "Página no encontrada - Transformaciones Químicas del Perú",
-  description: "Soluciones innovadoras en los sectores de salud, alimentación, cuidado personal, limpieza y agricultura.",
+  title: "Página no encontrada - Sistema de Help Desk y Registro US",
+  description: "Sistema Help Desk y Registro US que permite reportar incidentes, gestionar herramientas y materiales, programar tareas, gestionar inventario, visualizar reportes, opción de ayuda de uso y más.",
 };
 
 export default function NotFound() {
