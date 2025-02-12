@@ -36,11 +36,6 @@ export function getMenuList(pathname: string): Group[] {
       groupLabel: "Contenido",
       menus: [
         {
-          href: "/configuracion",
-          label: "CONFIGURACIÓN",
-          icon: Settings,
-        },
-        {
           href: "/tickets",
           label: "TICKETS",
           icon: Tag,
@@ -88,6 +83,11 @@ export function getMenuList(pathname: string): Group[] {
     {
       groupLabel: "Soporte",
       menus: [
+        {
+          href: "/configuracion",
+          label: "CONFIGURACIÓN",
+          icon: Settings,
+        },
         {
           href: "/ayuda",
           label: "AYUDA",
