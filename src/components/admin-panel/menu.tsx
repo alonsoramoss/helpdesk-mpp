@@ -1,22 +1,31 @@
 "use client";
 
-import Link from "next/link";
-import { Ellipsis, LogOut } from "lucide-react";
-import { usePathname } from "next/navigation";
-import { cn } from "@/lib/utils";
+import { usePathname, useRouter } from "next/navigation";
 import { getMenuList } from "@/lib/menu-list";
-import { Button } from "@/components/ui/button";
+import { useAuth } from "@/context/authContext";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { SubMenuButton } from "@/components/admin-panel/submenu-button";
+import { cn } from "@/lib/utils";
 import { Tooltip, TooltipTrigger, TooltipContent, TooltipProvider } from "@/components/ui/tooltip";
+import { Ellipsis, LogOut } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
+import { SubMenuButton } from "@/components/admin-panel/submenu-button";
 
 interface MenuProps {
   isOpen: boolean | undefined;
 }
 
 export function Menu({ isOpen }: MenuProps) {
+
   const pathname = usePathname();
+  const router = useRouter();
   const menuList = getMenuList(pathname);
+  const { logout } = useAuth();
+
+  const handleLogout = () => {
+    logout();
+    router.push("/");
+  };
 
   return (
     <ScrollArea className="[&>div>div[style]]:!block">
@@ -33,7 +42,7 @@ export function Menu({ isOpen }: MenuProps) {
                   <Tooltip delayDuration={100}>
                     <TooltipTrigger className="w-full">
                       <div className="w-full flex justify-center items-center">
-                        <Ellipsis className="h-5 w-5 text-gray-500" />
+                        <Ellipsis className="h-5 w-5 text-neutral-500" />
                       </div>
                     </TooltipTrigger>
                     <TooltipContent side="right">
@@ -111,9 +120,8 @@ export function Menu({ isOpen }: MenuProps) {
             <TooltipProvider disableHoverableContent>
               <Tooltip delayDuration={100}>
                 <TooltipTrigger asChild>
-                  <Link href={"/"} className="w-full">
                   <Button
-                    onClick={() => {}}
+                    onClick={handleLogout}
                     variant="outline"
                     className="w-full justify-center h-10 mt-5"
                   >
@@ -129,7 +137,6 @@ export function Menu({ isOpen }: MenuProps) {
                       Cerrar Sesión
                     </p>
                   </Button>
-                  </Link>
                 </TooltipTrigger>
                 {isOpen === false && (
                   <TooltipContent className="mt-5" side="right">Cerrar Sesión</TooltipContent>

@@ -1,13 +1,23 @@
 "use client";
 
-import Link from "next/link";
-import { LogOut } from "lucide-react";
+import { useRouter } from "next/navigation";
+import { useAuth } from "@/context/authContext";
+import { MenuDesplegable, MenuDesplegableContent, MenuDesplegableGroup, MenuDesplegableItem, MenuDesplegableLabel, MenuDesplegableSeparator, MenuDesplegableTrigger } from "@/components/ui/menu-desplegable";
+import { Tooltip, TooltipContent, TooltipTrigger, TooltipProvider } from "@/components/ui/tooltip";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Tooltip, TooltipContent, TooltipTrigger, TooltipProvider } from "@/components/ui/tooltip";
-import { MenuDesplegable, MenuDesplegableContent, MenuDesplegableGroup, MenuDesplegableItem, MenuDesplegableLabel, MenuDesplegableSeparator, MenuDesplegableTrigger } from "@/components/ui/menu-desplegable";
+import { LogOut } from "lucide-react";
 
 export function UserHeader() {
+
+  const router = useRouter();
+  const { logout } = useAuth();
+
+  const handleLogout = () => {
+    logout();
+    router.push("/");
+  };
+
   return (
     <MenuDesplegable>
       <TooltipProvider disableHoverableContent>
@@ -40,9 +50,9 @@ export function UserHeader() {
           </div>
         </MenuDesplegableLabel>
         <MenuDesplegableSeparator />
-        <MenuDesplegableItem className="hover:cursor-pointer" onClick={() => {}}>
+        <MenuDesplegableItem className="hover:cursor-pointer" onClick={handleLogout}>
           <LogOut className="w-4 h-4 mr-3 text-muted-foreground" />
-          <a href="/"> Cerrar Sesión</a>
+            Cerrar Sesión
         </MenuDesplegableItem>
       </MenuDesplegableContent>
     </MenuDesplegable>
