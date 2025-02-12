@@ -1,7 +1,7 @@
-import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
+import type { Metadata } from "next";
+import { AuthProvider } from "@/context/authContext";
 import "./globals.css";
-import { ThemeProvider } from "@/components/providers/theme-provider";
 
 const montserrat = Montserrat({ subsets: ["latin"] });
 
@@ -16,12 +16,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es" suppressHydrationWarning>
-      <body className={`${montserrat.className}`}>
-        <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
+    <AuthProvider>
+      <html lang="es" suppressHydrationWarning>
+        <body className={`${montserrat.className}`}>
           {children}
-        </ThemeProvider>
-      </body>
-    </html>
+        </body>
+      </html>
+    </AuthProvider>
   );
 }
