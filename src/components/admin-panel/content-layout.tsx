@@ -9,7 +9,7 @@ export function ContentLayout({ title, children }: ContentLayoutProps) {
   return (
     <div>
       <Header title={title} />
-      <div className="container py-8 px-4 sm:px-8">{children}</div>
+      <div className="container py-4 px-4 sm:px-8">{children}</div>
     </div>
   );
 }
