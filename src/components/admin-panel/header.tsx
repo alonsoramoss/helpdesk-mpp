@@ -1,4 +1,3 @@
-import { CambioTema } from "@/components/cambio-tema";
 import { UserHeader } from "@/components/admin-panel/user-header";
 import { MenuMovil } from "@/components/admin-panel/menu-movil";
 
@@ -23,15 +22,13 @@ export function Header({ title }: HeaderProps) {
             <h1 className="font-bold">{title}</h1>
           </div>
           <div className="flex flex-1 items-center justify-end">
-            <CambioTema />
             <UserHeader />
           </div>
         </div>
+        <div className="bg-neutral-200 py-1">
+          <p className="flex justify-center items-center font-medium">{fechaActual}</p>
+        </div>
       </header>
-      
-      <div className="bg-neutral-200 dark:bg-neutral-800 py-1">
-        <p className="flex justify-center items-center font-medium">{fechaActual}</p>
-      </div>
     </>
   );
 }
