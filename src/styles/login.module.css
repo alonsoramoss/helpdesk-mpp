@@ -1,0 +1,119 @@
+.container {
+  padding: 2.5rem;
+  border-radius: 10px;
+  background-color: #fff;
+}
+
+.container .heading {
+  display: flex;
+  background-image: url("/MuniPisco.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-bottom: 40px;
+  padding: 3.1rem 0;
+  width: 100%;
+}
+
+@media (max-width:768px) {
+  .container .heading {
+    margin-bottom: 30px;
+    min-height: 120px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 1.5rem;
+  }
+  .container .heading {
+    margin-bottom: 20px;
+    min-height: 100px;
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.input_field {
+  position: relative;
+}
+
+.input_field label {
+  position: absolute;
+  color: #8d8d8d;
+  pointer-events: none;
+  background-color: transparent;
+  left: 15px;
+  transform: translateY(0.6rem);
+  transition: all 0.3s ease;
+}
+
+.input_field input {
+  padding: 10px 15px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: solid 1px #8d8d8d;
+  letter-spacing: 1px;
+  width: 100%;
+  background-color: #fff;
+  color: #000;
+}
+
+.input_field input:focus,
+.input_field input:valid {
+  outline: none;
+  border: solid 1px #0034de;
+}
+
+.input_field input:focus ~ label,
+.input_field input:valid ~ label {
+  transform: translateY(-51%) translateX(-10px) scale(0.8);
+  background-color: #fff;
+  padding: 0px 5px;
+  color: #0034de;
+  font-weight: bold;
+  letter-spacing: 1px;
+  border: none;
+  border-radius: 100px;
+}
+
+.btn_container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn {
+  font-weight: 700;
+  transition: all 0.2s;
+  padding: 10px 20px;
+  border-radius: 100px;
+  background: #00bff9;
+  border: 1px solid transparent;
+  display: flex;
+  align-items: center;
+  font-size: 15px;
+}
+
+.btn:hover {
+  background: #01b5eb;
+}
+
+.btn > svg {
+  width: 24px;
+  margin-left: 10px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.btn:hover svg {
+  transform: translateX(3px);
+}
+
+.btn:active {
+  transform: scale(0.95);
+}

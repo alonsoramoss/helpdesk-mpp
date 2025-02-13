@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useAuth } from "@/context/authContext";
 import { useRouter } from "next/navigation";
 import styles from "@/styles/login.module.css";
-import { ArrowRight  } from "lucide-react";
+import { LogIn  } from "lucide-react";
 
 const Login = () => {
   const router = useRouter();
@@ -33,7 +33,7 @@ const Login = () => {
 
   return (
     <div className={styles.container}>
-      <h1 className={styles.heading}>INICIAR SESIÓN</h1>
+      <div className={styles.heading}/>
       <form className={styles.form} onSubmit={handleSubmit}>
         <div className={styles.input_field}>
           <input type="email" id="email" value={vch_usuario} onChange={(e) => setEmail(e.target.value)} required/>
@@ -50,7 +50,7 @@ const Login = () => {
         <div className={styles.btn_container}>
           <button className={styles.btn} type="submit" disabled={loading}>
             <span>{loading ? "Cargando..." : "Iniciar Sesión"}</span>
-            <ArrowRight />
+            <LogIn />
           </button>
         </div>
       </form>
