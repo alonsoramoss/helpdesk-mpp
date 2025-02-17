@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { AuthProvider } from "@/context/authContext";
 import "./globals.css";
 
-const montserrat = Montserrat({ subsets: ["latin"] });
+const montserrat = Montserrat({ subsets: ["latin"], weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"] });
 
 export const metadata: Metadata = {
   title: "Sistema de Help Desk y Registro US",
@@ -18,7 +18,7 @@ export default function RootLayout({
   return (
     <AuthProvider>
       <html lang="es" suppressHydrationWarning>
-        <body className={`${montserrat.className}`}>
+        <body className={montserrat.className}>
           {children}
         </body>
       </html>
