@@ -139,7 +139,7 @@ export function Menu({ isOpen }: MenuProps) {
                   </Button>
                 </TooltipTrigger>
                 {isOpen === false && (
-                  <TooltipContent className="mt-5" side="right">Cerrar Sesión</TooltipContent>
+                  <TooltipContent side="right">Cerrar Sesión</TooltipContent>
                 )}
               </Tooltip>
             </TooltipProvider>
