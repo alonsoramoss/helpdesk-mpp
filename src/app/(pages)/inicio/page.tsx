@@ -2,7 +2,7 @@ import ProtectedRoute from "@/components/auth/protectedRoute";
 import { ContentLayout } from "@/components/admin-panel/content-layout";
 import { RutaNavegacion, RutaItem, RutaLink, RutaList } from "@/components/ui/ruta-navegacion";
 import Link from "next/link";
-import InicioContent from "@/components/content/inicio-content";
+import InicioContent from "@/components/content/inicio-content/inicio-content";
 
 export default function InicioPage() {
   return (

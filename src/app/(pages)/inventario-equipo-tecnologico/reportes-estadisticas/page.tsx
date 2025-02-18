@@ -2,7 +2,7 @@ import ProtectedRoute from "@/components/auth/protectedRoute";
 import { ContentLayout } from "@/components/admin-panel/content-layout";
 import { RutaNavegacion, RutaList, RutaItem, RutaLink, RutaPage, RutaSeparator } from "@/components/ui/ruta-navegacion";
 import Link from "next/link";
-import ReportesEstadisticasContent from "@/components/content/reportes-estadisticas-content";
+import ReportesEstadisticasContent from "@/components/content/inventario-equipo-tecnologico-content/reportes-estadisticas-content";
 
 export default function ReportesEstadisticasPage() {
   return (

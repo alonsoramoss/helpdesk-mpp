@@ -2,7 +2,7 @@ import ProtectedRoute from "@/components/auth/protectedRoute";
 import { ContentLayout } from "@/components/admin-panel/content-layout";
 import { RutaNavegacion, RutaList, RutaItem, RutaLink, RutaPage, RutaSeparator } from "@/components/ui/ruta-navegacion";
 import Link from "next/link";
-import SoftwareContent from "@/components/content/software-content";
+import SoftwareContent from "@/components/content/inventario-equipo-tecnologico-content/software-content";
 
 export default function Software() {
   return (
