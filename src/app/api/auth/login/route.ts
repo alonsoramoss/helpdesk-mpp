@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 
 export async function POST(req: Request) {
   const { vch_usuario, vch_contraseña } = await req.json();
-  const res = await fetch("https://munic.free.beeceptor.com/usuarios");
+  const res = await fetch("https://pastebin.com/raw/D7bz2yfc");
   const users = await res.json();
 
   const user = users.find((u: any) => u.vch_usuario === vch_usuario && u.vch_contraseña === vch_contraseña);
