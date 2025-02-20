@@ -25,13 +25,7 @@ interface MenuColapsableButtonProps {
   isOpen: boolean | undefined;
 }
 
-export function SubMenuButton({
-  icon: Icon,
-  label,
-  active,
-  submenus,
-  isOpen
-}: MenuColapsableButtonProps) {
+export function SubMenuButton({ icon: Icon, label, active, submenus, isOpen }: MenuColapsableButtonProps) {
   const pathname = usePathname();
   const isSubmenuActive = submenus.some((submenu) =>
     submenu.active === undefined ? submenu.href === pathname : submenu.active
