@@ -1,22 +1,13 @@
+"use client"
+
 import { Card, CardContent } from "@/components/ui/card";
-import Image from "next/image";
+import FichaTecnica from "./ficha-tecnica";
 
 export default function InformeTecnicoContent() {
   return (
-    <Card>
+    <Card className="mx-auto max-w-[1200px] my-4 border shadow-2xl rounded-none">
       <CardContent>
-        <div className="flex">
-          <div>
-            INFORMES TECNICOS
-            <Image
-              src="/MuniPisco.png"
-              alt="Municipalidad de Pisco"
-              width={500}
-              height={500}
-              priority
-            />
-          </div>
-        </div>
+        <FichaTecnica/>
       </CardContent>
     </Card>
   );
