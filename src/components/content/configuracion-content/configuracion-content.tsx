@@ -6,7 +6,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { TooltipProvider, Tooltip, TooltipTrigger, TooltipContent } from "@/components/ui/tooltip";
 import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
-import Image from "next/image";
+import UsuarioTable from "@/components/data/usuariosTable";
 
 export default function ConfiguracionContent() {
   const sidebar = useStore(useSidebar, (x) => x);
@@ -36,15 +36,8 @@ export default function ConfiguracionContent() {
             </div>
           </TooltipProvider>
         </div>
-        <div>
-          CONFIGURACION
-          <Image
-            src="/MuniPisco.png"
-            alt="Municipalidad de Pisco"
-            width={500}
-            height={500}
-            priority
-          />
+        <div className="flex justify-center">
+          <UsuarioTable/>
         </div>
       </CardContent>
     </Card>
