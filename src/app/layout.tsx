@@ -1,13 +1,14 @@
 import { Montserrat } from "next/font/google";
 import type { Metadata } from "next";
 import { AuthProvider } from "@/context/authContext";
+import { Toaster } from "sonner";
 import "./globals.css";
 
 const montserrat = Montserrat({ subsets: ["latin"], weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"] });
 
 export const metadata: Metadata = {
   title: "Sistema de Help Desk y Registro US",
-  description: "Sistema Help Desk y Registro US que permite reportar incidentes, gestionar herramientas y materiales, programar tareas, gestionar inventario, visualizar reportes, opción de ayuda de uso y más.",
+  description: "Sistema de Help Desk y Registro US que permite reportar incidentes, gestionar el inventario de equipo tecnológico, generar informes técnicos, visualizar reportes generales, administrar usuarios y más.",
 };
 
 export default function RootLayout({
@@ -20,6 +21,7 @@ export default function RootLayout({
       <html lang="es" suppressHydrationWarning>
         <body className={montserrat.className}>
           {children}
+          <Toaster />
         </body>
       </html>
     </AuthProvider>
