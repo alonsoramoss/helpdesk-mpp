@@ -9,7 +9,7 @@ export default function TicketContent() {
           <div>
             TICKETS
             <Image
-              src="/MuniPisco.png"
+              src="/muniPisco.png"
               alt="Municipalidad de Pisco"
               width={500}
               height={500}

@@ -6,7 +6,7 @@
 
 .container .heading {
   display: flex;
-  background-image: url("/MuniPisco.png");
+  background-image: url("/muniPisco.png");
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
