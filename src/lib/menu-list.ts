@@ -36,11 +36,6 @@ export function getMenuList(pathname: string): Group[] {
       groupLabel: "Contenido",
       menus: [
         {
-          href: "/tickets",
-          label: "TICKETS",
-          icon: Tag,
-        },
-        {
           href: "/mantenimiento-pc-accesorios",
           label: "MANTENIMIENTO DE PCS Y ACCESORIOS",
           icon: Wrench,
@@ -57,10 +52,6 @@ export function getMenuList(pathname: string): Group[] {
             {
               href: "/inventario-equipo-tecnologico/software",
               label: "Software"
-            },
-            {
-              href: "/inventario-equipo-tecnologico/inventario-accesorios",
-              label: "Inventario y Accesorios"
             },
             {
               href: "/inventario-equipo-tecnologico/reportes-estadisticas",
