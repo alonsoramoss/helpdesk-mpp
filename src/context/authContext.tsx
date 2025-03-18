@@ -11,7 +11,7 @@ interface AuthContextType {
   isAuthenticated: boolean;
   isLoading: boolean;
   user: User | null;
-  login: (vch_usuario: string, vch_contraseña: string) => Promise<boolean>;
+  login: (vch_usuario: string, vch_contrasena: string) => Promise<boolean>;
   logout: () => void;
 }
 
@@ -45,11 +45,11 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     checkAuth();
   }, []);
 
-  const login = async (vch_usuario: string, vch_contraseña: string) => {
+  const login = async (vch_usuario: string, vch_contrasena: string) => {
     const res = await fetch("/api/auth/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ vch_usuario, vch_contraseña }),
+      body: JSON.stringify({ vch_usuario, vch_contrasena }),
     });
 
     if (res.ok) {

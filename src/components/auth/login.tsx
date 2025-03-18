@@ -9,7 +9,7 @@ import { LogIn  } from "lucide-react";
 const Login = () => {
   const router = useRouter();
   const [vch_usuario, setEmail] = useState<string>("");
-  const [vch_contraseña, setPassword] = useState<string>("");
+  const [vch_contrasena, setPassword] = useState<string>("");
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
   const { login } = useAuth();
@@ -18,7 +18,7 @@ const Login = () => {
     e.preventDefault();
     setLoading(true);
 
-    const success = await login(vch_usuario, vch_contraseña);
+    const success = await login(vch_usuario, vch_contrasena);
     if (success) {
       router.push("/inicio");
     } else {
@@ -41,7 +41,7 @@ const Login = () => {
         </div>
         
         <div className={styles.input_field}>
-          <input type="password" id="password" value={vch_contraseña} onChange={(e) => setPassword(e.target.value)} required/>
+          <input type="password" id="password" value={vch_contrasena} onChange={(e) => setPassword(e.target.value)} required/>
           <label htmlFor="password">Contraseña</label>
         </div>
 
