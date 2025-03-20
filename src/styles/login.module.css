@@ -4,31 +4,9 @@
   background-color: #fff;
 }
 
-.container .heading {
-  display: flex;
-  background-image: url("/muniPisco.png");
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-  margin-bottom: 40px;
-  padding: 3.1rem 0;
-  width: 100%;
-}
-
-@media (max-width:768px) {
-  .container .heading {
-    margin-bottom: 30px;
-    min-height: 120px;
-  }
-}
-
 @media (max-width: 480px) {
   .container {
     padding: 1.5rem;
-  }
-  .container .heading {
-    margin-bottom: 20px;
-    min-height: 100px;
   }
 }
 
