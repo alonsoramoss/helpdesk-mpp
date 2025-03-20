@@ -10,7 +10,7 @@ export default function ReportesEstadisticasContent() {
           <div>
             REPORTES Y ESTADISTICAS
             <Image
-              src="/muniPisco.png"
+              src="/muniPisco.webp"
               alt="Municipalidad de Pisco"
               width={500}
               height={500}
