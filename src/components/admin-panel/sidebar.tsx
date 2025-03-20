@@ -34,7 +34,7 @@ export function Sidebar() {
           asChild
         >
           <Link href="/inicio" className="flex items-center gap-2">
-            <img src="/escudoPisco.webp" alt="Escudo Municipalidad de Pisco" className="w-7 h-8"/>
+            <img src="/assets/escudoPisco.webp" alt="Escudo Municipalidad de Pisco" className="w-7 h-8"/>
             <h1
               className={cn(
                 "text-base font-black text-center whitespace-nowrap transition-[transform,opacity,display] ease-in-out duration-300",

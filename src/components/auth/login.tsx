@@ -34,7 +34,7 @@ const Login = () => {
   return (
     <div className={styles.container}>
       <div className="w-full flex justify-center mb-6 sm:mb-10">
-        <img src="/muniPisco.webp" alt="Municipalidad de Pisco" className="w-full max-w-[430px] object-contain"/>
+        <img src="/assets/muniPisco.webp" alt="Municipalidad de Pisco" className="w-full max-w-[430px] object-contain"/>
       </div>
       <form className={styles.form} onSubmit={handleSubmit}>
         <div className={styles.input_field}>

@@ -9,7 +9,7 @@ export default function MantenimientoContent() {
           <div>
             MANTENIMIENTO PC Y ACCESORIOS
             <Image
-              src="/muniPisco.webp"
+              src="/assets/muniPisco.webp"
               alt="Municipalidad de Pisco"
               width={500}
               height={500}
