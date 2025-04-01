@@ -1,11 +1,14 @@
-import { useFetchIncidentes } from "@/hooks/use-incidentes";
-import { useFiltroData } from "@/hooks/use-filtroData";
+import { useFetchIncidentes } from "@/hooks/useIncidentes";
+import { useFiltroData } from "@/hooks/useFiltroData";
 import { useEffect, useState } from "react";
 import { Calendar, AlertTriangle, Settings, CheckCircle } from "lucide-react";
 
 const totalIncidentesHoy = (data: any[]) => {
-  const today = new Date().toISOString().split('T')[0];
-  return data.filter((incidente) => incidente.dat_fechaRegistro === today).length;
+  const peruTime = new Date();
+  peruTime.setHours(peruTime.getHours() - 5);
+  const today = peruTime.toISOString().split('T')[0];
+
+  return data.filter((incidente) => incidente.dat_fechaRegistro.startsWith(today)).length;
 };
 
 const IncidentesAlertas = () => {

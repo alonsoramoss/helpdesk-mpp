@@ -1,5 +1,5 @@
-import { useFetchIncidentes } from "@/hooks/use-incidentes";
-import { useFiltroData } from "@/hooks/use-filtroData";
+import { useFetchIncidentes } from "@/hooks/useIncidentes";
+import { useFiltroData } from "@/hooks/useFiltroData";
 import { useEffect, useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer, Legend } from "recharts";

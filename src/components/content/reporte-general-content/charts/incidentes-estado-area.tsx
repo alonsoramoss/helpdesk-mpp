@@ -1,5 +1,5 @@
-import { useFetchIncidentes } from "@/hooks/use-incidentes";
-import { useFiltroData } from "@/hooks/use-filtroData";
+import { useFetchIncidentes } from "@/hooks/useIncidentes";
+import { useFiltroData } from "@/hooks/useFiltroData";
 import { useEffect, useState } from "react";
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend} from "recharts";
 import { Card, CardContent } from "@/components/ui/card";
