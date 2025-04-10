@@ -1,8 +1,8 @@
 import ProtectedRoute from "@/components/auth/protectedRoute";
-import ReporteGeneralContent from "@/components/content/reporte-general-content/reporte-general-content";
+import { ContentLayout } from "@/components/admin-panel/content-layout";
 import { RutaNavegacion, RutaList, RutaItem, RutaLink, RutaPage, RutaSeparator } from "@/components/ui/ruta-navegacion";
 import Link from "next/link";
-import { ContentLayout } from "@/components/admin-panel/content-layout";
+import ReporteGeneralContent from "@/components/content/reporte-general-content/reporte-general-content";
 
 export default function ReporteGeneralPage() {
   return (
