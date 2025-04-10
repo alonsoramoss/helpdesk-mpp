@@ -1,4 +1,15 @@
-import { Tag, HelpCircle, Settings, FileText, SquarePen, LayoutGrid, LucideIcon, Wrench, BarChart } from "lucide-react";
+import { 
+  HelpCircle,
+  Settings, 
+  FileText, 
+  SquarePen, 
+  LayoutGrid, 
+  LucideIcon, 
+  Wrench, 
+  BarChart,
+  ClipboardList,
+  ListChecks
+  } from "lucide-react";
 
 type Submenu = {
   href: string;
@@ -42,21 +53,37 @@ export function getMenuList(pathname: string): Group[] {
         },
         {
           href: "",
-          label: "INVENTARIO DE EQUIPO TECNOLÓGICO",
+          label: "REGISTRO",
           icon: SquarePen,
           submenus: [
             {
-              href: "/inventario-equipo-tecnologico/hardware",
-              label: "Hardware"
+              href: "/registro/equipos-perifericos",
+              label: "Equipos y Periféricos"
             },
             {
-              href: "/inventario-equipo-tecnologico/software",
-              label: "Software"
-            },
-            {
-              href: "/inventario-equipo-tecnologico/reportes-estadisticas",
-              label: "Reportes y Estadísticas"
+              href: "/registro/materiales",
+              label: "Materiales"
             }
+          ]
+        },
+        {
+          href: "/registro-inventario",
+          label: "REGISTRO DE INVENTARIO",
+          icon: ListChecks,
+        },
+        {
+          href: "",
+          label: "INVENTARIO DE EQUIPO TECNOLÓGICO",
+          icon: ClipboardList,
+          submenus: [
+            {
+              href: "/inventario-equipo-tecnologico/equipos-perifericos",
+              label: "Equipos y Periféricos"
+            },
+            {
+              href: "/inventario-equipo-tecnologico/materiales",
+              label: "Materiales"
+            },
           ]
         },
         {
