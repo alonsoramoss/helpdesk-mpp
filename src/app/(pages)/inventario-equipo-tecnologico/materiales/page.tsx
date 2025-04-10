@@ -1,12 +1,13 @@
 import ProtectedRoute from "@/components/auth/protectedRoute";
+import { ContentLayout } from "@/components/admin-panel/content-layout";
 import { RutaNavegacion, RutaList, RutaItem, RutaLink, RutaPage, RutaSeparator } from "@/components/ui/ruta-navegacion";
 import Link from "next/link";
-import { ContentLayout } from "@/components/admin-panel/content-layout";
+import InventarioMaterialesContent from "@/components/content/inventario-equipo-tecnologico/inventario-materiales-content/inventario-materiales-content";
 
-export default function InventarioPage() {
+export default function InventarioMaterialesPage() {
   return (
     <ProtectedRoute>
-      <ContentLayout title="Inventario de Equipo Tecnológico">
+      <ContentLayout title="Inventario de Materiales">
         <RutaNavegacion>
           <RutaList>
             <RutaItem>
@@ -16,10 +17,15 @@ export default function InventarioPage() {
             </RutaItem>
             <RutaSeparator />
             <RutaItem>
-              <RutaPage>Inventario de Equipo Tecnológico</RutaPage>
+              <RutaLink>Inventario de Equipo Tecnológico</RutaLink>
+            </RutaItem>
+            <RutaSeparator />
+            <RutaItem>
+              <RutaPage>Materiales</RutaPage>
             </RutaItem>
           </RutaList>
         </RutaNavegacion>
+        <InventarioMaterialesContent />
       </ContentLayout>
     </ProtectedRoute>
   );
