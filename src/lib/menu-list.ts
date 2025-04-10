@@ -1,14 +1,14 @@
-import { 
-  HelpCircle,
-  Settings, 
-  FileText, 
-  SquarePen, 
+import {
+  LucideIcon,
   LayoutGrid, 
-  LucideIcon, 
-  Wrench, 
+  Wrench,
+  SquarePen,
+  ListChecks,
+  Archive,
+  FileText, 
   BarChart,
-  ClipboardList,
-  ListChecks
+  Settings,
+  HelpCircle,
   } from "lucide-react";
 
 type Submenu = {
@@ -74,7 +74,7 @@ export function getMenuList(pathname: string): Group[] {
         {
           href: "",
           label: "INVENTARIO DE EQUIPO TECNOLÓGICO",
-          icon: ClipboardList,
+          icon: Archive,
           submenus: [
             {
               href: "/inventario-equipo-tecnologico/equipos-perifericos",
