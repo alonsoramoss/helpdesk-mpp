@@ -2,12 +2,12 @@ import ProtectedRoute from "@/components/auth/protectedRoute";
 import { ContentLayout } from "@/components/admin-panel/content-layout";
 import { RutaNavegacion, RutaList, RutaItem, RutaLink, RutaPage, RutaSeparator } from "@/components/ui/ruta-navegacion";
 import Link from "next/link";
-import MaterialesContent from "@/components/content/registro/registro-materiales-content/materiales-content";
+import RegistroMaterialesContent from "@/components/content/registro/registro-materiales-content/registro-materiales-content";
 
-export default function MaterialesPage() {
+export default function RegistroMaterialesPage() {
   return (
     <ProtectedRoute>
-      <ContentLayout title="Materiales">
+      <ContentLayout title="Registro de Materiales">
         <RutaNavegacion>
           <RutaList>
             <RutaItem>
@@ -25,7 +25,7 @@ export default function MaterialesPage() {
             </RutaItem>
           </RutaList>
         </RutaNavegacion>
-        <MaterialesContent />
+        <RegistroMaterialesContent />
       </ContentLayout>
     </ProtectedRoute>
   );

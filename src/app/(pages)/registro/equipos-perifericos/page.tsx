@@ -2,12 +2,12 @@ import ProtectedRoute from "@/components/auth/protectedRoute";
 import { ContentLayout } from "@/components/admin-panel/content-layout";
 import { RutaNavegacion, RutaList, RutaItem, RutaLink, RutaPage, RutaSeparator } from "@/components/ui/ruta-navegacion";
 import Link from "next/link";
-import EquiposPerifericosContent from "@/components/content/registro/registro-equipos-perifericos-content/equipos-perifericos-content";
+import RegistroEquiposPerifericosContent from "@/components/content/registro/registro-equipos-perifericos-content/registro-equipos-perifericos-content";
 
-export default function EquiposPerifericosPage() {
+export default function RegistroEquiposPerifericosPage() {
   return (
     <ProtectedRoute>
-      <ContentLayout title="Equipos y Periféricos">
+      <ContentLayout title="Registro de Equipos y Periféricos">
         <RutaNavegacion>
           <RutaList>
             <RutaItem>
@@ -25,7 +25,7 @@ export default function EquiposPerifericosPage() {
             </RutaItem>
           </RutaList>
         </RutaNavegacion>
-        <EquiposPerifericosContent />
+        <RegistroEquiposPerifericosContent />
       </ContentLayout>
     </ProtectedRoute>
   );
