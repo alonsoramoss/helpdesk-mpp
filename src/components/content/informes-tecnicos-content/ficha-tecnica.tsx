@@ -19,7 +19,7 @@ const FichaTecnica = () => {
                 </div>
             </div>
             
-            <h5 className="font-semibold text-base md:text-lg mb-3">INFORMACIÓN GENERAL</h5>
+            <h5 className="text-center md:text-start font-semibold text-base md:text-lg mb-3">INFORMACIÓN GENERAL</h5>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-3">
                 <div>
                     <label htmlFor="unidOrganica" className="block font-medium">UNIDAD ORGÁNICA</label>
@@ -100,7 +100,7 @@ const FichaTecnica = () => {
                     className="w-full mt-1 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-4"/>
             </div>
 
-            <h5 className="font-semibold text-base md:text-lg mb-2">CONSTANCIA DE ATENCIÓN DEL SERVICIO DE SOPORTE TÉCNICO</h5>
+            <h5 className="text-center md:text-start font-semibold text-base md:text-lg mb-2">CONSTANCIA DE ATENCIÓN DEL SERVICIO DE SOPORTE TÉCNICO</h5>
             <p className="text-sm md:text-base">Consta por el presente, haber realizado el Servicio Técnico de lo siguiente:</p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-3">
                 <div>
