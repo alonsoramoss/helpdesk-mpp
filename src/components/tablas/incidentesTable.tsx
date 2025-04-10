@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import { useFetchIncidentes } from "@/hooks/use-incidentes";
-import { useFiltroData } from "@/hooks/use-filtroData";
+import { useFetchIncidentes } from "@/hooks/use-incidente";
+import { useFiltroData } from "@/hooks/use-filtro-data";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -135,8 +135,8 @@ const IncidentesTable = () => {
             <h2 className="text-2xl font-bold mb-4 text-center">INCIDENTES</h2>
 
             <div className="flex justify-between items-center mb-4">
-                <Input type="text" placeholder="Buscar incidentes..." value={search} onChange={handleSearch} className="mr-4 p-2 border rounded-md"/>
-                <Button onClick={() => setOpenCreate(true)} className="bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 rounded-md">
+                <Input type="text" placeholder="Buscar incidentes..." value={search} onChange={handleSearch} className="ml-1 mr-4 border rounded-md"/>
+                <Button onClick={() => setOpenCreate(true)} className="bg-blue-600 hover:bg-blue-500 text-white p-5 rounded-md">
                     Crear Incidente
                 </Button>
             </div>

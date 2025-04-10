@@ -1,5 +1,5 @@
-import { useFetchIncidentes } from "@/hooks/useIncidentes";
-import { useFiltroData } from "@/hooks/useFiltroData";
+import { useFetchIncidentes } from "@/hooks/use-incidente";
+import { useFiltroData } from "@/hooks/use-filtro-data";
 import { useEffect, useState } from "react";
 import { Calendar, AlertTriangle, Settings, CheckCircle } from "lucide-react";
 
