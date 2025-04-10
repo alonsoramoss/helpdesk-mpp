@@ -2,7 +2,7 @@
 
 import { Card, CardContent } from "@/components/ui/card";
 import IncidentesAlertas from "./incidentes-alertas";
-import IncidentesTable from "@/components/data/incidentesTable";
+import IncidentesTable from "@/components/tablas/incidentesTable";
 
 export default function InicioContent() {
   return (
