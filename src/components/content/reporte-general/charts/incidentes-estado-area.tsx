@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend} from "recharts";
 import { Card, CardContent } from "@/components/ui/card";
 
-const groupByMonth = (data: any[]) => {
+const cantidadPorMes = (data: any[]) => {
   return data.reduce((acc, incidente) => {
     const date = new Date(incidente.dat_fechaRegistro);
     const month = `${date.getMonth() + 1}-${date.getFullYear()}`;
@@ -21,7 +21,7 @@ const IncidentesAreaChart = () => {
   const [data, setData] = useState<{ month: string; cantidad: number }[]>([]);
 
   useEffect(() => {
-    const groupedData = groupByMonth(filtroData);
+    const groupedData = cantidadPorMes(filtroData);
 
     const chartData = Object.keys(groupedData).map((month) => ({
       month,
