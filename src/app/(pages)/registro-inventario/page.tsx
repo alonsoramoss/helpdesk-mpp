@@ -2,7 +2,7 @@ import ProtectedRoute from "@/components/auth/protectedRoute";
 import { ContentLayout } from "@/components/admin-panel/content-layout";
 import { RutaNavegacion, RutaList, RutaItem, RutaLink, RutaPage, RutaSeparator } from "@/components/ui/ruta-navegacion";
 import Link from "next/link";
-import RegistroInventarioContent from "@/components/content/registro-inventario-content/registro-inventario-content";
+import RegistroInventarioContent from "@/components/content/registro-inventario/registro-inventario-content";
 
 export default function RegistroInventarioPage() {
   return (

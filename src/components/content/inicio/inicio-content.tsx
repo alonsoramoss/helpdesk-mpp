@@ -1,7 +1,7 @@
 "use client"
 
 import { Card, CardContent } from "@/components/ui/card";
-import IncidentesAlertas from "./incidentes-alertas";
+import IncidentesAlertas from "./incio-content/incidentes-alertas";
 import IncidentesTable from "@/components/tablas/incidentesTable";
 
 export default function InicioContent() {

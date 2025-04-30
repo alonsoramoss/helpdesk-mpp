@@ -2,7 +2,7 @@ import ProtectedRoute from "@/components/auth/protectedRoute";
 import { ContentLayout } from "@/components/admin-panel/content-layout";
 import { RutaNavegacion, RutaList, RutaItem, RutaLink, RutaPage, RutaSeparator } from "@/components/ui/ruta-navegacion";
 import Link from "next/link";
-import InventarioMaterialesContent from "@/components/content/inventario-equipo-tecnologico/inventario-materiales-content/inventario-materiales-content";
+import InventarioMaterialesContent from "@/components/content/inventario-equipo-tecnologico/inventario-materiales-content";
 
 export default function InventarioMaterialesPage() {
   return (

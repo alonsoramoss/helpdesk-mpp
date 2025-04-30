@@ -2,7 +2,7 @@ import ProtectedRoute from "@/components/auth/protectedRoute";
 import { ContentLayout } from "@/components/admin-panel/content-layout";
 import { RutaNavegacion, RutaList, RutaItem, RutaLink, RutaPage, RutaSeparator } from "@/components/ui/ruta-navegacion";
 import Link from "next/link";
-import AyudaContent from "@/components/content/ayuda-content/ayuda-content";
+import AyudaContent from "@/components/content/ayuda/ayuda-content";
 
 export default function AyudaPage() {
   return (

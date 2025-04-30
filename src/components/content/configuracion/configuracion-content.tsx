@@ -6,7 +6,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { TooltipProvider, Tooltip, TooltipTrigger, TooltipContent } from "@/components/ui/tooltip";
 import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
-import UsuarioTable from "@/components/data/usuariosTable";
+import PersonasContent from "./configuracion-content/personasContent";
 
 export default function ConfiguracionContent() {
   const sidebar = useStore(useSidebar, (x) => x);
@@ -37,7 +37,7 @@ export default function ConfiguracionContent() {
           </TooltipProvider>
         </div>
         <div className="flex justify-center">
-          <UsuarioTable/>
+          <PersonasContent/>
         </div>
       </CardContent>
     </Card>

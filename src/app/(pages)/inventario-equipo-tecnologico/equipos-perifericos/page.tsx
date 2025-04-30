@@ -2,7 +2,7 @@ import ProtectedRoute from "@/components/auth/protectedRoute";
 import { ContentLayout } from "@/components/admin-panel/content-layout";
 import { RutaNavegacion, RutaList, RutaItem, RutaLink, RutaPage, RutaSeparator } from "@/components/ui/ruta-navegacion";
 import Link from "next/link";
-import InventarioEquiposPerifericosContent from "@/components/content/inventario-equipo-tecnologico/inventario-equipos-perifericos-content/inventario-equipos-perifericos-content";
+import InventarioEquiposPerifericosContent from "@/components/content/inventario-equipo-tecnologico/inventario-equipos-perifericos-content";
 
 export default function InventarioEquiposPerifericosPage() {
   return (
