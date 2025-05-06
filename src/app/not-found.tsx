@@ -1,7 +1,7 @@
 
 export const metadata = {
   title: "Página no encontrada - Sistema de Help Desk y Registro US",
-  description: "Sistema Help Desk y Registro US que permite reportar incidentes, gestionar herramientas y materiales, programar tareas, gestionar inventario, visualizar reportes, opción de ayuda de uso y más.",
+  description: "Sistema para gestionar reportes de incidentes, registrar equipos tecnológicos y periféricos, controlar el inventario, generar informes técnicos, visualizar reportes generales, administrar usuarios y mucho más.",
 };
 
 export default function NotFound() {

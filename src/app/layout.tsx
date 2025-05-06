@@ -9,7 +9,43 @@ const poppins = Poppins({ subsets: ["latin"], weight: ["100", "200", "300", "400
 
 export const metadata: Metadata = {
   title: "Sistema de Help Desk y Registro US",
-  description: "Sistema para la gestión de incidentes, control de inventario de equipos tecnológicos, automatización de informes técnicos, visualización de reportes generales, administración de usuarios y más funcionalidades.",
+  description: "Sistema para gestionar reportes de incidentes, registrar equipos tecnológicos y periféricos, controlar el inventario, generar informes técnicos, visualizar reportes generales, administrar usuarios y mucho más.",
+  authors: [{ name: "Alonso Ramos" }],
+	creator: "Alonso Ramos",
+  icons:{
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+    ],
+    apple:["/apple-touch-icon.png"],
+    shortcut:["/android-chrome-192x192.png"],
+  },
+  manifest: "/site.webmanifest",
+  verification: {
+    google: "",
+  },
+  openGraph: {
+    title: "Sistema de Help Desk y Registro US",
+    siteName: "Sistema de Help Desk y Registro US",
+    description: "Sistema para gestionar reportes de incidentes, registrar equipos tecnológicos y periféricos, controlar el inventario, generar informes técnicos, visualizar reportes generales, administrar usuarios y mucho más.",
+    url: "https://helpdesk-mpp.vercel.app",
+    images: [
+      {
+        url: "https://helpdesk-mpp.vercel.app/og.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Sistema de Help Desk y Registro US",
+      },
+    ],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Sistema de Help Desk y Registro US",
+    description: "Sistema para gestionar reportes de incidentes, registrar equipos tecnológicos y periféricos, controlar el inventario, generar informes técnicos, visualizar reportes generales, administrar usuarios y mucho más.",
+    images: ["https://helpdesk-mpp.vercel.app/og.jpg"],
+  },
 };
 
 export default function RootLayout({
