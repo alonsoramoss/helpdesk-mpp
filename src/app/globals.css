@@ -44,14 +44,33 @@
 
     --chart-5: 27 87% 67%;
   }
-}
 
-@layer base {
-  * {
-    @apply border-border;
-  }
   body {
     @apply bg-background text-foreground;
+  }
+
+  ::-webkit-scrollbar {
+    height: 10px;
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #ffffff;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: #000000; 
+    border-radius: 5px;
+    border: 2px solid #ffffff;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #393939;
+  }
+  
+  * {
+    scrollbar-color: #000000 #ffffff;
+    scrollbar-width: thin;
   }
 }
 
