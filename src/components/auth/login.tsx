@@ -33,7 +33,7 @@ const Login = () => {
 
   return (
     <div className={styles.container}>
-      <div className="w-full flex justify-center mb-6 sm:mb-10">
+      <div className="w-full flex justify-center mb-6 sm:mb-10 pointer-events-none">
         <img src="/assets/muniPisco.webp" alt="Municipalidad de Pisco" className="w-full max-w-[430px] object-contain"/>
       </div>
       <form className={styles.form} onSubmit={handleSubmit}>
@@ -56,6 +56,10 @@ const Login = () => {
           </button>
         </div>
       </form>
+      <div className="mt-5">
+        Correo: <strong>admin@muni.com</strong> <br />
+        Contraseña: <strong>admin</strong> <br />
+      </div>
     </div>
   );
 };
