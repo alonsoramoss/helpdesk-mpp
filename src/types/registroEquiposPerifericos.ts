@@ -112,13 +112,11 @@ export interface RegistroEquiposComputo extends RegistroEquiposPerifericosGenera
 }
 
 export interface RegistroServidor extends RegistroEquiposPerifericosGeneral {
-    categoria: "Servidor";
     codPatrimonialServidor: string;
     estadoServidor: string;
 }
 
 export interface RegistroPantalla extends RegistroEquiposPerifericosGeneral {
-    categoria: "Pantalla";
     codPatrimonialPantalla: string;
     estadoPantalla: string;
 }
