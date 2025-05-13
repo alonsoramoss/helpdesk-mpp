@@ -8,7 +8,7 @@ const montserrat = Montserrat({ subsets: ["latin"], weight: ["100", "200", "300"
 
 export const metadata: Metadata = {
   title: "Sistema de Help Desk y Registro US",
-  description: "Sistema para gestionar reportes de incidentes, registrar equipos tecnológicos y periféricos, controlar el inventario, generar informes técnicos, visualizar reportes generales, administrar usuarios y mucho más.",
+  description: "Sistema para gestionar reportes de incidentes, registrar equipos de cómputo y periféricos, controlar el inventario, generar informes técnicos, visualizar reportes generales, administrar usuarios, entre otras funcionalidades.",
   authors: [{ name: "Alonso Ramos" }],
 	creator: "Alonso Ramos",
   icons:{
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Sistema de Help Desk y Registro US",
     siteName: "Sistema de Help Desk y Registro US",
-    description: "Sistema para gestionar reportes de incidentes, registrar equipos tecnológicos y periféricos, controlar el inventario, generar informes técnicos, visualizar reportes generales, administrar usuarios y mucho más.",
+    description: "Sistema para gestionar reportes de incidentes, registrar equipos de cómputo y periféricos, controlar el inventario, generar informes técnicos, visualizar reportes generales, administrar usuarios, entre otras funcionalidades.",
     url: "https://helpdesk-mpp.vercel.app",
     images: [
       {
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Sistema de Help Desk y Registro US",
-    description: "Sistema para gestionar reportes de incidentes, registrar equipos tecnológicos y periféricos, controlar el inventario, generar informes técnicos, visualizar reportes generales, administrar usuarios y mucho más.",
+    description: "Sistema para gestionar reportes de incidentes, registrar equipos de cómputo y periféricos, controlar el inventario, generar informes técnicos, visualizar reportes generales, administrar usuarios, entre otras funcionalidades.",
     images: ["https://helpdesk-mpp.vercel.app/og.jpg"],
   },
 };
