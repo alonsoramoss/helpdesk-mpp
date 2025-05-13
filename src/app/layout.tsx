@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   },
   manifest: "/site.webmanifest",
   verification: {
-    google: "",
+    google: "tUbG3Yc-yQvaSMjgz4wvH2WVo2JWFF2DRewB0Js1DB8",
   },
   openGraph: {
     title: "Sistema de Help Desk y Registro US",
