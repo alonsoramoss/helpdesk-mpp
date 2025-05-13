@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { IdCardIcon } from "@radix-ui/react-icons";
 import { BadgeDollarSign, Cctv, Computer, Fingerprint, Monitor, MonitorSpeaker, Printer, RadioReceiver, Server } from "lucide-react";
 import { RegistroEquiposPerifericos, RegistroEquiposComputo, RegistroServidor, RegistroPantalla } from "@/types/registroEquiposPerifericos";
@@ -56,6 +56,56 @@ export default function EleccionEquiposPerifericos() {
         }
     };
     
+    useEffect(() => {
+        const hayDatos = formData && Object.values(formData).some(
+            (valor) => typeof valor === "string" && valor.trim() !== ""
+        );
+
+        const bloquearRetroceso = (e: PopStateEvent) => {
+            if (hayDatos) {
+                const confirmar = window.confirm("Tienes datos sin guardar. ¿Deseas salir y perder los cambios?");
+                if (!confirmar) {
+                    history.pushState(null, "", window.location.href);
+                } else {
+                    setCategoriaSeleccionada("");
+                }
+            } else {
+                setCategoriaSeleccionada("");
+            }
+        };
+
+        const bloquearClickEnLinks = (e: MouseEvent) => {
+            const target = e.target as HTMLElement;
+            const anchor = target.closest("a");
+            if (anchor && hayDatos) {
+                const confirmar = window.confirm("Tienes datos sin guardar. ¿Deseas salir?");
+                if (!confirmar) {
+                    e.preventDefault();
+                }
+            }
+        };
+        
+            const bloquearSalida = (e: BeforeUnloadEvent) => {
+            if (hayDatos) {
+                e.preventDefault();
+                e.returnValue = "";
+            }
+        };
+
+        if (categoriaSeleccionada) {
+            history.pushState(null, "", window.location.href);
+            window.addEventListener("popstate", bloquearRetroceso);
+            document.addEventListener("click", bloquearClickEnLinks, true);
+            window.addEventListener("beforeunload", bloquearSalida);
+        }
+
+        return () => {
+            window.removeEventListener("popstate", bloquearRetroceso);
+            document.removeEventListener("click", bloquearClickEnLinks, true);
+            window.removeEventListener("beforeunload", bloquearSalida);
+        };
+    }, [categoriaSeleccionada, formData]);
+
     const mostrarForm = () => {
         const props = { formData, handleInputChange, cancelForm };
         switch (categoriaSeleccionada) {
@@ -91,7 +141,9 @@ export default function EleccionEquiposPerifericos() {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
                 {equiposPerifericos.map((equipo, index) => (
                 <div key={index}
-                    onClick={() => setCategoriaSeleccionada(equipo.nombre)}
+                    onClick={() => {
+                        setFormData({} as RegistroEquiposPerifericos);
+                        setCategoriaSeleccionada(equipo.nombre)}}
                     className="bg-primary/40 p-10 rounded-md py-16 cursor-pointer hover:bg-primary/60 transition">
                     <equipo.icon className="w-12 h-12 mx-auto mb-2" />
                     <p className="text-center text-lg md:text-xl font-semibold">{equipo.nombre}</p>
