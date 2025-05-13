@@ -187,7 +187,6 @@ const IncidentesTable = () => {
                         <DialogTitle>Crear Nuevo Incidente</DialogTitle>
                     </DialogHeader>
                     <form className="space-y-4" onSubmit={handleCreate}>
-                        <Input name="int_idIncidente" placeholder="ID Incidente" type="number" value={nuevoIncidente.int_idIncidente} onChange={handleChange} required/>
                         <Input name="int_idUsuario" placeholder="ID Usuario" type="number" value={nuevoIncidente.int_idUsuario} onChange={handleChange} required />
                         <Input name="int_idEquipo" placeholder="ID Equipo" type="number" value={nuevoIncidente.int_idEquipo} onChange={handleChange} required />
                         <Input name="vch_descripcion" placeholder="Descripción" value={nuevoIncidente.vch_descripcion} onChange={handleChange} required />
