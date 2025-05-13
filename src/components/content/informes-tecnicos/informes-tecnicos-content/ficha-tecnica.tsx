@@ -18,7 +18,7 @@ const FichaTecnica = () => {
         <form className="p-0 sm:p-4" action="#" method="POST" id="formFichaTecnica">
             <div className="flex flex-col md:flex-row justify-center items-center mb-5">
                 <div className="w-full md:w-1/3 flex justify-center md:justify-start mr-0 md:mr-5 pointer-events-none">
-                    <img src="/assets/muniPisco.webp" alt="Municipalidad de Pisco" style={{width: "19rem"}}/>
+                    <img src="/assets/municipalidad-pisco.webp" alt="Municipalidad de Pisco" style={{width: "19rem"}}/>
                 </div>
                 <div className="w-full md:w-2/3 mt-5 md:mt-0">
                     <label htmlFor="nomFicha" className="block font-semibold text-base md:text-lg">FICHA TÉCNICA</label>

@@ -34,7 +34,7 @@ export function Sidebar() {
           asChild
         >
           <Link href="/inicio" className="flex items-center gap-2">
-            <img src="/assets/escudoPisco.webp" alt="Escudo de Pisco" className="w-7 h-8 pointer-events-none"/>
+            <img src="/assets/escudo-pisco.webp" alt="Escudo de Pisco" className="w-7 h-8 pointer-events-none"/>
             <h1
               className={cn(
                 "text-base font-black text-center whitespace-nowrap transition-[transform,opacity,display] ease-in-out duration-300",

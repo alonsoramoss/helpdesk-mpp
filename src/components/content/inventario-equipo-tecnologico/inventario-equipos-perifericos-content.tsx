@@ -9,7 +9,7 @@ export default function InventarioEquiposPerifericosContent() {
           <div>
             INVENTARIO DE EQUIPOS Y PERIFÉRICOS
             <Image
-              src="/assets/muniPisco.webp"
+              src="/assets/municipalidad-pisco.webp"
               alt="Municipalidad de Pisco"
               width={500}
               height={500}

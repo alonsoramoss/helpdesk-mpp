@@ -9,7 +9,7 @@ export default function AyudaContent() {
           <div>
             AYUDA
             <Image
-              src="/assets/muniPisco.webp"
+              src="/assets/municipalidad-pisco.webp"
               alt="Municipalidad de Pisco"
               width={500}
               height={500}
