@@ -1,6 +1,6 @@
 # Sistema de Help Desk y Registro US
 
-Este sistema permite gestionar reportes de incidentes, registrar equipos de cómputo y periféricos, controlar el inventario, generar informes técnicos, visualizar reportes generales, administrar usuarios y otras funcionalidades adicionales.
+Este sistema permite gestionar reportes de incidentes, registrar equipos de cómputo y periféricos, controlar el inventario, generar informes técnicos, visualizar reportes generales, administrar usuarios, entre otras funcionalidades.
 
 ## Instalación
 
