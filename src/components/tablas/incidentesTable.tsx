@@ -131,14 +131,15 @@ const IncidentesTable = () => {
         .sort((a, b) => b.int_idIncidente - a.int_idIncidente);
         
     return (
-        <div className="pt-6 overflow-x-auto">
-            <h2 className="text-2xl font-bold mb-4 text-center">INCIDENTES</h2>
-
-            <div className="flex justify-between items-center mb-4">
-                <Input type="text" placeholder="Buscar incidentes..." value={search} onChange={handleSearch} className="ml-1 mr-4 border rounded-md"/>
-                <Button onClick={() => setOpenCreate(true)} className="bg-blue-600 hover:bg-blue-500 text-white p-5 rounded-md">
-                    Crear Incidente
-                </Button>
+        <div className="overflow-x-auto">
+            <div className="sticky left-0 pt-5 pb-4">
+                <h2 className="text-2xl font-bold mb-2 text-center">INCIDENTES</h2>
+                <div className="flex justify-between items-center ml-1">
+                    <Input type="text" placeholder="Buscar incidentes..." value={search} onChange={handleSearch} className="truncate mr-2 p-2 rounded-md"/>
+                    <Button onClick={() => setOpenCreate(true)} className="bg-blue-600 hover:bg-blue-500 text-white px-4 py-5 rounded-md">
+                        Crear Incidente
+                    </Button>
+                </div>
             </div>
             
             <table>
