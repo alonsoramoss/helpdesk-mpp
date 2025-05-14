@@ -30,7 +30,7 @@ export function UserHeader() {
                 <Avatar className="h-8 w-8">
                   <AvatarImage src="#" alt="Avatar" />
                   <AvatarFallback className="bg-transparent">
-                    {user ? user.vch_usuario.charAt(0).toUpperCase() : "U"}
+                    {user ? user.vch_nombre.charAt(0).toUpperCase() : "U"}
                   </AvatarFallback>
                 </Avatar>
               </Button>
@@ -44,10 +44,10 @@ export function UserHeader() {
         <MenuDesplegableLabel className="font-normal">
           <div className="flex flex-col space-y-1">
             <p className="text-sm font-medium leading-4">
-              {user ? user.vch_usuario : "Usuario"}
+              {user ? user.vch_nombre : "Usuario"}
             </p>
             <p className="text-xs leading-4 text-muted-foreground">
-              {user ? user.vch_usuario : "correo@ejemplo.com"}
+              {user ? user.vch_email : "correo@ejemplo.com"}
             </p>
           </div>
         </MenuDesplegableLabel>

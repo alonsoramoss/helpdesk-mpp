@@ -4,14 +4,15 @@ import { createContext, useContext, useState, useEffect, ReactNode } from "react
 
 interface User {
   int_idUsuario: number;
-  vch_usuario: string;
+  vch_nombre: string;
+  vch_email: string;
 }
 
 interface AuthContextType {
   isAuthenticated: boolean;
   isLoading: boolean;
   user: User | null;
-  login: (vch_usuario: string, vch_contrasena: string) => Promise<boolean>;
+  login: (vch_email: string, vch_contrasena: string) => Promise<boolean>;
   logout: () => void;
 }
 
@@ -45,11 +46,11 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     checkAuth();
   }, []);
 
-  const login = async (vch_usuario: string, vch_contrasena: string) => {
+  const login = async (vch_email: string, vch_contrasena: string) => {
     const res = await fetch("/api/auth/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ vch_usuario, vch_contrasena }),
+      body: JSON.stringify({ vch_email, vch_contrasena }),
     });
 
     if (res.ok) {

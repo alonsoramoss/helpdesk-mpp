@@ -1,9 +1,10 @@
 export interface Usuario {
     int_idUsuario: number;
-    vch_usuario: string;
+    vch_nombre: string;
+    vch_email: string;
     vch_contrasena: string;
-    int_idTrabajador: number;
-    chr_estado: string;
+    vch_cargo: string;
+    chr_estado: number;
   }
   
   const API_URL = "https://67b35dc0392f4aa94fa6e97f.mockapi.io/prueba/usuarios";

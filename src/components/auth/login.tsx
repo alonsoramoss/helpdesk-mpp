@@ -8,7 +8,7 @@ import { LogIn  } from "lucide-react";
 
 const Login = () => {
   const router = useRouter();
-  const [vch_usuario, setEmail] = useState<string>("");
+  const [vch_email, setEmail] = useState<string>("");
   const [vch_contrasena, setPassword] = useState<string>("");
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
@@ -18,7 +18,7 @@ const Login = () => {
     e.preventDefault();
     setLoading(true);
 
-    const success = await login(vch_usuario, vch_contrasena);
+    const success = await login(vch_email, vch_contrasena);
     if (success) {
       router.push("/inicio");
     } else {
@@ -38,7 +38,7 @@ const Login = () => {
       </div>
       <form className={styles.form} onSubmit={handleSubmit}>
         <div className={styles.input_field}>
-          <input type="email" id="email" value={vch_usuario} onChange={(e) => setEmail(e.target.value)} required/>
+          <input type="email" id="email" value={vch_email} onChange={(e) => setEmail(e.target.value)} required/>
           <label htmlFor="email">Correo electrónico</label>
         </div>
         

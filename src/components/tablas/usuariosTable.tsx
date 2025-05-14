@@ -14,10 +14,11 @@ const UsuarioTable = () => {
     const [selectedUsuario, setSelectedUsuario] = useState<Usuario | null>(null);
 
     const [nuevoUsuario, setNuevoUsuario] = useState<Omit<Usuario, "int_idUsuario">>({
-        vch_usuario: "",
+        vch_nombre: "",
+        vch_email: "",
         vch_contrasena: "",
-        int_idTrabajador: 0,
-        chr_estado: "",
+        vch_cargo: "",
+        chr_estado: 1,
     });
     
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -29,13 +30,6 @@ const UsuarioTable = () => {
     const handleCreate = async (e: React.FormEvent) => {
         e.preventDefault();
 
-        if (
-            nuevoUsuario.int_idTrabajador < 0
-        ) {
-            toast.error("Los valores numéricos no pueden ser negativos.");
-            return;
-        }
-
         await addUsuario({
             ...nuevoUsuario,
         });
@@ -43,10 +37,11 @@ const UsuarioTable = () => {
         toast.success("Usuario creado correctamente.");
 
         setNuevoUsuario({
-            vch_usuario: "",
+            vch_nombre: "",
+            vch_email: "",
             vch_contrasena: "",
-            int_idTrabajador: 0,
-            chr_estado: "",
+            vch_cargo: "",
+            chr_estado: 1,
         });
 
         setOpenCreate(false);
@@ -55,10 +50,11 @@ const UsuarioTable = () => {
     useEffect(() => {
         if (!openCreate) {
             setNuevoUsuario({
-                vch_usuario: "",
+                vch_nombre: "",
+                vch_email: "",
                 vch_contrasena: "",
-                int_idTrabajador: 0,
-                chr_estado: "",
+                vch_cargo: "",
+                chr_estado: 1,
             });
         }
     }, [openCreate]);
@@ -111,9 +107,10 @@ const UsuarioTable = () => {
                 <thead className="bg-primary/50">
                     <tr>
                         <th className="p-2 border text-sm">ID Usuario</th>
-                        <th className="p-2 border text-sm">Usuario</th>
+                        <th className="p-2 border text-sm">Nombre</th>
+                        <th className="p-2 border text-sm">Correo</th>
                         <th className="p-2 border text-sm">Contraseña</th>
-                        <th className="p-2 border text-sm">ID Trabajador</th>
+                        <th className="p-2 border text-sm">Cargo</th>
                         <th className="p-2 border text-sm">Estado</th>
                         <th className="p-2 border text-sm">Acciones</th>
                     </tr>
@@ -122,9 +119,10 @@ const UsuarioTable = () => {
                     {usuarioOrd.map((usuario) => (
                         <tr key={usuario.int_idUsuario}>
                             <td className="p-2 text-center border text-sm">{usuario.int_idUsuario}</td>
-                            <td className="p-2 border text-sm">{usuario.vch_usuario}</td>
+                            <td className="p-2 border text-sm">{usuario.vch_nombre}</td>
+                            <td className="p-2 border text-sm">{usuario.vch_email}</td>
                             <td className="p-2 border text-sm">********</td>
-                            <td className="p-2 text-center border text-sm">{usuario.int_idTrabajador}</td>
+                            <td className="p-2 border text-sm">{usuario.vch_cargo}</td>
                             <td className="p-2 text-center border text-sm">{usuario.chr_estado}</td>
                             <td className="p-2 text-center border text-sm">
                                 <Button className="w-full bg-amber-500 hover:bg-amber-400 text-white px-1 py-1 rounded-md mb-2" onClick={() => handleEdit(usuario)}>Editar</Button>
@@ -141,9 +139,10 @@ const UsuarioTable = () => {
                         <DialogTitle>Crear Nuevo Usuario</DialogTitle>
                     </DialogHeader>
                     <form className="space-y-4" onSubmit={handleCreate}>
-                        <Input name="vch_usuario" placeholder="Usuario" value={nuevoUsuario.vch_usuario} onChange={handleChange} required />
+                        <Input name="vch_nombre" placeholder="Nombre" value={nuevoUsuario.vch_nombre} onChange={handleChange} required />
+                        <Input name="vch_email" placeholder="Email" value={nuevoUsuario.vch_email} onChange={handleChange} required />
                         <Input name="vch_contrasena" placeholder="Contraseña" value={nuevoUsuario.vch_contrasena} onChange={handleChange} required />
-                        <Input name="int_idTrabajador" placeholder="ID Trabajador" type="number" value={nuevoUsuario.int_idTrabajador} onChange={handleChange} required />
+                        <Input name="vch_cargo" placeholder="Cargo" value={nuevoUsuario.vch_cargo} onChange={handleChange} required />
                         <Input name="chr_estado" placeholder="Estado" value={nuevoUsuario.chr_estado} onChange={handleChange} required />
                         <Button type="submit" className="w-full bg-blue-600 hover:bg-blue-500 text-white">Crear</Button>
                     </form>
@@ -163,9 +162,10 @@ const UsuarioTable = () => {
                                 setOpenEdit(false);
                             }
                         }}>
-                            <Input name="vch_usuario" value={selectedUsuario?.vch_usuario || ""} onChange={handleEditChange} required />
+                            <Input name="vch_nombre" value={selectedUsuario?.vch_nombre || ""} onChange={handleEditChange} required />
+                            <Input name="vch_email" value={selectedUsuario?.vch_email || ""} onChange={handleEditChange} required />
                             <Input name="vch_contrasena" value={selectedUsuario?.vch_contrasena || ""} onChange={handleEditChange} required />
-                            <Input name="int_idTabajador" type="number" value={selectedUsuario?.int_idTrabajador || ""} onChange={handleEditChange} required />
+                            <Input name="vch_cargo" value={selectedUsuario?.vch_cargo || ""} onChange={handleEditChange} required />
                             <Input name="chr_estado" value={selectedUsuario?.chr_estado || ""} onChange={handleEditChange} required />
                             <Button type="submit" className="w-full bg-amber-500 hover:bg-amber-400 text-white">Actualizar</Button>
                         </form>
