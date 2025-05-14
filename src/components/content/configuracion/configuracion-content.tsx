@@ -15,27 +15,23 @@ export default function ConfiguracionContent() {
   return (
     <Card>
       <CardContent>
-        <div className="flex">
-          <TooltipProvider>
-            <div className="mb-5">
-              <Tooltip>
-                <TooltipTrigger asChild>
-                  <div className="flex items-center space-x-2">
-                    <Switch
-                      id="is-hover-open"
-                      onCheckedChange={(x) => setSettings({ isHoverOpen: x })}
-                      checked={settings.isHoverOpen}
-                    />
-                    <Label htmlFor="is-hover-open">Sidebar Automático</Label>
-                  </div>
-                </TooltipTrigger>
-                <TooltipContent>
-                  <p>Al pasar el cursor sobre la barra lateral en estado mini, se abrirá</p>
-                </TooltipContent>
-              </Tooltip>
-            </div>
-          </TooltipProvider>
-        </div>
+        <TooltipProvider>
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <div className="flex items-center space-x-2">
+                <Switch
+                  id="is-hover-open"
+                  onCheckedChange={(x) => setSettings({ isHoverOpen: x })}
+                  checked={settings.isHoverOpen}
+                />
+                <Label htmlFor="is-hover-open">Sidebar Automático</Label>
+              </div>
+            </TooltipTrigger>
+            <TooltipContent>
+              <p>Al pasar el cursor sobre la barra lateral en estado mini, se abrirá</p>
+            </TooltipContent>
+          </Tooltip>
+        </TooltipProvider>
         <div className="flex justify-center">
           <UsuariosTable/>
         </div>
