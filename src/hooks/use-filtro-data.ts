@@ -6,8 +6,8 @@ export function useFiltroData<T extends { int_idUsuario: number }>(data: T[]) {
     if (isLoading) return { filtroData: [], isLoading: true };
     if (!isAuthenticated || !user) return { filtroData: [], isLoading: false };
 
-    const admins = ["admin@muni.com", "tecnico1@muni.com"];
-    const esAdminOTecnico = admins.includes(user.vch_usuario);
+    const admins = ["admin@muni.com", "soporte@muni.com", "redes@muni.com"];
+    const esAdminOTecnico = admins.includes(user.vch_email);
 
     const filtroData = esAdminOTecnico ? data : data.filter(item => item.int_idUsuario === user.int_idUsuario);
 
