@@ -15,7 +15,7 @@ export function Header({ title }: HeaderProps) {
 
   return (
     <>
-      <header className="sticky top-0 z-10 w-full bg-gradient-to-r from-primary to-indigo-700">
+      <header className="sticky top-0 z-10 w-full bg-[#00bff9]">
         <div className="mx-4 sm:mx-8 flex h-14 items-center">
           <div className="flex items-center space-x-4 lg:space-x-0">
             <MenuMovil />
