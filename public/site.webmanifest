@@ -2,7 +2,7 @@
     "name": "Sistema de Help Desk y Registro US",
     "short_name": "Sistema de Help Desk y Registro US",
     "description": "Sistema para gestionar reportes de incidentes, registrar equipos de cómputo y periféricos, controlar el inventario, generar informes técnicos, visualizar reportes generales, administrar usuarios, entre otras funcionalidades.",
-    "display": "minimal-ui",
+    "display": "standalone",
     "background_color": "#ffffff",
     "theme_color": "#00bff9",
     "icons": [
