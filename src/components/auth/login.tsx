@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useAuth } from "@/context/authContext";
 import { useRouter } from "next/navigation";
 import styles from "@/styles/login.module.css";
@@ -8,11 +8,17 @@ import { LogIn  } from "lucide-react";
 
 const Login = () => {
   const router = useRouter();
-  const [vch_email, setEmail] = useState<string>("");
-  const [vch_contrasena, setPassword] = useState<string>("");
+  const [vch_email, setEmail] = useState("");
+  const [vch_contrasena, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
-  const { login } = useAuth();
+  const { login, isAuthenticated, isLoading } = useAuth();
+
+  useEffect(() => {
+    if (!isLoading && isAuthenticated) {
+      router.replace("/inicio");
+    }
+  }, [isAuthenticated, isLoading, router]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -20,15 +26,13 @@ const Login = () => {
 
     const success = await login(vch_email, vch_contrasena);
     if (success) {
-      router.push("/inicio");
+      router.replace("/inicio");
     } else {
       setError("Credenciales incorrectas");
     }
     setLoading(false);
 
-    setTimeout(() => {
-      setError(null);
-    }, 4000);
+    setTimeout(() => setError(null), 5000);
   };
 
   return (
