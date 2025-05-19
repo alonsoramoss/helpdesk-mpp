@@ -3,9 +3,9 @@
 import { useStore } from "@/hooks/use-store";
 import { useSidebar } from "@/hooks/use-sidebar";
 import { Card, CardContent } from "@/components/ui/card";
-import { TooltipProvider, Tooltip, TooltipTrigger, TooltipContent } from "@/components/ui/tooltip";
 import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
+// import PersonasContent from "./configuracion-content/personasContent";
 import UsuariosTable from "@/components/tablas/usuariosTable";
 
 export default function ConfiguracionContent() {
@@ -15,24 +15,16 @@ export default function ConfiguracionContent() {
   return (
     <Card>
       <CardContent>
-        <TooltipProvider>
-          <Tooltip>
-            <TooltipTrigger asChild>
-              <div className="flex items-center space-x-2">
-                <Switch
-                  id="is-hover-open"
-                  onCheckedChange={(x) => setSettings({ isHoverOpen: x })}
-                  checked={settings.isHoverOpen}
-                />
-                <Label htmlFor="is-hover-open">Sidebar Automático</Label>
-              </div>
-            </TooltipTrigger>
-            <TooltipContent>
-              <p>Al pasar el cursor sobre la barra lateral en estado mini, se abrirá</p>
-            </TooltipContent>
-          </Tooltip>
-        </TooltipProvider>
+        <div className="flex items-center space-x-2">
+          <Switch
+            id="is-hover-open"
+            onCheckedChange={(x) => setSettings({ isHoverOpen: x })}
+            checked={settings.isHoverOpen}
+          />
+          <Label htmlFor="is-hover-open">Sidebar Automático</Label>
+        </div>
         <div className="flex justify-center">
+          {/* <PersonasContent/> */}
           <UsuariosTable/>
         </div>
       </CardContent>
