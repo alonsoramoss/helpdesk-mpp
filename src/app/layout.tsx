@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     url: "https://helpdesk-mpp.vercel.app",
     images: [
       {
-        url: "https://helpdesk-mpp.vercel.app/og.jpg",
+        url: "https://helpdesk-mpp.vercel.app/og.png",
         width: 1200,
         height: 630,
         alt: "Sistema de Help Desk y Registro US",
@@ -43,7 +43,6 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Sistema de Help Desk y Registro US",
     description: "Sistema para gestionar reportes de incidentes, registrar equipos de cómputo y periféricos, controlar el inventario, generar informes técnicos, visualizar reportes generales, administrar usuarios, entre otras funcionalidades.",
-    images: ["https://helpdesk-mpp.vercel.app/og.jpg"],
   },
 };
 
