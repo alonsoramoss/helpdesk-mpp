@@ -27,17 +27,21 @@ export function Sidebar() {
       >
         <Button
           className={cn(
-            "transition-transform ease-in-out duration-300 mb-1",
+            "transition-transform ease-in-out duration-300",
             !getOpenState() ? "translate-x-1" : "translate-x-0"
           )}
           variant="link"
           asChild
         >
-          <Link href="/inicio" className="flex items-center gap-2">
-            <img src="/assets/escudo-pisco.webp" alt="Escudo de Pisco" className="w-7 h-8 pointer-events-none"/>
+          <Link href="/inicio" className="flex items-center">
+            <img 
+              src="/assets/escudo-pisco.webp" 
+              alt="Escudo de Pisco" 
+              className="w-8 h-10 mr-2 object-contain pointer-events-none"
+            />
             <h1
               className={cn(
-                "text-base font-black text-center whitespace-nowrap transition-[transform,opacity,display] ease-in-out duration-300",
+                "text-base font-bold text-center leading-tight whitespace-nowrap transition-[transform,opacity,display] ease-in-out duration-300",
                 !getOpenState()
                   ? "-translate-x-96 opacity-0 hidden"
                   : "translate-x-0 opacity-100"
