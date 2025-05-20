@@ -14,7 +14,7 @@ export function UserHeader() {
 
   const handleLogout = async () => {
     await logout();
-    router.push("/");
+    router.replace("/");
   };
 
   return (

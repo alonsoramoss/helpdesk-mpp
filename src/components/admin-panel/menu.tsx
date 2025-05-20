@@ -24,7 +24,7 @@ export function Menu({ isOpen }: MenuProps) {
 
   const handleLogout = () => {
     logout();
-    router.push("/");
+    router.replace("/");
   };
 
   return (
