@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { RegistroInventario, RegistroEquiposComputo, RegistroServidor, RegistroPantalla } from "@/types/registroInventario";
 import EquiposComputo from "./categorias-registro-inventario/equipos-computo";
 import ImpresoraFotocopiadora from "./categorias-registro-inventario/impresora-fotocopiadora";
@@ -18,6 +18,10 @@ export default function EleccionRegistroInventario() {
     const [formData, setFormData] = useState<RegistroInventario>({} as RegistroInventario);
     const [formVisible, setFormVisible] = useState(false);
 
+    const hayDatos = Object.values(formData).some(
+        (valor) => valor !== null && valor !== undefined && valor !== ""
+    );
+
     const handleInputChange = (
         e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
     ) => {
@@ -26,10 +30,6 @@ export default function EleccionRegistroInventario() {
     };
 
     const cancelForm = () => {
-        const hayDatos = Object.values(formData).some(
-            (valor) => typeof valor === "string" && valor.trim() !== ""
-        );
-
         if (!hayDatos) {
             setFormData({} as RegistroInventario);
             setCategoriaSeleccionada("");
@@ -45,28 +45,80 @@ export default function EleccionRegistroInventario() {
     };
     
     const handleCategoriaChange = (newCategoria: string) => {
-        const hayDatos = Object.values(formData).some(
-            (valor) => valor !== null && valor !== undefined && valor !== ""
-        );
-        
         if (hayDatos) {
-        const confirmChange = confirm("Tienes información no guardada. ¿Estás seguro de cambiar de categoría?");
-        if (confirmChange) {
-            setFormData({} as RegistroInventario);
-            setCategoriaSeleccionada(newCategoria);
-            setFormVisible(true);
-        }
+            const confirmChange = confirm("Tienes información no guardada. ¿Estás seguro de cambiar de categoría?");
+            if (confirmChange) {
+                setFormData({} as RegistroInventario);
+                setCategoriaSeleccionada(newCategoria);
+                setFormVisible(true);
+            }
         } else {
         setCategoriaSeleccionada(newCategoria);
         setFormVisible(true);
         }
     };
+
+    const removerListenerBeforeUnload = () => {
+        window.removeEventListener("beforeunload", bloquearSalida);
+    };
+
+    const bloquearSalida = (e: BeforeUnloadEvent) => {
+        if (hayDatos) {
+            e.preventDefault();
+            e.returnValue = "";
+        }
+    };
     
+    useEffect(() => {
+        const bloquearRetroceso = (e: PopStateEvent) => {
+            if (hayDatos) {
+                const confirmar = window.confirm("Tienes datos sin guardar. ¿Deseas salir y perder los cambios?");
+                if (!confirmar) {
+                    history.pushState(null, "", window.location.href);
+                } else {
+                    setCategoriaSeleccionada("");
+                }
+            } else {
+                setCategoriaSeleccionada("");
+            }
+        };
+
+        const bloquearClickEnLinks = (e: MouseEvent) => {
+            const target = e.target as HTMLElement;
+            const anchor = target.closest("a") as HTMLAnchorElement | null;
+
+            if (anchor && hayDatos) {
+                const mismoEnlace = anchor.href === window.location.href;
+                
+                const confirmar = window.confirm("Tienes datos sin guardar. ¿Deseas salir?");
+                if (!confirmar) {
+                    e.preventDefault();
+                } else if (mismoEnlace) {
+                    e.preventDefault();
+                    window.location.reload();
+                }
+            }
+        };
+
+        if (categoriaSeleccionada) {
+            history.pushState(null, "", window.location.href);
+            window.addEventListener("popstate", bloquearRetroceso);
+            document.addEventListener("click", bloquearClickEnLinks, true);
+            window.addEventListener("beforeunload", bloquearSalida);
+        }
+
+        return () => {
+            window.removeEventListener("popstate", bloquearRetroceso);
+            document.removeEventListener("click", bloquearClickEnLinks, true);
+            window.removeEventListener("beforeunload", bloquearSalida);
+        };
+    }, [categoriaSeleccionada, formData]);
+
     const mostrarForm = () => {
         const props = { formData, handleInputChange, cancelForm };
         switch (categoriaSeleccionada) {
             case "Equipos de Cómputo":
-                return <EquiposComputo {...props} formData={formData as RegistroEquiposComputo} />;
+                return <EquiposComputo {...props} formData={formData as RegistroEquiposComputo} removerListenerBeforeUnload={removerListenerBeforeUnload} />;
             case "Impresora y Fotocopiadora":
                 return <ImpresoraFotocopiadora {...props} />;
             case "Servidor":
