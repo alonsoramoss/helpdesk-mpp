@@ -31,6 +31,10 @@ const equiposPerifericos = [
 export default function EleccionEquiposPerifericos() {
     const [categoriaSeleccionada, setCategoriaSeleccionada] = useState("");
     const [formData, setFormData] = useState<RegistroEquiposPerifericos>({} as RegistroEquiposPerifericos);
+    
+    const hayDatos = formData && Object.values(formData).some(
+        (valor) => typeof valor === "string" && valor.trim() !== ""
+    );
 
     const handleInputChange = (
         e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
@@ -38,29 +42,32 @@ export default function EleccionEquiposPerifericos() {
         const { name, value } = e.target;
         setFormData((prev) => ({ ...prev, [name]: value }));
     };
-
+    
     const cancelForm = () => {
-        const hayDatos = formData && Object.values(formData).some(
-            (valor) => typeof valor === "string" && valor.trim() !== ""
-        );
-
         if (!hayDatos) {
             setFormData({} as RegistroEquiposPerifericos);
             setCategoriaSeleccionada("");
             return;
         }
-
+        
         if (confirm("¿Estás seguro de que deseas cancelar y borrar la información ingresada?")) {
             setFormData({} as RegistroEquiposPerifericos);
             setCategoriaSeleccionada("");
         }
     };
     
-    useEffect(() => {
-        const hayDatos = formData && Object.values(formData).some(
-            (valor) => typeof valor === "string" && valor.trim() !== ""
-        );
+    const removerListenerBeforeUnload = () => {
+        window.removeEventListener("beforeunload", bloquearSalida);
+    };
 
+    const bloquearSalida = (e: BeforeUnloadEvent) => {
+        if (hayDatos) {
+            e.preventDefault();
+            e.returnValue = "";
+        }
+    };
+    
+    useEffect(() => {
         const bloquearRetroceso = (e: PopStateEvent) => {
             if (hayDatos) {
                 const confirmar = window.confirm("Tienes datos sin guardar. ¿Deseas salir y perder los cambios?");
@@ -76,19 +83,18 @@ export default function EleccionEquiposPerifericos() {
 
         const bloquearClickEnLinks = (e: MouseEvent) => {
             const target = e.target as HTMLElement;
-            const anchor = target.closest("a");
+            const anchor = target.closest("a") as HTMLAnchorElement | null;
+
             if (anchor && hayDatos) {
+                const mismoEnlace = anchor.href === window.location.href;
+
                 const confirmar = window.confirm("Tienes datos sin guardar. ¿Deseas salir?");
                 if (!confirmar) {
                     e.preventDefault();
+                } else if (mismoEnlace) {
+                    e.preventDefault();
+                    window.location.reload();
                 }
-            }
-        };
-        
-            const bloquearSalida = (e: BeforeUnloadEvent) => {
-            if (hayDatos) {
-                e.preventDefault();
-                e.returnValue = "";
             }
         };
 
@@ -110,7 +116,7 @@ export default function EleccionEquiposPerifericos() {
         const props = { formData, handleInputChange, cancelForm };
         switch (categoriaSeleccionada) {
             case "Equipos de Cómputo":
-                return <EquiposComputo {...props} formData={formData as RegistroEquiposComputo} />;
+                return <EquiposComputo {...props} formData={formData as RegistroEquiposComputo} removerListenerBeforeUnload={removerListenerBeforeUnload} />;
             case "Impresora y Fotocopiadora":
                 return <ImpresoraFotocopiadora {...props} />;
             case "Servidor":
