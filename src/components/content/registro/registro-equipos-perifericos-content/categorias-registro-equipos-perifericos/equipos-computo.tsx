@@ -11,9 +11,10 @@ interface EquiposComputoProps {
         e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
     ) => void;
     cancelForm: () => void;
+    removerListenerBeforeUnload: () => void;
 }
 
-export default function EquiposComputo({ formData, handleInputChange, cancelForm }: EquiposComputoProps) {
+export default function EquiposComputo({ formData, handleInputChange, cancelForm, removerListenerBeforeUnload }: EquiposComputoProps) {
     const [seccionActiva, setSeccionActiva] = useState<"general" | "especificas">("general");
     
     const camposGeneralesEquiposPerifericos = [
@@ -103,7 +104,7 @@ export default function EquiposComputo({ formData, handleInputChange, cancelForm
             alert("Por favor completa todos los campos obligatorios antes de guardar.");
             return;
         }
-    
+        removerListenerBeforeUnload();
         // console.log("Formulario enviado correctamente:", formData);
     
         window.location.hash = "#";
