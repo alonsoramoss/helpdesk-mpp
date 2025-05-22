@@ -17,7 +17,7 @@ interface EquiposComputoProps {
 export default function EquiposComputo({ formData, handleInputChange, cancelForm, removerListenerBeforeUnload }: EquiposComputoProps) {
     const [seccionActiva, setSeccionActiva] = useState<"general" | "especificas">("general");
     
-    const camposGeneralesEquiposPerifericos = [
+    const camposGeneralesEquipoComputo = [
         // Información General
         "sede",
         "nomOficina",
@@ -27,7 +27,7 @@ export default function EquiposComputo({ formData, handleInputChange, cancelForm
         "estadoEquipo", "hostnameEquipo", "ipEquipo", "factorFormaEquipo", "numFacturaEquipo"
     ];
 
-    const camposEspecificosEquiposPerifericos = [
+    const camposEspecificosEquiposComputo = [
         // Placa Base
         "codPatrimonialPlaca", "fabricantePlaca", "numSeriePlaca",
         "modeloPlaca", "estadoPlaca",
@@ -91,7 +91,7 @@ export default function EquiposComputo({ formData, handleInputChange, cancelForm
     }
     
     function handleNextSection() {
-        if (!validarCampos(formData, camposGeneralesEquiposPerifericos)) {
+        if (!validarCampos(formData, camposGeneralesEquipoComputo)) {
             alert("Por favor completa todos los campos obligatorios antes de continuar.");
             return;
         }
@@ -100,7 +100,7 @@ export default function EquiposComputo({ formData, handleInputChange, cancelForm
     
     function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault();
-        if (!validarCampos(formData, camposEspecificosEquiposPerifericos)) {
+        if (!validarCampos(formData, camposEspecificosEquiposComputo)) {
             alert("Por favor completa todos los campos obligatorios antes de guardar.");
             return;
         }
@@ -115,6 +115,7 @@ export default function EquiposComputo({ formData, handleInputChange, cancelForm
 
     return (
         <>
+            <h1 className="text-lg md:text-2xl font-bold text-center mb-6">Registro de Equipo Físico y Lógico de Equipos de Cómputo y Periféricos de MPP</h1>
             <Card className="border shadow-2xl rounded-none">
                 <CardContent className="p-0">
                     <form onSubmit={handleSubmit}>
@@ -140,9 +141,14 @@ export default function EquiposComputo({ formData, handleInputChange, cancelForm
                                                 value={formData.sede}
                                                 onChange={handleInputChange}
                                                 className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4">
-                                                <option selected hidden>Seleccione una opción</option>
+                                                <option selected hidden>Seleccione una sede</option>
                                                 <option value="Palacio Municipal">Palacio Municipal</option>
-                                                <option value="Otros">Otros</option>
+                                                <option value="Oficina de Transportes">Oficina de Transportes</option>
+                                                <option value="Planta de Serenazgo">Planta de Serenazgo</option>
+                                                <option value="Biblioteca Municipal">Biblioteca Municipal</option>
+                                                <option value="Teatro Municipal">Teatro Municipal</option>
+                                                <option value="Oficinas de Desarrollo Social">Oficinas de Desarrollo Social</option>
+                                                <option value="Oficina de Gestión Ambiental">Oficina de Gestión Ambiental</option>
                                             </select>
                                         </div>
                                         <div className="flex flex-col lg:flex-row lg:items-center">
@@ -151,9 +157,16 @@ export default function EquiposComputo({ formData, handleInputChange, cancelForm
                                                 value={formData.nomOficina}
                                                 onChange={handleInputChange}
                                                 className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4">
-                                                <option selected hidden>Seleccione una opción</option>
-                                                <option value="Alcaldia">Alcadía</option>
-                                                <option value="Otros">Otros</option>
+                                                <option selected hidden>Seleccione una oficina</option>
+                                                <option value="Alcaldía">Alcaldía</option>
+                                                <option value="Gerencia Municipal">Gerencia Municipal</option>
+                                                <option value="Oficina de Recursos Humanos">Oficina de Recursos Humanos</option>
+                                                <option value="Oficina de Tesorería">Oficina de Tesorería</option>
+                                                <option value="Oficina de Contabilidad">Oficina de Contabilidad</option>
+                                                <option value="Oficina de Logística">Oficina de Logística</option>
+                                                <option value="Oficina de Planeamiento y Presupuesto">Oficina de Planeamiento y Presupuesto</option>
+                                                <option value="Oficina de Asesoría Jurídica">Oficina de Asesoría Jurídica</option>
+                                                <option value="Secretaría General">Secretaría General</option>
                                             </select>
                                         </div>
                                     </div>
@@ -200,9 +213,15 @@ export default function EquiposComputo({ formData, handleInputChange, cancelForm
                                                 value={formData.fabricanteEquipo}
                                                 onChange={handleInputChange}
                                                 className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4">
-                                                <option selected hidden>Seleccione una opción</option>
-                                                <option value="name1">nombre1</option>
-                                                <option value="name2">nombre2</option>
+                                                <option selected hidden>Seleccione fabricante de equipo</option>
+                                                <option value="Dell">Dell</option>
+                                                <option value="HP">HP</option>
+                                                <option value="Lenovo">Lenovo</option>
+                                                <option value="Asus">Asus</option>
+                                                <option value="Acer">Acer</option>
+                                                <option value="Cisco">Cisco</option>
+                                                <option value="Apple">Apple</option>
+                                                <option value="Samsung">Samsung</option>
                                             </select>
                                         </div>
 
@@ -261,10 +280,15 @@ export default function EquiposComputo({ formData, handleInputChange, cancelForm
                                                 value={formData.factorFormaEquipo}
                                                 onChange={handleInputChange}
                                                 className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4">
-                                                <option selected hidden>Seleccione una opción</option>
-                                                <option value="Bueno">Bueno</option>
-                                                <option value="Regular">Regular</option>
-                                                <option value="Malo">Malo</option>
+                                                <option selected hidden>Seleccione factor de forma</option>
+                                                <option value="Tower">Tower (Torre)</option>
+                                                <option value="Rackmount 1U">Rackmount 1U</option>
+                                                <option value="Rackmount 2U">Rackmount 2U</option>
+                                                <option value="Rackmount 4U">Rackmount 4U</option>
+                                                <option value="Blade">Blade</option>
+                                                <option value="Mini-ITX">Mini-ITX</option>
+                                                <option value="Micro-ATX">Micro-ATX</option>
+                                                <option value="ATX">ATX</option>
                                             </select>
                                         </div>
                                         <div className="flex flex-col lg:flex-row lg:items-center">
@@ -284,7 +308,7 @@ export default function EquiposComputo({ formData, handleInputChange, cancelForm
                                         </div>
                                         <div className="flex flex-col lg:flex-row lg:items-center">
                                             <label htmlFor="numFacturaEquipo" className="text-sm md:text-base font-medium mb-1 lg:mb-0 lg:mr-3 whitespace-normal sm:whitespace-nowrap">N° de Factura</label>
-                                            <input type="number" id="numFacturaEquipo" name="numFacturaEquipo" required
+                                            <input type="text" id="numFacturaEquipo" name="numFacturaEquipo" required
                                                 value={formData.numFacturaEquipo}
                                                 onChange={handleInputChange}
                                                 className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4" />
