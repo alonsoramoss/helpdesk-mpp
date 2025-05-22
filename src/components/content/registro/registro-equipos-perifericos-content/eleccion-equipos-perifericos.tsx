@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { IdCardIcon } from "@radix-ui/react-icons";
 import { BadgeDollarSign, Cctv, Computer, Fingerprint, Monitor, MonitorSpeaker, Printer, RadioReceiver, Server } from "lucide-react";
-import { RegistroEquiposPerifericos, RegistroEquiposComputo, RegistroServidor, RegistroPantalla } from "@/types/registroEquiposPerifericos";
+import { RegistroEquiposPerifericos, RegistroEquiposComputo, RegistroServidor } from "@/types/registroEquiposPerifericos";
 import EquiposComputo from "./categorias-registro-equipos-perifericos/equipos-computo";
 import ImpresoraFotocopiadora from "./categorias-registro-equipos-perifericos/impresora-fotocopiadora";
 import Servidor from "./categorias-registro-equipos-perifericos/servidor";
@@ -85,15 +85,22 @@ export default function EleccionEquiposPerifericos() {
             const target = e.target as HTMLElement;
             const anchor = target.closest("a") as HTMLAnchorElement | null;
 
-            if (anchor && hayDatos) {
+            if (anchor) {
                 const mismoEnlace = anchor.href === window.location.href;
 
-                const confirmar = window.confirm("Tienes datos sin guardar. ¿Deseas salir?");
-                if (!confirmar) {
-                    e.preventDefault();
-                } else if (mismoEnlace) {
-                    e.preventDefault();
-                    window.location.reload();
+                if (hayDatos) {
+                    const confirmar = window.confirm("Tienes datos sin guardar. ¿Deseas salir?");
+                    if (!confirmar) {
+                        e.preventDefault();
+                    } else if (mismoEnlace) {
+                        e.preventDefault();
+                        window.location.reload();
+                    }
+                    } else {
+                    if (mismoEnlace) {
+                        e.preventDefault();
+                        window.location.reload();
+                    }
                 }
             }
         };
@@ -120,9 +127,9 @@ export default function EleccionEquiposPerifericos() {
             case "Impresora y Fotocopiadora":
                 return <ImpresoraFotocopiadora {...props} />;
             case "Servidor":
-                return <Servidor {...props} formData={formData as RegistroServidor} />;
+                return <Servidor {...props} formData={formData as RegistroServidor} removerListenerBeforeUnload={removerListenerBeforeUnload} />;
             case "Pantalla":
-                return <Pantalla {...props} formData={formData as RegistroPantalla} />;
+                return <Pantalla {...props} />;
             case "Equipo Biométrico":
                 return <EquipoBiometrico {...props} />;
             case "Contador de Billetes":
@@ -142,20 +149,22 @@ export default function EleccionEquiposPerifericos() {
 
     return (
         <div className="pt-4 p-2">
-            <h1 className="text-lg md:text-2xl font-bold text-center mb-6"> Registro Físico y Lógico de los Equipos de Cómputo y periféricos de MPP</h1>
             {!categoriaSeleccionada ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
-                {equiposPerifericos.map((equipo, index) => (
-                <div key={index}
-                    onClick={() => {
-                        setFormData({} as RegistroEquiposPerifericos);
-                        setCategoriaSeleccionada(equipo.nombre)}}
-                    className="bg-primary/40 p-10 rounded-md py-16 cursor-pointer hover:bg-primary/60 transition">
-                    <equipo.icon className="w-12 h-12 mx-auto mb-2" />
-                    <p className="text-center text-lg md:text-xl font-semibold">{equipo.nombre}</p>
+            <>
+                <h1 className="text-lg md:text-2xl font-bold text-center mb-6"> Registro Físico y Lógico de los Equipos de Cómputo y Periféricos de MPP</h1>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
+                    {equiposPerifericos.map((equipo, index) => (
+                    <div key={index}
+                        onClick={() => {
+                            setFormData({} as RegistroEquiposPerifericos);
+                            setCategoriaSeleccionada(equipo.nombre)}}
+                        className="bg-primary/40 p-10 rounded-md py-16 cursor-pointer hover:bg-primary/60 transition">
+                        <equipo.icon className="w-12 h-12 mx-auto mb-2" />
+                        <p className="text-center text-lg md:text-xl font-semibold">{equipo.nombre}</p>
+                    </div>
+                    ))}
                 </div>
-                ))}
-            </div>
+            </>
             ) : (
             <div>
                 {mostrarForm()}
