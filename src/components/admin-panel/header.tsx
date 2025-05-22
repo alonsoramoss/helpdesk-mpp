@@ -1,21 +1,31 @@
+
+"use client"
+
+import { useEffect, useState } from "react";
+import { DateTime } from "luxon";
 import { UserHeader } from "@/components/admin-panel/user-header";
 import { MenuMovil } from "@/components/admin-panel/menu-movil";
-import { DateTime } from "luxon";
 
 interface HeaderProps {
   title: string;
 }
 
 export function Header({ title }: HeaderProps) {
-  const fechaActual = DateTime.now()
-    .setZone("America/Lima")
-    .setLocale("es")
-    .toLocaleString({
-      weekday: "long",
-      day: "numeric",
-      month: "long",
-      year: "numeric",
-    });
+  const [fechaActual, setFechaActual] = useState("");
+
+  useEffect(() => {
+    const fecha = DateTime.now()
+      .setZone("America/Lima")
+      .setLocale("es")
+      .toLocaleString({
+        weekday: "long",
+        day: "numeric",
+        month: "long",
+        year: "numeric"
+      });
+
+    setFechaActual(fecha);
+  }, []);
 
   return (
     <header className="sticky top-0 z-10 w-full bg-[#00bff9]">
