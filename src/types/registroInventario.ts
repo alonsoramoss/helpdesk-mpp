@@ -100,16 +100,4 @@ export interface RegistroEquiposComputo extends RegistroInventarioGeneral {
     fechFinSoftware: string;
 }
 
-export interface RegistroServidor extends RegistroInventarioGeneral {
-    categoria: "Servidor";
-    codPatrimonialServidor: string;
-    estadoServidor: string;
-}
-
-export interface RegistroPantalla extends RegistroInventarioGeneral {
-    categoria: "Pantalla";
-    codPatrimonialPantalla: string;
-    estadoPantalla: string;
-}
-
-export type RegistroInventario = RegistroEquiposComputo | RegistroServidor | RegistroPantalla;
+export type RegistroInventario = RegistroEquiposComputo;
