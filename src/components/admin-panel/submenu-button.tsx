@@ -15,6 +15,7 @@ type Submenu = {
   href: string;
   label: string;
   active?: boolean;
+  disabled?: boolean;
 };
 
 interface MenuColapsableButtonProps {
@@ -79,32 +80,56 @@ export function SubMenuButton({ icon: Icon, label, active, submenus, isOpen }: M
         </Button>
       </ColapsableTrigger>
       <ColapsableContent className="overflow-hidden data-[state=closed]:animate-collapsible-up data-[state=open]:animate-collapsible-down">
-        {submenus.map(({ href, label, active }, index) => (
+        {submenus.map(({ href, label, active, disabled }, index) => (
           <Button
             key={index}
             variant={
-              (active === undefined && pathname === href) || active
+              disabled
+                ? "ghost"
+                : (active === undefined && pathname === href) || active
                 ? "secondary"
                 : "ghost"
             }
-            className="w-full justify-start h-10 mb-1"
+            className={cn(
+              "w-full justify-start h-10 mb-1",
+              disabled && "opacity-50 cursor-not-allowed"
+            )}
             asChild
+            disabled={disabled}
           >
-            <Link href={href}>
-              <span className="mr-4 ml-2">
-                <Dot size={18} />
-              </span>
-              <p
-                className={cn(
-                  "max-w-[170px] truncate",
-                  isOpen
-                    ? "translate-x-0 opacity-100"
-                    : "-translate-x-96 opacity-0"
-                )}
-              >
-                {label}
-              </p>
-            </Link>
+            {disabled ? (
+              <div className="flex items-center">
+                <span className="mr-4 ml-2">
+                  <Dot size={18} />
+                </span>
+                <p
+                  className={cn(
+                    "max-w-[170px] truncate",
+                    isOpen
+                      ? "translate-x-0 opacity-100"
+                      : "-translate-x-96 opacity-0"
+                  )}
+                >
+                  {label}
+                </p>
+              </div>
+            ) : (
+              <Link href={href}>
+                <span className="mr-4 ml-2">
+                  <Dot size={18} />
+                </span>
+                <p
+                  className={cn(
+                    "max-w-[170px] truncate",
+                    isOpen
+                      ? "translate-x-0 opacity-100"
+                      : "-translate-x-96 opacity-0"
+                  )}
+                >
+                  {label}
+                </p>
+              </Link>
+            )}
           </Button>
         ))}
       </ColapsableContent>

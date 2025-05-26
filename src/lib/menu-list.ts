@@ -1,20 +1,10 @@
-import {
-  LucideIcon,
-  LayoutGrid, 
-  Wrench,
-  SquarePen,
-  ListChecks,
-  Archive,
-  FileText, 
-  BarChart,
-  Settings,
-  HelpCircle,
-  } from "lucide-react";
+import { LucideIcon, LayoutGrid,  Wrench, SquarePen, ListChecks, Archive, FileText,  BarChart, Settings, HelpCircle } from "lucide-react";
 
 type Submenu = {
   href: string;
   label: string;
   active?: boolean;
+  disabled?: boolean;
 };
 
 type Menu = {
@@ -22,6 +12,7 @@ type Menu = {
   label: string;
   active?: boolean;
   icon: LucideIcon;
+  disabled?: boolean;
   submenus?: Submenu[];
 };
 
@@ -38,8 +29,7 @@ export function getMenuList(pathname: string): Group[] {
         {
           href: "/inicio",
           label: "INICIO",
-          icon: LayoutGrid,
-          submenus: []
+          icon: LayoutGrid
         }
       ]
     },
@@ -50,6 +40,7 @@ export function getMenuList(pathname: string): Group[] {
           href: "/mantenimiento-pc-accesorios",
           label: "MANTENIMIENTO DE PCS Y ACCESORIOS",
           icon: Wrench,
+          disabled: true
         },
         {
           href: "",
@@ -62,7 +53,8 @@ export function getMenuList(pathname: string): Group[] {
             },
             {
               href: "/registro/materiales",
-              label: "Materiales"
+              label: "Materiales",
+              disabled: true
             }
           ]
         },
@@ -78,11 +70,13 @@ export function getMenuList(pathname: string): Group[] {
           submenus: [
             {
               href: "/inventario-equipo-tecnologico/equipos-perifericos",
-              label: "Equipos y Periféricos"
+              label: "Equipos y Periféricos",
+              disabled: true
             },
             {
               href: "/inventario-equipo-tecnologico/materiales",
-              label: "Materiales"
+              label: "Materiales",
+              disabled: true
             },
           ]
         },
@@ -110,6 +104,7 @@ export function getMenuList(pathname: string): Group[] {
           href: "/ayuda",
           label: "AYUDA",
           icon: HelpCircle,
+          disabled: true
         },
       ]
     }
