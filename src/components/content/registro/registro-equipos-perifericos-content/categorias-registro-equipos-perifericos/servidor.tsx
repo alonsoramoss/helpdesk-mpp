@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
+import { Search } from "lucide-react";
 import { RegistroServidor } from "@/types/registroEquiposPerifericos";
 
 interface ServidorProps {
@@ -106,8 +107,8 @@ export default function Servidor({ formData, handleInputChange, cancelForm, remo
                                             <select name="sede" id="sede" required 
                                                 value={formData.sede}
                                                 onChange={handleInputChange}
-                                                className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4">
-                                                <option selected hidden>Seleccione una sede</option>
+                                                className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4 truncate">
+                                                <option selected hidden>Seleccione sede</option>
                                                 <option value="Palacio Municipal">Palacio Municipal</option>
                                                 <option value="Oficina de Transportes">Oficina de Transportes</option>
                                                 <option value="Planta de Serenazgo">Planta de Serenazgo</option>
@@ -122,8 +123,8 @@ export default function Servidor({ formData, handleInputChange, cancelForm, remo
                                             <select name="nomOficina" id="nomOficina" required 
                                                 value={formData.nomOficina}
                                                 onChange={handleInputChange}
-                                                className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4">
-                                                <option selected hidden>Seleccione una oficina</option>
+                                                className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4 truncate">
+                                                <option selected hidden>Seleccione oficina</option>
                                                 <option value="Alcaldía">Alcaldía</option>
                                                 <option value="Gerencia Municipal">Gerencia Municipal</option>
                                                 <option value="Oficina de Recursos Humanos">Oficina de Recursos Humanos</option>
@@ -148,6 +149,9 @@ export default function Servidor({ formData, handleInputChange, cancelForm, remo
                                                     value={formData.codPatrimonialEquipo}
                                                     onChange={handleInputChange}
                                                     className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4" />
+                                                <div className="bg-primary text-white p-2 rounded-full cursor-pointer hover:bg-primary/80 ml-2 shrink-0">
+                                                    <Search size={20} />
+                                                </div>
                                             </div>
                                         </div>
                                         <div className="flex flex-col lg:flex-row lg:items-center">
@@ -155,8 +159,8 @@ export default function Servidor({ formData, handleInputChange, cancelForm, remo
                                             <select name="tipoEquipo" id="tipoEquipo" required 
                                                 value={formData.tipoEquipo}
                                                 onChange={handleInputChange}
-                                                className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4">
-                                                <option selected hidden>Seleccione una opción</option>
+                                                className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4 truncate">
+                                                <option selected hidden>Seleccione tipo de equipo</option>
                                                 <option value="Equipos de Cómputo">Equipos de Cómputo</option>
                                                 <option value="Impresora y Fotocopiadora">Impresora y Fotocopiadora</option>
                                                 <option value="Servidor">Servidor</option>
@@ -175,7 +179,7 @@ export default function Servidor({ formData, handleInputChange, cancelForm, remo
                                             <select name="fabricanteEquipo" id="fabricanteEquipo" required 
                                                 value={formData.fabricanteEquipo}
                                                 onChange={handleInputChange}
-                                                className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4">
+                                                className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4 truncate">
                                                 <option selected hidden>Seleccione fabricante de equipo</option>
                                                 <option value="Dell">Dell</option>
                                                 <option value="HP">HP</option>
@@ -216,8 +220,8 @@ export default function Servidor({ formData, handleInputChange, cancelForm, remo
                                             <select name="estadoEquipo" id="estadoEquipo" required 
                                                 value={formData.estadoEquipo}
                                                 onChange={handleInputChange}
-                                                className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4">
-                                                <option selected hidden>Seleccione una opción</option>
+                                                className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4 truncate">
+                                                <option selected hidden>Seleccione estado de equipo</option>
                                                 <option value="Bueno">Bueno</option>
                                                 <option value="Regular">Regular</option>
                                                 <option value="Malo">Malo</option>
@@ -242,7 +246,7 @@ export default function Servidor({ formData, handleInputChange, cancelForm, remo
                                             <select name="factorFormaEquipo" id="factorFormaEquipo" required 
                                                 value={formData.factorFormaEquipo}
                                                 onChange={handleInputChange}
-                                                className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4">
+                                                className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4 truncate">
                                                 <option selected hidden>Seleccione factor de forma</option>
                                                 <option value="Tower">Tower (Torre)</option>
                                                 <option value="Rackmount 1U">Rackmount 1U</option>
@@ -271,7 +275,7 @@ export default function Servidor({ formData, handleInputChange, cancelForm, remo
                                         </div>
                                         <div className="flex flex-col lg:flex-row lg:items-center">
                                             <label htmlFor="numFacturaEquipo" className="text-sm md:text-base font-medium mb-1 lg:mb-0 lg:mr-3 whitespace-normal sm:whitespace-nowrap">N° de Factura</label>
-                                            <input type="number" id="numFacturaEquipo" name="numFacturaEquipo" required
+                                            <input type="text" id="numFacturaEquipo" name="numFacturaEquipo" required
                                                 value={formData.numFacturaEquipo}
                                                 onChange={handleInputChange}
                                                 className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4" />
@@ -300,11 +304,15 @@ export default function Servidor({ formData, handleInputChange, cancelForm, remo
                                         <select name="tipoServidor" id="tipoServidor" required 
                                             value={formData.tipoServidor}
                                             onChange={handleInputChange}
-                                            className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4">
-                                            <option selected hidden>Seleccione un tipo de servidor</option>
-                                            <option value="TIER I">TIER I</option>
-                                            <option value="TIER II">TIER II</option>
-                                            <option value="TIER III">TIER III</option>
+                                            className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4 truncate">
+                                            <option selected hidden>Seleccione tipo de servidor</option>
+                                            <option value="Servidor Torre">Servidor Torre</option>
+                                            <option value="Servidor Rack">Servidor Rack</option>
+                                            <option value="Servidor Blade">Servidor Blade</option>
+                                            <option value="Servidor Hiperconvergente">Servidor Hiperconvergente</option>
+                                            <option value="Servidor Dedicado">Servidor Dedicado</option>
+                                            <option value="Servidor Virtual (VPS)">Servidor Virtual (VPS)</option>
+                                            <option value="Servidor en la nube">Servidor en la nube</option>
                                         </select>
                                     </div>
                                 </div>
@@ -346,8 +354,8 @@ export default function Servidor({ formData, handleInputChange, cancelForm, remo
                                             <select name="tipoRam" id="tipoRam" required 
                                                 value={formData.tipoRam}
                                                 onChange={handleInputChange}
-                                                className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4">
-                                                <option selected hidden>Seleccione un tipo de RAM</option>
+                                                className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4 truncate">
+                                                <option selected hidden>Seleccione tipo de RAM</option>
                                                 <option value="DDR3">DDR3</option>
                                                 <option value="DDR4">DDR4</option>
                                                 <option value="DDR5">DDR5</option>
@@ -365,8 +373,8 @@ export default function Servidor({ formData, handleInputChange, cancelForm, remo
                                             <select name="tipoAlmacenamiento" id="tipoAlmacenamiento" required 
                                                 value={formData.tipoAlmacenamiento}
                                                 onChange={handleInputChange}
-                                                className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4">
-                                                <option selected hidden>Seleccione un tipo de almacenamiento</option>
+                                                className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4 truncate">
+                                                <option selected hidden>Seleccione tipo de almacenamiento</option>
                                                 <option value="HDD">HDD</option>
                                                 <option value="SSD">SSD</option>
                                                 <option value="NVMe">NVMe</option>
@@ -384,8 +392,8 @@ export default function Servidor({ formData, handleInputChange, cancelForm, remo
                                             <select name="tarjetaRed" id="tarjetaRed" required 
                                                 value={formData.tarjetaRed}
                                                 onChange={handleInputChange}
-                                                className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4">
-                                                <option selected hidden>Seleccione un tipo de tarjeta de red</option>
+                                                className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4 truncate">
+                                                <option selected hidden>Seleccione tipo de tarjeta de red</option>
                                                 <option value="Ethernet 1 Gbps">Ethernet 1 Gbps</option>
                                                 <option value="Ethernet 10 Gbps">Ethernet 10 Gbps</option>
                                                 <option value="Wi-Fi 5 (802.11ac)">Wi-Fi 5 (802.11ac)</option>
@@ -395,17 +403,24 @@ export default function Servidor({ formData, handleInputChange, cancelForm, remo
                                         </div>
                                         <div className="flex flex-col lg:flex-row lg:items-center">
                                             <label htmlFor="sistemaRefrigeracion" className="text-sm md:text-base font-medium mb-1 lg:mb-0 lg:mr-3 whitespace-normal sm:whitespace-nowrap">Sistema de Refrigeración</label>
-                                            <input type="text" id="sistemaRefrigeracion" name="sistemaRefrigeracion" required
+                                            <select name="sistemaRefrigeracion" id="sistemaRefrigeracion" required 
                                                 value={formData.sistemaRefrigeracion}
                                                 onChange={handleInputChange}
-                                                className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4" />
+                                                className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4 truncate">
+                                                <option selected hidden>Seleccione sistema de refrigeración</option>
+                                                <option value="Aire">Refrigeración por aire</option>
+                                                <option value="Líquida">Refrigeración líquida</option>
+                                                <option value="Refrigeración pasiva">Refrigeración pasiva</option>
+                                                <option value="Refrigeración híbrida">Refrigeración híbrida (aire + líquida)</option>
+                                                <option value="Enfriamiento por inmersión">Enfriamiento por inmersión</option>
+                                            </select>
                                         </div>
                                         <div className="flex flex-col lg:flex-row lg:items-center">
                                             <label htmlFor="numVentiladores" className="text-sm md:text-base font-medium mb-1 lg:mb-0 lg:mr-3 whitespace-normal sm:whitespace-nowrap">N° de Ventiladores</label>
                                             <select name="numVentiladores" id="numVentiladores" required 
                                                 value={formData.numVentiladores}
                                                 onChange={handleInputChange}
-                                                className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4">
+                                                className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4 truncate">
                                                 <option selected hidden>Seleccione número de ventiladores</option>
                                                 <option value="1">1</option>
                                                 <option value="2">2</option>
@@ -457,8 +472,8 @@ export default function Servidor({ formData, handleInputChange, cancelForm, remo
                                             <select name="versionSo" id="versionSo" required 
                                                 value={formData.versionSo}
                                                 onChange={handleInputChange}
-                                                className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4">
-                                                <option selected hidden>Seleccione una versión del SO</option>
+                                                className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4 truncate">
+                                                <option selected hidden>Seleccione versión del SO</option>
                                                 <option value="Windows Server 2016">Windows Server 2016</option>
                                                 <option value="Windows Server 2019">Windows Server 2019</option>
                                                 <option value="Windows Server 2022">Windows Server 2022</option>
@@ -494,8 +509,8 @@ export default function Servidor({ formData, handleInputChange, cancelForm, remo
                                             <select name="otrosServicios" id="otrosServicios" required
                                                 value={formData.otrosServicios}
                                                 onChange={handleInputChange}
-                                                className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4">
-                                                <option selected hidden>Seleccione un servicio adicional</option>
+                                                className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4 truncate">
+                                                <option selected hidden>Seleccione servicio adicional</option>
                                                 <option value="Virtualización (VMware, Hyper-V)">Virtualización (VMware, Hyper-V)</option>
                                                 <option value="Copias de seguridad (Backups)">Copias de seguridad (Backups)</option>
                                                 <option value="Monitoreo de red">Monitoreo de red</option>

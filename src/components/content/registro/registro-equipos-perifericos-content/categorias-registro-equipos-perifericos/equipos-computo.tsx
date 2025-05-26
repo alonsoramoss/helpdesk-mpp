@@ -140,7 +140,7 @@ export default function EquiposComputo({ formData, handleInputChange, cancelForm
                                             <select name="sede" id="sede" required 
                                                 value={formData.sede}
                                                 onChange={handleInputChange}
-                                                className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4">
+                                                className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4 truncate">
                                                 <option selected hidden>Seleccione una sede</option>
                                                 <option value="Palacio Municipal">Palacio Municipal</option>
                                                 <option value="Oficina de Transportes">Oficina de Transportes</option>
@@ -156,7 +156,7 @@ export default function EquiposComputo({ formData, handleInputChange, cancelForm
                                             <select name="nomOficina" id="nomOficina" required 
                                                 value={formData.nomOficina}
                                                 onChange={handleInputChange}
-                                                className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4">
+                                                className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4 truncate">
                                                 <option selected hidden>Seleccione una oficina</option>
                                                 <option value="Alcaldía">Alcaldía</option>
                                                 <option value="Gerencia Municipal">Gerencia Municipal</option>
@@ -192,8 +192,8 @@ export default function EquiposComputo({ formData, handleInputChange, cancelForm
                                             <select name="tipoEquipo" id="tipoEquipo" required 
                                                 value={formData.tipoEquipo}
                                                 onChange={handleInputChange}
-                                                className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4">
-                                                <option selected hidden>Seleccione una opción</option>
+                                                className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4 truncate">
+                                                <option selected hidden>Seleccione un tipo de equipo</option>
                                                 <option value="Equipos de Cómputo">Equipos de Cómputo</option>
                                                 <option value="Impresora y Fotocopiadora">Impresora y Fotocopiadora</option>
                                                 <option value="Servidor">Servidor</option>
@@ -212,7 +212,7 @@ export default function EquiposComputo({ formData, handleInputChange, cancelForm
                                             <select name="fabricanteEquipo" id="fabricanteEquipo" required 
                                                 value={formData.fabricanteEquipo}
                                                 onChange={handleInputChange}
-                                                className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4">
+                                                className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4 truncate">
                                                 <option selected hidden>Seleccione fabricante de equipo</option>
                                                 <option value="Dell">Dell</option>
                                                 <option value="HP">HP</option>
@@ -253,8 +253,8 @@ export default function EquiposComputo({ formData, handleInputChange, cancelForm
                                             <select name="estadoEquipo" id="estadoEquipo" required 
                                                 value={formData.estadoEquipo}
                                                 onChange={handleInputChange}
-                                                className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4">
-                                                <option selected hidden>Seleccione una opción</option>
+                                                className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4 truncate">
+                                                <option selected hidden>Seleccione estado de equipo</option>
                                                 <option value="Bueno">Bueno</option>
                                                 <option value="Regular">Regular</option>
                                                 <option value="Malo">Malo</option>
@@ -279,7 +279,7 @@ export default function EquiposComputo({ formData, handleInputChange, cancelForm
                                             <select name="factorFormaEquipo" id="factorFormaEquipo" required 
                                                 value={formData.factorFormaEquipo}
                                                 onChange={handleInputChange}
-                                                className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4">
+                                                className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4 truncate">
                                                 <option selected hidden>Seleccione factor de forma</option>
                                                 <option value="Tower">Tower (Torre)</option>
                                                 <option value="Rackmount 1U">Rackmount 1U</option>
@@ -376,8 +376,8 @@ export default function EquiposComputo({ formData, handleInputChange, cancelForm
                                                     <select name="estadoPlaca" id="estadoPlaca" required 
                                                         value={formData.estadoPlaca}
                                                         onChange={handleInputChange}
-                                                        className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4">
-                                                        <option selected hidden>Seleccione una opción</option>
+                                                        className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4 truncate">
+                                                        <option selected hidden>Seleccione estado de placa base</option>
                                                         <option value="Bueno">Bueno</option>
                                                         <option value="Regular">Regular</option>
                                                         <option value="Malo">Malo</option>
@@ -400,8 +400,8 @@ export default function EquiposComputo({ formData, handleInputChange, cancelForm
                                                     <select name="estadoProcesador" id="estadoProcesador" required 
                                                         value={formData.estadoProcesador}
                                                         onChange={handleInputChange}
-                                                        className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4">
-                                                        <option selected hidden>Seleccione una opción</option>
+                                                        className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4 truncate">
+                                                        <option selected hidden>Seleccione estado de procesador</option>
                                                         <option value="Bueno">Bueno</option>
                                                         <option value="Regular">Regular</option>
                                                         <option value="Malo">Malo</option>
@@ -441,11 +441,14 @@ export default function EquiposComputo({ formData, handleInputChange, cancelForm
                                                     <select name="tipoDiscoDuro" id="tipoDiscoDuro" required 
                                                         value={formData.tipoDiscoDuro}
                                                         onChange={handleInputChange}
-                                                        className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4">
-                                                        <option selected hidden>Seleccione una opción</option>
-                                                        <option value="Bueno">Bueno</option>
-                                                        <option value="Regular">Regular</option>
-                                                        <option value="Malo">Malo</option>
+                                                        className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4 truncate">
+                                                        <option selected hidden>Seleccione tipo de disco duro</option>
+                                                        <option value="HDD">HDD (Disco duro mecánico)</option>
+                                                        <option value="SSD">SSD (Unidad de estado sólido)</option>
+                                                        <option value="NVMe">NVMe (Unidad de estado sólido ultrarrápida)</option>
+                                                        <option value="SSHD">SSHD (Disco híbrido)</option>
+                                                        <option value="SATA">SATA</option>
+                                                        <option value="SAS">SAS</option>
                                                     </select>
                                                 </div>
                                                 <div className="flex flex-col lg:flex-row lg:items-center">
@@ -453,8 +456,8 @@ export default function EquiposComputo({ formData, handleInputChange, cancelForm
                                                     <select name="estadoDiscoDuro" id="estadoDiscoDuro" required 
                                                         value={formData.estadoDiscoDuro}
                                                         onChange={handleInputChange}
-                                                        className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4">
-                                                        <option selected hidden>Seleccione una opción</option>
+                                                        className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4 truncate">
+                                                        <option selected hidden>Seleccione estado de disco duro</option>
                                                         <option value="Bueno">Bueno</option>
                                                         <option value="Regular">Regular</option>
                                                         <option value="Malo">Malo</option>
@@ -500,8 +503,8 @@ export default function EquiposComputo({ formData, handleInputChange, cancelForm
                                                     <select name="estadoMemoria" id="estadoMemoria" required 
                                                         value={formData.estadoMemoria}
                                                         onChange={handleInputChange}
-                                                        className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4">
-                                                        <option selected hidden>Seleccione una opción</option>
+                                                        className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4 truncate">
+                                                        <option selected hidden>Seleccione estado de memoria</option>
                                                         <option value="Bueno">Bueno</option>
                                                         <option value="Regular">Regular</option>
                                                         <option value="Malo">Malo</option>
@@ -524,11 +527,14 @@ export default function EquiposComputo({ formData, handleInputChange, cancelForm
                                                     <select name="tipoFuente" id="tipoFuente" required 
                                                         value={formData.tipoFuente}
                                                         onChange={handleInputChange}
-                                                        className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4">
-                                                        <option selected hidden>Seleccione una opción</option>
-                                                        <option value="Tipo1">Tipo1</option>
-                                                        <option value="Tipo2">Tipo2</option>
-                                                        <option value="Tipo3">Tipo3</option>
+                                                        className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4 truncate">
+                                                        <option selected hidden>Seleccione tipo de fuente</option>
+                                                        <option value="ATX">ATX</option>
+                                                        <option value="SFX">SFX</option>
+                                                        <option value="TFX">TFX</option>
+                                                        <option value="Redundante">Fuente redundante</option>
+                                                        <option value="Modular">Fuente modular</option>
+                                                        <option value="No modular">Fuente no modular</option>
                                                     </select>
                                                 </div>
                                                 <div className="flex flex-col lg:flex-row lg:items-center">
@@ -543,8 +549,8 @@ export default function EquiposComputo({ formData, handleInputChange, cancelForm
                                                     <select name="estadoFuente" id="estadoFuente" required 
                                                         value={formData.estadoFuente}
                                                         onChange={handleInputChange}
-                                                        className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4">
-                                                        <option selected hidden>Seleccione una opción</option>
+                                                        className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4 truncate">
+                                                        <option selected hidden>Seleccione estado de fuente</option>
                                                         <option value="Bueno">Bueno</option>
                                                         <option value="Regular">Regular</option>
                                                         <option value="Malo">Malo</option>
@@ -572,8 +578,8 @@ export default function EquiposComputo({ formData, handleInputChange, cancelForm
                                                 <select name="estadoUnidExtraible" id="estadoUnidExtraible" required 
                                                     value={formData.estadoUnidExtraible}
                                                     onChange={handleInputChange}
-                                                    className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4">
-                                                    <option selected hidden>Seleccione una opción</option>
+                                                    className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4 truncate">
+                                                    <option selected hidden>Seleccione estado de unidad extraible</option>
                                                     <option value="Bueno">Bueno</option>
                                                     <option value="Regular">Regular</option>
                                                     <option value="Malo">Malo</option>
@@ -594,7 +600,7 @@ export default function EquiposComputo({ formData, handleInputChange, cancelForm
                                 </div>
 
                                 <div className="flex md:hidden w-full my-4 md:mb-0 border border-gray-300"/>
-
+                                
                                 <div className="m-6 mt-0">
                                     <fieldset className="md:border border-gray-300 pt-2 md:pb-7 md:px-7 rounded-md mb-5">
                                         <legend className="px-2 text-base md:text-lg font-semibold">Periféricos</legend>
@@ -641,8 +647,8 @@ export default function EquiposComputo({ formData, handleInputChange, cancelForm
                                                     <select name="estadoMonitor" id="estadoMonitor" required 
                                                         value={formData.estadoMonitor}
                                                         onChange={handleInputChange}
-                                                        className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4">
-                                                        <option selected hidden>Seleccione una opción</option>
+                                                        className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4 truncate">
+                                                        <option selected hidden>Seleccione estado de monitor</option>
                                                         <option value="Bueno">Bueno</option>
                                                         <option value="Regular">Regular</option>
                                                         <option value="Malo">Malo</option>
@@ -660,11 +666,16 @@ export default function EquiposComputo({ formData, handleInputChange, cancelForm
                                                     <select name="tipoMonitor" id="tipoMonitor" required 
                                                         value={formData.tipoMonitor}
                                                         onChange={handleInputChange}
-                                                        className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4">
-                                                        <option selected hidden>Seleccione una opción</option>
-                                                        <option value="Bueno">Bueno</option>
-                                                        <option value="Regular">Regular</option>
-                                                        <option value="Malo">Malo</option>
+                                                        className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4 truncate">
+                                                        <option selected hidden>Seleccione tipo de monitor</option>
+                                                        <option value="LCD">LCD</option>
+                                                        <option value="LED">LED</option>
+                                                        <option value="OLED">OLED</option>
+                                                        <option value="Curvo">Curvo</option>
+                                                        <option value="Táctil">Táctil</option>
+                                                        <option value="Ultrapanorámico">Ultrapanorámico</option>
+                                                        <option value="Gaming">Gaming</option>
+                                                        <option value="Profesional">Profesional</option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -712,8 +723,8 @@ export default function EquiposComputo({ formData, handleInputChange, cancelForm
                                                     <select name="estadoTeclado" id="estadoTeclado" required 
                                                         value={formData.estadoTeclado}
                                                         onChange={handleInputChange}
-                                                        className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4">
-                                                        <option selected hidden>Seleccione una opción</option>
+                                                        className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4 truncate">
+                                                        <option selected hidden>Seleccione estado de teclado</option>
                                                         <option value="Bueno">Bueno</option>
                                                         <option value="Regular">Regular</option>
                                                         <option value="Malo">Malo</option>
@@ -764,8 +775,8 @@ export default function EquiposComputo({ formData, handleInputChange, cancelForm
                                                     <select name="estadoMouse" id="estadoMouse" required 
                                                         value={formData.estadoMouse}
                                                         onChange={handleInputChange}
-                                                        className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4">
-                                                        <option selected hidden>Seleccione una opción</option>
+                                                        className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4 truncate">
+                                                        <option selected hidden>Seleccione estado de mouse</option>
                                                         <option value="Bueno">Bueno</option>
                                                         <option value="Regular">Regular</option>
                                                         <option value="Malo">Malo</option>
@@ -816,8 +827,8 @@ export default function EquiposComputo({ formData, handleInputChange, cancelForm
                                                     <select name="estadoParlantes" id="estadoParlantes" required
                                                         value={formData.estadoParlantes}
                                                         onChange={handleInputChange}
-                                                        className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4">
-                                                        <option selected hidden>Seleccione una opción</option>
+                                                        className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4 truncate">
+                                                        <option selected hidden>Seleccione estado de parlantes</option>
                                                         <option value="Bueno">Bueno</option>
                                                         <option value="Regular">Regular</option>
                                                         <option value="Malo">Malo</option>
@@ -868,8 +879,8 @@ export default function EquiposComputo({ formData, handleInputChange, cancelForm
                                                     <select name="estadoEstabilizador" id="estadoEstabilizador" required
                                                         value={formData.estadoEstabilizador}
                                                         onChange={handleInputChange}
-                                                        className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4">
-                                                        <option selected hidden>Seleccione una opción</option>
+                                                        className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4 truncate">
+                                                        <option selected hidden>Seleccione estado de estabilizador</option>
                                                         <option value="Bueno">Bueno</option>
                                                         <option value="Regular">Regular</option>
                                                         <option value="Malo">Malo</option>
@@ -920,8 +931,8 @@ export default function EquiposComputo({ formData, handleInputChange, cancelForm
                                                     <select name="estadoSupresorPico" id="estadoSupresorPico" required
                                                         value={formData.estadoSupresorPico}
                                                         onChange={handleInputChange}
-                                                        className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4">
-                                                        <option selected hidden>Seleccione una opción</option>
+                                                        className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4 truncate">
+                                                        <option selected hidden>Seleccione estado de supresor de pico</option>
                                                         <option value="Bueno">Bueno</option>
                                                         <option value="Regular">Regular</option>
                                                         <option value="Malo">Malo</option>
@@ -942,8 +953,8 @@ export default function EquiposComputo({ formData, handleInputChange, cancelForm
                                                 <select name="estadoTarjeta" id="estadoTarjeta" required
                                                     value={formData.estadoTarjeta}
                                                     onChange={handleInputChange}
-                                                    className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4">
-                                                    <option selected hidden>Seleccione una opción</option>
+                                                    className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4 truncate">
+                                                    <option selected hidden>Seleccione estado de tarjeta</option>
                                                     <option value="Bueno">Bueno</option>
                                                     <option value="Regular">Regular</option>
                                                     <option value="Malo">Malo</option>
@@ -962,8 +973,8 @@ export default function EquiposComputo({ formData, handleInputChange, cancelForm
                                                 <select name="tipoSO" id="tipoSO" required
                                                     value={formData.tipoSO}
                                                     onChange={handleInputChange}
-                                                    className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4">
-                                                    <option selected hidden>Seleccione una opción</option>
+                                                    className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4 truncate">
+                                                    <option selected hidden>Seleccione estado de SO</option>
                                                     <option value="Windows">Windows</option>
                                                     <option value="MacOS">MacOS</option>
                                                     <option value="Linux">Linux</option>
