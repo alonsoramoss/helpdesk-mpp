@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { IdCardIcon } from "@radix-ui/react-icons";
 import { BadgeDollarSign, Cctv, Computer, Fingerprint, Monitor, MonitorSpeaker, Printer, RadioReceiver, Server } from "lucide-react";
-import { RegistroEquiposPerifericos, RegistroEquiposComputo, RegistroServidor } from "@/types/registroEquiposPerifericos";
+import { RegistroEquiposPerifericos, RegistroEquiposComputo, RegistroServidor, RegistroPantalla } from "@/types/registroEquiposPerifericos";
 import EquiposComputo from "./categorias-registro-equipos-perifericos/equipos-computo";
 import ImpresoraFotocopiadora from "./categorias-registro-equipos-perifericos/impresora-fotocopiadora";
 import Servidor from "./categorias-registro-equipos-perifericos/servidor";
@@ -129,7 +129,7 @@ export default function EleccionEquiposPerifericos() {
             case "Servidor":
                 return <Servidor {...props} formData={formData as RegistroServidor} removerListenerBeforeUnload={removerListenerBeforeUnload} />;
             case "Pantalla":
-                return <Pantalla {...props} />;
+                return <Pantalla {...props} formData={formData as RegistroPantalla} removerListenerBeforeUnload={removerListenerBeforeUnload} />;
             case "Equipo Biométrico":
                 return <EquipoBiometrico {...props} />;
             case "Contador de Billetes":
