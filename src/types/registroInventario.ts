@@ -1,5 +1,4 @@
 export interface RegistroInventarioGeneral {
-
     // Información General
     categoria: string;
     numRegistro: string;
@@ -23,7 +22,6 @@ export interface RegistroInventarioGeneral {
 }
 
 export interface RegistroEquiposComputo extends RegistroInventarioGeneral {
-    categoria: "Equipos de Cómputo";
     // Placa Base
     codPatrimonialPlaca: string;
     fabricantePlaca: string;
