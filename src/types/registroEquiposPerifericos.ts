@@ -167,7 +167,13 @@ export interface RegistroPantalla extends RegistroEquiposPerifericosGeneral {
     soporteMontaje: string;
 
     // Accesorios
-    accesorios: string;
+    pantallaTactil: string;
+    controlRemotoIncluido: string;
+    conectividadInalambrica: string;
+    camara: string;
+    altavocesIntegrados: string;
+    funcionSmart: string;
+    wifi: string;
 }
 
 export interface RegistroEquipoBiometrico extends RegistroEquiposPerifericosGeneral {
