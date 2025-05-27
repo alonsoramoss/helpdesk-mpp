@@ -172,19 +172,28 @@ export function SubMenuButton({ icon: Icon, label, active, submenus, isOpen }: M
           {label}
         </MenuDesplegableLabel>
         <MenuDesplegableSeparator />
-        {submenus.map(({ href, label, active }, index) => (
-          <MenuDesplegableItem key={index} asChild>
-            <Link
-              className={`cursor-pointer mt-1 ${
-                ((active === undefined && pathname === href) || active) &&
-                "bg-primary"
-              }`}
-              href={href}
+        {submenus.map(({ href, label, active, disabled }, index) =>
+          disabled ? (
+            <div
+              key={index}
+              className="cursor-not-allowed opacity-50 mt-1 max-w-[180px] truncate px-3 py-1 text-sm"
             >
-              <p className="max-w-[180px] truncate">{label}</p>
-            </Link>
-          </MenuDesplegableItem>
-        ))}
+              {label}
+            </div>
+          ) : (
+            <MenuDesplegableItem key={index} asChild>
+              <Link
+                className={`cursor-pointer mt-1 ${
+                  ((active === undefined && pathname === href) || active) &&
+                  "bg-primary"
+                }`}
+                href={href}
+              >
+                <p className="max-w-[180px] truncate">{label}</p>
+              </Link>
+            </MenuDesplegableItem>
+          )
+        )}
         <DropdownMenuArrow className="fill-border" />
       </MenuDesplegableContent>
     </MenuDesplegable>
