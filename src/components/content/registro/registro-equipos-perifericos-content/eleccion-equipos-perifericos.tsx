@@ -39,10 +39,22 @@ export default function EleccionEquiposPerifericos() {
     const handleInputChange = (
         e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
     ) => {
-        const { name, value } = e.target;
-        setFormData((prev) => ({ ...prev, [name]: value }));
+        const target = e.target;
+        const { name, value, type } = target;
+
+        if (target instanceof HTMLInputElement && type === "checkbox") {
+            setFormData((prev) => ({
+                ...prev,
+                [name]: target.checked
+            }));
+        } else {
+            setFormData((prev) => ({
+                ...prev,
+                [name]: value
+            }));
+        }
     };
-    
+
     const cancelForm = () => {
         if (!hayDatos) {
             setFormData({} as RegistroEquiposPerifericos);
