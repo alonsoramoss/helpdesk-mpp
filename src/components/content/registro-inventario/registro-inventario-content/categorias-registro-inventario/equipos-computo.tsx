@@ -887,7 +887,7 @@ export default function EquiposComputo({ formData, handleInputChange, cancelForm
                                                 </div>
                                             </div>
                                             <button type="button" className="flex items-center gap-3 text-sm md:text-base font-semibold">
-                                                <PlusCircle size={20} /> <span>Añadir otra unidad extraible</span>
+                                                <PlusCircle size={20} /> <span>Añadir otro software</span>
                                             </button>
                                         </fieldset>
                                     <div className="flex justify-center md:justify-end gap-4 pt-6">
