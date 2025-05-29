@@ -23,7 +23,7 @@ export default function Pantalla({ formData, handleInputChange, cancelForm, remo
         "nomOficina",
 
         // Equipo
-        "codPatrimonialEquipo", "tipoEquipo", "fabricanteEquipo", "modeloEquipo", "numSerieEquipo", "fechAdquisicionEquipo", 
+        "codPatrimonialEquipo", "tipoEquipo", "fabricanteEquipo", "modeloEquipo", "numSerieEquipo", "fechaAdquisicionEquipo", 
         "estadoEquipo", "hostnameEquipo", "ipEquipo", "factorFormaEquipo", "numFacturaEquipo"
     ];
 
@@ -33,11 +33,7 @@ export default function Pantalla({ formData, handleInputChange, cancelForm, remo
 
         // Especificaciones Técnicas
         "tamañoPantalla", "resolucion", "tecnologiaPantalla", "discoDuro",
-        "memoriaRam", "conectividad", "soporteMontaje",
-
-        // Accesorios
-        "pantallaTactil", "controlRemotoIncluido", "conectividadInalambrica",
-        "camara", "altavocesIntegrados", "funcionSmart", "wifi"
+        "memoriaRam", "conectividad", "soporteMontaje"
     ];
 
     function validarCampos(formData: RegistroPantalla, campos: string[]) {
@@ -74,7 +70,7 @@ export default function Pantalla({ formData, handleInputChange, cancelForm, remo
 
     return (
         <>
-            <h1 className="text-lg md:text-2xl font-bold text-center mb-6"> Registro Equipo Físico y Lógico de Pantalla de MPP</h1>
+            <h1 className="text-lg md:text-2xl font-bold text-center mb-6">Registro Físico y Lógico de Pantallas de MPP</h1>
             <Card className="border shadow-2xl rounded-none">
                 <CardContent className="p-0">
                     <form onSubmit={handleSubmit}>
@@ -201,9 +197,9 @@ export default function Pantalla({ formData, handleInputChange, cancelForm, remo
                                     </div>
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                         <div className="flex flex-col lg:flex-row lg:items-center">
-                                            <label htmlFor="fechAdquisicionEquipo" className="text-sm md:text-base font-medium mb-1 lg:mb-0 lg:mr-3 whitespace-normal sm:whitespace-nowrap">Fecha de Adquisición</label>
-                                            <input type="date" id="fechAdquisicionEquipo" name="fechAdquisicionEquipo" required
-                                                value={formData.fechAdquisicionEquipo}
+                                            <label htmlFor="fechaAdquisicionEquipo" className="text-sm md:text-base font-medium mb-1 lg:mb-0 lg:mr-3">Fecha de Adquisición</label>
+                                            <input type="date" id="fechaAdquisicionEquipo" name="fechaAdquisicionEquipo" required
+                                                value={formData.fechaAdquisicionEquipo}
                                                 onChange={handleInputChange}
                                                 className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4" />
                                         </div>
@@ -234,7 +230,7 @@ export default function Pantalla({ formData, handleInputChange, cancelForm, remo
                                                 className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4" />
                                         </div>
                                         <div className="flex flex-col lg:flex-row lg:items-center">
-                                            <label htmlFor="factorFormaEquipo" className="text-sm md:text-base font-medium mb-1 lg:mb-0 lg:mr-3 whitespace-normal sm:whitespace-nowrap">Factor de forma</label>
+                                            <label htmlFor="factorFormaEquipo" className="text-sm md:text-base font-medium mb-1 lg:mb-0 lg:mr-3 whitespace-normal sm:whitespace-nowrap">Factor de Forma</label>
                                             <select name="factorFormaEquipo" id="factorFormaEquipo" required 
                                                 value={formData.factorFormaEquipo}
                                                 onChange={handleInputChange}
@@ -255,15 +251,15 @@ export default function Pantalla({ formData, handleInputChange, cancelForm, remo
                                             <input type="file" id="imagenEquipo" name="imagenEquipo"
                                                 value={formData.imagenEquipo}
                                                 onChange={handleInputChange}
-                                                className="w-full border border-gray-300 rounded-md file:mr-4 file:py-2 file:px-4 file:border-0 
+                                                className="text-sm md:text-base w-full border border-gray-300 rounded-md file:mr-4 file:py-2 file:px-4 file:border-0 
                                                 file:text-sm file:md:text-base file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100" />
                                         </div>
                                         <div className="flex flex-col lg:flex-row lg:items-center">
                                             <label htmlFor="garantiaEquipo" className="text-sm md:text-base font-medium mb-1 lg:mb-0 lg:mr-3 whitespace-normal sm:whitespace-nowrap">Garantía</label>
                                             <input type="checkbox" id="garantiaEquipo" name="garantiaEquipo"
-                                                value={formData.garantiaEquipo}
+                                                checked={formData.garantiaEquipo}
                                                 onChange={handleInputChange}
-                                                className="w-4 h-4 ml-2 accent-blue-600" />
+                                                className="w-4 h-4 ml-2 accent-blue-600 cursor-pointer" />
                                         </div>
                                         <div className="flex flex-col lg:flex-row lg:items-center">
                                             <label htmlFor="numFacturaEquipo" className="text-sm md:text-base font-medium mb-1 lg:mb-0 lg:mr-3 whitespace-normal sm:whitespace-nowrap">N° de Factura</label>
@@ -276,11 +272,11 @@ export default function Pantalla({ formData, handleInputChange, cancelForm, remo
                                 </fieldset>
                                 <div className="flex justify-center md:justify-end gap-4 pt-6">
                                     <button type="button" onClick={() => cancelForm()}
-                                        className="bg-gray-300 hover:bg-gray-200 font-semibold p-3 rounded-md text-sm md:text-base">
+                                        className="bg-gray-300 hover:bg-gray-200 font-semibold p-3 rounded-md text-sm md:text-base transition duration-200 ease-in-out">
                                         Cancelar
                                     </button>
                                     <button type="button"  onClick={handleNextSection}
-                                        className="bg-gray-900 hover:bg-gray-700 text-white font-semibold p-3 rounded-md text-sm md:text-base">
+                                        className="bg-gray-900 hover:bg-gray-700 text-white font-semibold p-3 rounded-md text-sm md:text-base transition duration-200 ease-in-out">
                                         Siguiente
                                     </button>
                                 </div>
@@ -312,7 +308,7 @@ export default function Pantalla({ formData, handleInputChange, cancelForm, remo
                                 </div>
                                 <div className="mb-5">
                                     <h1 className="text-base md:text-lg font-semibold">Especificaciones de Hardware</h1>
-                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-1">
                                         <div className="flex flex-col lg:flex-row lg:items-center">
                                             <label htmlFor="tamañoPantalla" className="text-sm md:text-base font-medium mb-1 lg:mb-0 lg:mr-3">Tamaño de Pantalla</label>
                                             <input type="text" id="tamañoPantalla" name="tamañoPantalla" required
@@ -394,9 +390,9 @@ export default function Pantalla({ formData, handleInputChange, cancelForm, remo
                                         </div>
                                     </div>
                                 </div>
-                                <div className="mb-5">
+                                <div className="mb-6">
                                     <h1 className="text-base md:text-lg font-semibold">Accesorios</h1>
-                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-3">
+                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-1">
                                         <div className="flex items-center border border-gray-300 rounded-md overflow-hidden mb-3">
                                             <div className="flex items-center bg-gray-200 px-3 py-2 border-r border-gray-300 w-10/12">
                                                 <label htmlFor="pantallaTactil">
@@ -405,33 +401,22 @@ export default function Pantalla({ formData, handleInputChange, cancelForm, remo
                                             </div>
                                             <div className="flex justify-center items-center w-2/12">
                                                 <input type="checkbox" id="pantallaTactil" name="pantallaTactil"
-                                                    value={formData.pantallaTactil}
-                                                    onChange={handleInputChange} className="w-4 h-4 accent-blue-600"/>
+                                                    checked={formData.pantallaTactil}
+                                                    onChange={handleInputChange} 
+                                                    className="w-4 h-4 accent-blue-600 cursor-pointer"/>
                                             </div>
                                         </div>
                                         <div className="flex items-center border border-gray-300 rounded-md overflow-hidden mb-3">
                                             <div className="flex items-center bg-gray-200 px-3 py-2 border-r border-gray-300 w-10/12">
                                                 <label htmlFor="controlRemotoIncluido">
-                                                    Control remoto incluido
+                                                    Control Remoto Incluido
                                                 </label>
                                             </div>
                                             <div className="flex justify-center items-center w-2/12">
                                                 <input type="checkbox" id="controlRemotoIncluido" name="controlRemotoIncluido"
-                                                    value={formData.controlRemotoIncluido}
+                                                    checked={formData.controlRemotoIncluido}
                                                     onChange={handleInputChange}
-                                                    className="w-4 h-4 accent-blue-600" />
-                                            </div>
-                                        </div>
-                                        <div className="flex items-center border border-gray-300 rounded-md overflow-hidden mb-3">
-                                            <div className="flex items-center bg-gray-200 px-3 py-2 border-r border-gray-300 w-10/12">
-                                                <label htmlFor="conectividadInalambrica">
-                                                    Conectividad inalámbrica
-                                                </label>
-                                            </div>
-                                            <div className="flex justify-center items-center w-2/12">
-                                                <input type="checkbox" id="conectividadInalambrica" name="conectividadInalambrica"
-                                                    value={formData.conectividadInalambrica}
-                                                    onChange={handleInputChange} className="w-4 h-4 accent-blue-600"/>
+                                                    className="w-4 h-4 accent-blue-600 cursor-pointer" />
                                             </div>
                                         </div>
                                         <div className="flex items-center border border-gray-300 rounded-md overflow-hidden mb-3">
@@ -442,20 +427,22 @@ export default function Pantalla({ formData, handleInputChange, cancelForm, remo
                                             </div>
                                             <div className="flex justify-center items-center w-2/12">
                                                 <input type="checkbox" id="camara" name="camara"
-                                                    value={formData.camara}
-                                                    onChange={handleInputChange} className="w-4 h-4 accent-blue-600"/>
+                                                    checked={formData.camara}
+                                                    onChange={handleInputChange} 
+                                                    className="w-4 h-4 accent-blue-600 cursor-pointer"/>
                                             </div>
                                         </div>
                                         <div className="flex items-center border border-gray-300 rounded-md overflow-hidden mb-3">
                                             <div className="flex items-center bg-gray-200 px-3 py-2 border-r border-gray-300 w-10/12">
                                                 <label htmlFor="altavocesIntegrados">
-                                                    Altavoces integrados
+                                                    Altavoces Integrados
                                                 </label>
                                             </div>
                                             <div className="flex justify-center items-center w-2/12">
                                                 <input type="checkbox" id="altavocesIntegrados" name="altavocesIntegrados"
-                                                    value={formData.altavocesIntegrados}
-                                                    onChange={handleInputChange} className="w-4 h-4 accent-blue-600"/>
+                                                    checked={formData.altavocesIntegrados}
+                                                    onChange={handleInputChange} 
+                                                    className="w-4 h-4 accent-blue-600 cursor-pointer"/>
                                             </div>
                                         </div>
                                         <div className="flex items-center border border-gray-300 rounded-md overflow-hidden mb-3">
@@ -466,11 +453,12 @@ export default function Pantalla({ formData, handleInputChange, cancelForm, remo
                                             </div>
                                             <div className="flex justify-center items-center w-2/12">
                                                 <input type="checkbox" id="funcionSmart" name="funcionSmart"
-                                                    value={formData.funcionSmart}
-                                                    onChange={handleInputChange} className="w-4 h-4 accent-blue-600"/>
+                                                    checked={formData.funcionSmart}
+                                                    onChange={handleInputChange} 
+                                                    className="w-4 h-4 accent-blue-600 cursor-pointer"/>
                                             </div>
                                         </div>
-                                        <div className="flex items-center border border-gray-300 rounded-md overflow-hidden mb-1">
+                                        <div className="flex items-center border border-gray-300 rounded-md overflow-hidden mb-3">
                                             <div className="flex items-center bg-gray-200 px-3 py-2 border-r border-gray-300 w-10/12">
                                                 <label htmlFor="wifi">
                                                     Wi-Fi
@@ -478,21 +466,35 @@ export default function Pantalla({ formData, handleInputChange, cancelForm, remo
                                             </div>
                                             <div className="flex justify-center items-center w-2/12">
                                                 <input type="checkbox" id="wifi" name="wifi"
-                                                    value={formData.wifi}
-                                                    onChange={handleInputChange} className="w-4 h-4 accent-blue-600"/>
+                                                    checked={formData.wifi}
+                                                    onChange={handleInputChange} 
+                                                    className="w-4 h-4 accent-blue-600 cursor-pointer"/>
+                                            </div>
+                                        </div>
+                                        <div className="flex items-center border border-gray-300 rounded-md overflow-hidden">
+                                            <div className="flex items-center bg-gray-200 px-3 py-2 border-r border-gray-300 w-10/12">
+                                                <label htmlFor="conectividadInalambrica">
+                                                    Conectividad Inalámbrica
+                                                </label>
+                                            </div>
+                                            <div className="flex justify-center items-center w-2/12">
+                                                <input type="checkbox" id="conectividadInalambrica" name="conectividadInalambrica"
+                                                    checked={formData.conectividadInalambrica}
+                                                    onChange={handleInputChange} 
+                                                    className="w-4 h-4 accent-blue-600 cursor-pointer"/>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div className="flex justify-center md:justify-end gap-4">
                                     <button type="button" onClick={() => cancelForm()}
-                                        className="bg-gray-300 hover:bg-gray-200 font-semibold p-3 rounded-md text-sm md:text-base">
+                                        className="bg-gray-300 hover:bg-gray-200 font-semibold p-3 rounded-md text-sm md:text-base transition duration-200 ease-in-out">
                                         Cancelar
                                     </button>
-                                    <button type="button" onClick={() => setSeccionActiva("general")} className="bg-gray-900 hover:bg-gray-700 px-6 text-white font-semibold p-3 rounded-md text-sm md:text-base">
+                                    <button type="button" onClick={() => setSeccionActiva("general")} className="bg-gray-900 hover:bg-gray-700 px-6 text-white font-semibold p-3 rounded-md text-sm md:text-base transition duration-200 ease-in-out">
                                         Atrás
                                     </button>
-                                    <button type="submit" className="bg-primary hover:bg-primary text-white font-semibold p-3 rounded-md text-sm md:text-base">
+                                    <button type="submit" className="bg-primary hover:bg-primary/80 text-white font-semibold p-3 rounded-md text-sm md:text-base transition duration-200 ease-in-out">
                                         Guardar
                                     </button>
                                 </div>
