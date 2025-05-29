@@ -4,15 +4,16 @@ import { useState, useEffect } from "react";
 import { useAuth } from "@/context/authContext";
 import { useRouter } from "next/navigation";
 import styles from "@/styles/login.module.css";
-import { LogIn  } from "lucide-react";
+import { LogIn, Eye, EyeOff } from "lucide-react";
 
 const Login = () => {
   const router = useRouter();
   const [vch_email, setEmail] = useState("");
-  const [vch_contrasena, setPassword] = useState("");
+  const [vch_contrasena, setContraseña] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
   const { login, isAuthenticated, isLoading } = useAuth();
+  const [mostrarContraseña, setMostrarContraseña] = useState(false);
 
   useEffect(() => {
     if (!isLoading && isAuthenticated) {
@@ -47,8 +48,19 @@ const Login = () => {
         </div>
         
         <div className={styles.input_field}>
-          <input type="password" id="password" value={vch_contrasena} onChange={(e) => setPassword(e.target.value)} required/>
-          <label htmlFor="password">Contraseña</label>
+            <div className="relative w-full">
+                <input type={mostrarContraseña ? "text" : "password"} id="password" value={vch_contrasena} required
+                    onChange={(e) => setContraseña(e.target.value)}
+                    className="pr-10 w-full"
+                />
+                <label htmlFor="password">Contraseña</label>
+                <button type="button" 
+                    onClick={() => setMostrarContraseña((prev) => !prev)}
+                    className="absolute top-1/2 right-4 transform -translate-y-1/2 text-neutral-950 hover:text-neutral-700 transition-colors duration-200 ease-in-out"
+                >
+                    {mostrarContraseña ? <EyeOff size={20} /> : <Eye size={20} />}
+                </button>
+            </div>
         </div>
 
         {error && <p className="text-red-500 text-sm">{error}</p>}
