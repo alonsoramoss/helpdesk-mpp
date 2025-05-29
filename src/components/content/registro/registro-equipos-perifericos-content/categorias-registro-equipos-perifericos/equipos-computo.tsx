@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
-import { Search } from "lucide-react";
+import { Search, PlusCircle } from "lucide-react";
 import { RegistroEquiposComputo } from "@/types/registroEquiposPerifericos";
 
 interface EquiposComputoProps {
@@ -23,7 +23,7 @@ export default function EquiposComputo({ formData, handleInputChange, cancelForm
         "nomOficina",
 
         // Equipo
-        "codPatrimonialEquipo", "tipoEquipo", "fabricanteEquipo", "modeloEquipo", "numSerieEquipo", "fechAdquisicionEquipo", 
+        "codPatrimonialEquipo", "tipoEquipo", "fabricanteEquipo", "modeloEquipo", "numSerieEquipo", "fechaAdquisicionEquipo", 
         "estadoEquipo", "hostnameEquipo", "ipEquipo", "factorFormaEquipo", "numFacturaEquipo"
     ];
 
@@ -115,7 +115,7 @@ export default function EquiposComputo({ formData, handleInputChange, cancelForm
 
     return (
         <>
-            <h1 className="text-lg md:text-2xl font-bold text-center mb-6">Registro de Equipo Físico y Lógico de Equipos de Cómputo y Periféricos de MPP</h1>
+            <h1 className="text-lg md:text-2xl font-bold text-center mb-6">Registro Físico y Lógico de Equipos de Cómputo y Periféricos de MPP</h1>
             <Card className="border shadow-2xl rounded-none">
                 <CardContent className="p-0">
                     <form onSubmit={handleSubmit}>
@@ -242,9 +242,9 @@ export default function EquiposComputo({ formData, handleInputChange, cancelForm
                                     </div>
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                         <div className="flex flex-col lg:flex-row lg:items-center">
-                                            <label htmlFor="fechAdquisicionEquipo" className="text-sm md:text-base font-medium mb-1 lg:mb-0 lg:mr-3 whitespace-normal sm:whitespace-nowrap">Fecha de Adquisición</label>
-                                            <input type="date" id="fechAdquisicionEquipo" name="fechAdquisicionEquipo" required
-                                                value={formData.fechAdquisicionEquipo}
+                                            <label htmlFor="fechaAdquisicionEquipo" className="text-sm md:text-base font-medium mb-1 lg:mb-0 lg:mr-3">Fecha de Adquisición</label>
+                                            <input type="date" id="fechaAdquisicionEquipo" name="fechaAdquisicionEquipo" required
+                                                value={formData.fechaAdquisicionEquipo}
                                                 onChange={handleInputChange}
                                                 className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4" />
                                         </div>
@@ -275,7 +275,7 @@ export default function EquiposComputo({ formData, handleInputChange, cancelForm
                                                 className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4" />
                                         </div>
                                         <div className="flex flex-col lg:flex-row lg:items-center">
-                                            <label htmlFor="factorFormaEquipo" className="text-sm md:text-base font-medium mb-1 lg:mb-0 lg:mr-3 whitespace-normal sm:whitespace-nowrap">Factor de forma</label>
+                                            <label htmlFor="factorFormaEquipo" className="text-sm md:text-base font-medium mb-1 lg:mb-0 lg:mr-3 whitespace-normal sm:whitespace-nowrap">Factor de Forma</label>
                                             <select name="factorFormaEquipo" id="factorFormaEquipo" required 
                                                 value={formData.factorFormaEquipo}
                                                 onChange={handleInputChange}
@@ -296,15 +296,15 @@ export default function EquiposComputo({ formData, handleInputChange, cancelForm
                                             <input type="file" id="imagenEquipo" name="imagenEquipo"
                                                 value={formData.imagenEquipo}
                                                 onChange={handleInputChange}
-                                                className="w-full border border-gray-300 rounded-md file:mr-4 file:py-2 file:px-4 file:border-0 
+                                                className="text-sm md:text-base w-full border border-gray-300 rounded-md file:mr-4 file:py-2 file:px-4 file:border-0 
                                                 file:text-sm file:md:text-base file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100" />
                                         </div>
                                         <div className="flex flex-col lg:flex-row lg:items-center">
                                             <label htmlFor="garantiaEquipo" className="text-sm md:text-base font-medium mb-1 lg:mb-0 lg:mr-3 whitespace-normal sm:whitespace-nowrap">Garantía</label>
                                             <input type="checkbox" id="garantiaEquipo" name="garantiaEquipo"
-                                                value={formData.garantiaEquipo}
+                                                checked={formData.garantiaEquipo}
                                                 onChange={handleInputChange}
-                                                className="w-4 h-4 ml-2 accent-blue-600" />
+                                                className="w-4 h-4 ml-2 accent-blue-600 cursor-pointer" />
                                         </div>
                                         <div className="flex flex-col lg:flex-row lg:items-center">
                                             <label htmlFor="numFacturaEquipo" className="text-sm md:text-base font-medium mb-1 lg:mb-0 lg:mr-3 whitespace-normal sm:whitespace-nowrap">N° de Factura</label>
@@ -317,11 +317,11 @@ export default function EquiposComputo({ formData, handleInputChange, cancelForm
                                 </fieldset>
                                 <div className="flex justify-center md:justify-end gap-4 pt-6">
                                     <button type="button" onClick={() => cancelForm()}
-                                        className="bg-gray-300 hover:bg-gray-200 font-semibold p-3 rounded-md text-sm md:text-base">
+                                        className="bg-gray-300 hover:bg-gray-200 font-semibold p-3 rounded-md text-sm md:text-base transition duration-200 ease-in-out">
                                         Cancelar
                                     </button>
                                     <button type="button"  onClick={handleNextSection}
-                                        className="bg-gray-900 hover:bg-gray-700 text-white font-semibold p-3 rounded-md text-sm md:text-base">
+                                        className="bg-gray-900 hover:bg-gray-700 text-white font-semibold p-3 rounded-md text-sm md:text-base transition duration-200 ease-in-out">
                                         Siguiente
                                     </button>
                                 </div>
@@ -585,10 +585,10 @@ export default function EquiposComputo({ formData, handleInputChange, cancelForm
                                                     <option value="Malo">Malo</option>
                                                 </select>
                                             </div>
-                                            <div className="font-semibold">
-                                                +  Añadir otra unidad extraible
-                                            </div>
                                         </div>
+                                        <button type="button" className="flex items-center gap-3 text-sm md:text-base font-semibold mb-4">
+                                            <PlusCircle size={20} /> <span>Añadir otra unidad extraible</span>
+                                        </button>
                                         <div>
                                             <label htmlFor="observacion" className="block font-medium">Observaciones</label>
                                             <textarea id="observacion" name="observacion" required
@@ -889,7 +889,7 @@ export default function EquiposComputo({ formData, handleInputChange, cancelForm
                                             </div>
                                         </fieldset>
                                         <fieldset className="border border-gray-300 pt-3 md:pt-4 pb-5 md:pb-7 px-5 md:px-7 rounded-md mb-5">
-                                            <legend className="px-2 text-base md:text-lg font-semibold">Supresor de pico</legend>
+                                            <legend className="px-2 text-base md:text-lg font-semibold">Supresor de Pico</legend>
                                             <div className="flex flex-col lg:flex-row lg:items-center mb-4">
                                                 <label htmlFor="codPatrimonialSupresorPico" className="text-sm md:text-base font-medium mb-1 lg:mb-0 lg:mr-3 whitespace-normal sm:whitespace-nowrap">Código Patrimonial</label>
                                                 <div className="flex items-center w-full">
@@ -940,7 +940,7 @@ export default function EquiposComputo({ formData, handleInputChange, cancelForm
                                                 </div>
                                             </div>
                                         </fieldset>
-                                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
+                                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-7">
                                             <div className="flex flex-col lg:flex-row lg:items-center">
                                                 <label htmlFor="tarjeta" className="text-sm md:text-base font-medium mb-1 lg:mb-0 lg:mr-3 whitespace-normal sm:whitespace-nowrap">Tarjeta 1</label>
                                                 <input type="text" id="tarjeta" name="tarjeta" required
@@ -960,9 +960,9 @@ export default function EquiposComputo({ formData, handleInputChange, cancelForm
                                                     <option value="Malo">Malo</option>
                                                 </select>
                                             </div>
-                                            <div className="font-semibold">
-                                                + Añadir otra tarjeta
-                                            </div>
+                                            <button type="button" className="flex items-center gap-3 text-sm md:text-base font-semibold">
+                                                <PlusCircle size={20} /> <span>Añadir otra tarjeta</span>
+                                            </button>
                                         </div>
                                     </fieldset>
                                     <fieldset className="border border-gray-300 pt-3 md:pt-4 pb-5 md:pb-7 px-5 md:px-7 rounded-md">
@@ -974,10 +974,13 @@ export default function EquiposComputo({ formData, handleInputChange, cancelForm
                                                     value={formData.tipoSO}
                                                     onChange={handleInputChange}
                                                     className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4 truncate">
-                                                    <option selected hidden>Seleccione estado de SO</option>
+                                                    <option selected hidden>Seleccione tipo de sistema operativo</option>
                                                     <option value="Windows">Windows</option>
-                                                    <option value="MacOS">MacOS</option>
+                                                    <option value="macOS">macOS</option>
                                                     <option value="Linux">Linux</option>
+                                                    <option value="Unix">Unix</option>
+                                                    <option value="FreeBSD">FreeBSD</option>
+                                                    <option value="Otro">Otro</option>
                                                 </select>
                                             </div>
                                             <div className="flex flex-col lg:flex-row lg:items-center">
@@ -988,16 +991,16 @@ export default function EquiposComputo({ formData, handleInputChange, cancelForm
                                                             value="Si"
                                                             checked={formData.licenciaSistema === "Si"}
                                                             onChange={handleInputChange}
-                                                            className="mr-2 w-4 h-4 accent-blue-600"/>
-                                                        <label htmlFor="licenciaSistemaSi">SI</label>
+                                                            className="mr-2 w-4 h-4 accent-blue-600 cursor-pointer" />
+                                                        <label htmlFor="licenciaSistemaSi" className="text-sm md:text-base">SI</label>
                                                     </div>
                                                     <div className="flex items-center">
                                                         <input type="radio" name="licenciaSistema" id="licenciaSistemaNo" required 
                                                             value="No"
                                                             checked={formData.licenciaSistema === "No"}
                                                             onChange={handleInputChange}
-                                                            className="mr-2 w-4 h-4 accent-blue-600"/>
-                                                        <label htmlFor="licenciaSistemaNo">NO</label>
+                                                            className="mr-2 w-4 h-4 accent-blue-600 cursor-pointer" />
+                                                        <label htmlFor="licenciaSistemaNo" className="text-sm md:text-base">NO</label>
                                                     </div>
                                                 </div>
                                             </div>
@@ -1005,13 +1008,13 @@ export default function EquiposComputo({ formData, handleInputChange, cancelForm
                                     </fieldset>
                                     <div className="flex justify-center md:justify-end gap-4 pt-6">
                                         <button type="button" onClick={() => cancelForm()}
-                                            className="bg-gray-300 hover:bg-gray-200 font-semibold p-3 rounded-md text-sm md:text-base">
+                                            className="bg-gray-300 hover:bg-gray-200 font-semibold p-3 rounded-md text-sm md:text-base transition duration-200 ease-in-out">
                                             Cancelar
                                         </button>
-                                        <button type="button" onClick={() => setSeccionActiva("general")} className="bg-gray-900 hover:bg-gray-700 px-6 text-white font-semibold p-3 rounded-md text-sm md:text-base">
+                                        <button type="button" onClick={() => setSeccionActiva("general")} className="bg-gray-900 hover:bg-gray-700 px-6 text-white font-semibold p-3 rounded-md text-sm md:text-base transition duration-200 ease-in-out">
                                             Atrás
                                         </button>
-                                        <button type="submit" className="bg-primary hover:bg-primary text-white font-semibold p-3 rounded-md text-sm md:text-base">
+                                        <button type="submit" className="bg-primary hover:bg-primary/80 text-white font-semibold p-3 rounded-md text-sm md:text-base transition duration-200 ease-in-out">
                                             Guardar
                                         </button>
                                     </div>

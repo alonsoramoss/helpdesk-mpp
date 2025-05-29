@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
-import { Search } from "lucide-react";
+import { Search, PlusCircle } from "lucide-react";
 import { RegistroEquiposComputo } from "@/types/registroInventario";
 
 interface EquiposComputoProps {
@@ -27,7 +27,7 @@ export default function EquiposComputo({ formData, handleInputChange, cancelForm
     
     const camposEspecificosEquiposComputo = [
         // Placa Base
-        "codPatrimonialPlaca", "estadoPlaca", "fechInstalacionPlaca", "fechDesinstalacionPlaca",
+        "codPatrimonialPlaca", "estadoPlaca", "fechaInstalacionPlaca", "fechaDesinstalacionPlaca",
         "estadoProcesador", "estadoDiscoDuro", "estadoMemoria", "estadoUnidExtraible",
         "observacion",
 
@@ -57,7 +57,7 @@ export default function EquiposComputo({ formData, handleInputChange, cancelForm
     
         // Software
         "nomSoftware", "añoSoftware", "licenciaSoftware",
-        "fechInicioSoftware", "fechFinSoftware"
+        "fechaInicioSoftware", "fechaFinSoftware"
     ];
 
     function validarCampos(formData: RegistroEquiposComputo, campos: string[]) {
@@ -127,8 +127,8 @@ export default function EquiposComputo({ formData, handleInputChange, cancelForm
                                             <select name="tipoDoc" id="tipoDoc" required
                                                 value={formData.tipoDoc}
                                                 onChange={handleInputChange}
-                                                className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4">
-                                                <option selected hidden>Seleccione una opción</option>
+                                                className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4 truncate">
+                                                <option selected hidden>Seleccione tipo de documento</option>
                                                 <option value="DNI">DNI</option>
                                                 <option value="Carnet de Extranjería">Carnet de Extranjería</option>
                                             </select>
@@ -226,9 +226,9 @@ export default function EquiposComputo({ formData, handleInputChange, cancelForm
                                     </div>
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                         <div className="flex flex-col lg:flex-row lg:items-center">
-                                            <label htmlFor="fechAdquisicionEquipo" className="text-sm md:text-base font-medium mb-1 lg:mb-0 lg:mr-3 whitespace-normal sm:whitespace-nowrap">Fecha de Adquisición</label>
-                                            <input type="date" id="fechAdquisicionEquipo" name="fechAdquisicionEquipo" required disabled
-                                                value={formData.fechAdquisicionEquipo}
+                                            <label htmlFor="fechaAdquisicionEquipo" className="text-sm md:text-base font-medium mb-1 lg:mb-0 lg:mr-3">Fecha de Adquisición</label>
+                                            <input type="date" id="fechaAdquisicionEquipo" name="fechaAdquisicionEquipo" required disabled
+                                                value={formData.fechaAdquisicionEquipo}
                                                 onChange={handleInputChange}
                                                 className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4" />
                                         </div>
@@ -237,8 +237,8 @@ export default function EquiposComputo({ formData, handleInputChange, cancelForm
                                             <select name="estadoEquipo" id="estadoEquipo" required 
                                                 value={formData.estadoEquipo}
                                                 onChange={handleInputChange}
-                                                className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4">
-                                                <option selected hidden>Seleccione una opción</option>
+                                                className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4 truncate">
+                                                <option selected hidden>Seleccione estado de equipo</option>
                                                 <option value="Bueno">Bueno</option>
                                                 <option value="Regular">Regular</option>
                                                 <option value="Malo">Malo</option>
@@ -262,11 +262,11 @@ export default function EquiposComputo({ formData, handleInputChange, cancelForm
                                 </fieldset>
                                 <div className="flex justify-center md:justify-end gap-4 pt-6">
                                     <button type="button" onClick={() => cancelForm()}
-                                        className="bg-gray-300 hover:bg-gray-200 font-semibold p-3 rounded-md text-sm md:text-base">
+                                        className="bg-gray-300 hover:bg-gray-200 font-semibold p-3 rounded-md text-sm md:text-base transition duration-200 ease-in-out">
                                         Cancelar
                                     </button>
                                     <button type="button" onClick={handleNextSection}
-                                        className="bg-gray-900 hover:bg-gray-700 text-white font-semibold p-3 rounded-md text-sm md:text-base">
+                                        className="bg-gray-900 hover:bg-gray-700 text-white font-semibold p-3 rounded-md text-sm md:text-base transition duration-200 ease-in-out">
                                         Siguiente
                                     </button>
                                 </div>
@@ -321,24 +321,24 @@ export default function EquiposComputo({ formData, handleInputChange, cancelForm
                                                     <select name="estadoPlaca" id="estadoPlaca" required 
                                                         value={formData.estadoPlaca}
                                                         onChange={handleInputChange}
-                                                        className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4">
-                                                        <option selected hidden>Seleccione una opción</option>
+                                                        className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4 truncate">
+                                                        <option selected hidden>Seleccione estado de placa base</option>
                                                         <option value="Bueno">Bueno</option>
                                                         <option value="Regular">Regular</option>
                                                         <option value="Malo">Malo</option>
                                                     </select>
                                                 </div>
                                                 <div className="flex flex-col lg:flex-row lg:items-center">
-                                                    <label htmlFor="fechInstalacionPlaca" className="text-sm md:text-base font-medium mb-1 lg:mb-0 lg:mr-3">Fecha de Instalación</label>
-                                                    <input type="date" id="fechInstalacionPlaca" name="fechInstalacionPlaca" required
-                                                        value={formData.fechInstalacionPlaca}
+                                                    <label htmlFor="fechaInstalacionPlaca" className="text-sm md:text-base font-medium mb-1 lg:mb-0 lg:mr-3">Fecha de Instalación</label>
+                                                    <input type="date" id="fechaInstalacionPlaca" name="fechaInstalacionPlaca" required
+                                                        value={formData.fechaInstalacionPlaca}
                                                         onChange={handleInputChange}
                                                         className="w-full p-2 mt-1 lg:mt-0 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4" />
                                                 </div>
                                                 <div className="flex flex-col lg:flex-row lg:items-center">
-                                                    <label htmlFor="fechDesinstalacionPlaca" className="text-sm md:text-base font-medium mb-1 lg:mb-0 lg:mr-3">Fecha de Desinstalación</label>
-                                                    <input type="date" id="fechDesinstalacionPlaca" name="fechDesinstalacionPlaca" required
-                                                        value={formData.fechDesinstalacionPlaca}
+                                                    <label htmlFor="fechaDesinstalacionPlaca" className="text-sm md:text-base font-medium mb-1 lg:mb-0 lg:mr-3">Fecha de Desinstalación</label>
+                                                    <input type="date" id="fechaDesinstalacionPlaca" name="fechaDesinstalacionPlaca" required
+                                                        value={formData.fechaDesinstalacionPlaca}
                                                         onChange={handleInputChange}
                                                         className="w-full p-2 mt-1 lg:mt-0 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4" />
                                                 </div>
@@ -357,8 +357,8 @@ export default function EquiposComputo({ formData, handleInputChange, cancelForm
                                                 <select name="estadoProcesador" id="estadoProcesador" required 
                                                     value={formData.estadoProcesador}
                                                     onChange={handleInputChange}
-                                                    className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4">
-                                                    <option selected hidden>Seleccione una opción</option>
+                                                    className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4 truncate">
+                                                    <option selected hidden>Seleccione estado de procesador</option>
                                                     <option value="Bueno">Bueno</option>
                                                     <option value="Regular">Regular</option>
                                                     <option value="Malo">Malo</option>
@@ -376,8 +376,8 @@ export default function EquiposComputo({ formData, handleInputChange, cancelForm
                                                 <select name="estadoDiscoDuro" id="estadoDiscoDuro" required
                                                     value={formData.estadoDiscoDuro}
                                                     onChange={handleInputChange}
-                                                    className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4">
-                                                    <option selected hidden>Seleccione una opción</option>
+                                                    className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4 truncate">
+                                                    <option selected hidden>Seleccione estado de disco duro</option>
                                                     <option value="Bueno">Bueno</option>
                                                     <option value="Regular">Regular</option>
                                                     <option value="Malo">Malo</option>
@@ -395,8 +395,8 @@ export default function EquiposComputo({ formData, handleInputChange, cancelForm
                                                 <select name="estadoMemoria" id="estadoMemoria" required
                                                     value={formData.estadoMemoria}
                                                     onChange={handleInputChange}
-                                                    className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4">
-                                                    <option selected hidden>Seleccione una opción</option>
+                                                    className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4 truncate">
+                                                    <option selected hidden>Seleccione estado de memoria</option>
                                                     <option value="Bueno">Bueno</option>
                                                     <option value="Regular">Regular</option>
                                                     <option value="Malo">Malo</option>
@@ -414,17 +414,17 @@ export default function EquiposComputo({ formData, handleInputChange, cancelForm
                                                 <select name="estadoUnidExtraible" id="estadoUnidExtraible" required
                                                     value={formData.estadoUnidExtraible}
                                                     onChange={handleInputChange}
-                                                    className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4">
-                                                    <option selected hidden>Seleccione una opción</option>
+                                                    className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4 truncate">
+                                                    <option selected hidden>Seleccione estado de unidad extraible</option>
                                                     <option value="Bueno">Bueno</option>
                                                     <option value="Regular">Regular</option>
                                                     <option value="Malo">Malo</option>
                                                 </select>
                                             </div>
                                         </div>
-                                        <div className="font-semibold">
-                                            +  Añadir otra unidad extraible
-                                        </div>
+                                        <button type="button" className="flex items-center gap-3 text-sm md:text-base font-semibold">
+                                            <PlusCircle size={20} /> <span>Añadir otra unidad extraible</span>
+                                        </button>
                                     </fieldset>
                                     <div className="px-1">
                                         <label htmlFor="observacion" className="text-sm md:text-base font-medium mb-1 lg:mb-0 lg:mr-3 whitespace-normal sm:whitespace-nowrap sm:w-60">Observaciones</label>
@@ -483,8 +483,8 @@ export default function EquiposComputo({ formData, handleInputChange, cancelForm
                                                     <select name="estadoMonitor" id="estadoMonitor" required 
                                                         value={formData.estadoMonitor}
                                                         onChange={handleInputChange}
-                                                        className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4">
-                                                        <option selected hidden>Seleccione una opción</option>
+                                                        className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4 truncate">
+                                                        <option selected hidden>Seleccione estado de monitor</option>
                                                         <option value="Bueno">Bueno</option>
                                                         <option value="Regular">Regular</option>
                                                         <option value="Malo">Malo</option>
@@ -535,8 +535,8 @@ export default function EquiposComputo({ formData, handleInputChange, cancelForm
                                                     <select name="estadoTeclado" id="estadoTeclado" required 
                                                         value={formData.estadoTeclado}
                                                         onChange={handleInputChange}
-                                                        className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4">
-                                                        <option selected hidden>Seleccione una opción</option>
+                                                        className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4 truncate">
+                                                        <option selected hidden>Seleccione estado de teclado</option>
                                                         <option value="Bueno">Bueno</option>
                                                         <option value="Regular">Regular</option>
                                                         <option value="Malo">Malo</option>
@@ -587,8 +587,8 @@ export default function EquiposComputo({ formData, handleInputChange, cancelForm
                                                     <select name="estadoMouse" id="estadoMouse" required 
                                                         value={formData.estadoMouse}
                                                         onChange={handleInputChange}
-                                                        className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4">
-                                                        <option selected hidden>Seleccione una opción</option>
+                                                        className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4 truncate">
+                                                        <option selected hidden>Seleccione estado de mouse</option>
                                                         <option value="Bueno">Bueno</option>
                                                         <option value="Regular">Regular</option>
                                                         <option value="Malo">Malo</option>
@@ -639,8 +639,8 @@ export default function EquiposComputo({ formData, handleInputChange, cancelForm
                                                     <select name="estadoParlantes" id="estadoParlantes" required
                                                         value={formData.estadoParlantes}
                                                         onChange={handleInputChange}
-                                                        className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4">
-                                                        <option selected hidden>Seleccione una opción</option>
+                                                        className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4 truncate">
+                                                        <option selected hidden>Seleccione estado de parlantes</option>
                                                         <option value="Bueno">Bueno</option>
                                                         <option value="Regular">Regular</option>
                                                         <option value="Malo">Malo</option>
@@ -691,8 +691,8 @@ export default function EquiposComputo({ formData, handleInputChange, cancelForm
                                                     <select name="estadoEstabilizador" id="estadoEstabilizador" required
                                                         value={formData.estadoEstabilizador}
                                                         onChange={handleInputChange}
-                                                        className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4">
-                                                        <option selected hidden>Seleccione una opción</option>
+                                                        className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4 truncate">
+                                                        <option selected hidden>Seleccione estado de estabilizador</option>
                                                         <option value="Bueno">Bueno</option>
                                                         <option value="Regular">Regular</option>
                                                         <option value="Malo">Malo</option>
@@ -701,7 +701,7 @@ export default function EquiposComputo({ formData, handleInputChange, cancelForm
                                             </div>
                                         </fieldset>
                                         <fieldset className="border border-gray-300 pt-3 md:pt-4 pb-5 md:pb-7 px-5 md:px-7 rounded-md mb-5">
-                                            <legend className="px-2 text-base md:text-lg font-semibold">Supresor de pico</legend>
+                                            <legend className="px-2 text-base md:text-lg font-semibold">Supresor de Pico</legend>
                                             <div className="flex flex-col lg:flex-row lg:items-center mb-4">
                                                 <label htmlFor="codPatrimonialSupresorPico" className="text-sm md:text-base font-medium mb-1 lg:mb-0 lg:mr-3 whitespace-normal sm:whitespace-nowrap">Código Patrimonial</label>
                                                 <div className="flex items-center w-full">
@@ -743,8 +743,8 @@ export default function EquiposComputo({ formData, handleInputChange, cancelForm
                                                     <select name="estadoSupresorPico" id="estadoSupresorPico" required
                                                         value={formData.estadoSupresorPico}
                                                         onChange={handleInputChange}
-                                                        className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4">
-                                                        <option selected hidden>Seleccione una opción</option>
+                                                        className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4 truncate">
+                                                        <option selected hidden>Seleccione estado de supresor de pico</option>
                                                         <option value="Bueno">Bueno</option>
                                                         <option value="Regular">Regular</option>
                                                         <option value="Malo">Malo</option>
@@ -765,31 +765,31 @@ export default function EquiposComputo({ formData, handleInputChange, cancelForm
                                                     <select name="estadoTarjeta" id="estadoTarjeta" required
                                                         value={formData.estadoTarjeta}
                                                         onChange={handleInputChange}
-                                                        className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4">
-                                                        <option selected hidden>Seleccione una opción</option>
+                                                        className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4 truncate">
+                                                        <option selected hidden>Seleccione estado de tarjeta</option>
                                                         <option value="Bueno">Bueno</option>
                                                         <option value="Regular">Regular</option>
                                                         <option value="Malo">Malo</option>
                                                     </select>
                                                 </div>
-                                                <div className="font-semibold">
-                                                    + Añadir otra tarjeta
-                                                </div>
                                             </div>
+                                            <button type="button" className="flex items-center gap-3 text-sm md:text-base font-semibold mt-4">
+                                                <PlusCircle size={20} /> <span>Añadir otra tarjeta</span>
+                                            </button>
                                             </fieldset>
                                         <fieldset className="border border-gray-300 pt-3 md:pt-4 pb-5 md:pb-7 px-5 md:px-7 rounded-md mb-5">
                                             <legend className="px-2 text-base md:text-lg font-semibold">Sistema</legend>
                                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                                 <div className="flex flex-col lg:flex-row lg:items-center">
-                                                    <label htmlFor="tipoSO" className="text-sm md:text-base font-medium mb-1 lg:mb-0 lg:mr-3 whitespace-normal sm:whitespace-nowrap">Tipo de SO</label>
+                                                <label htmlFor="tipoSO" className="text-sm md:text-base font-medium mb-1 lg:mb-0 lg:mr-3 whitespace-normal sm:whitespace-nowrap">Tipo de SO</label>
                                                     <select name="tipoSO" id="tipoSO" required
                                                         value={formData.tipoSO}
                                                         onChange={handleInputChange}
-                                                        className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4">
+                                                        className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4 truncate">
                                                         <option selected hidden>Seleccione tipo de sistema operativo</option>
                                                         <option value="Windows">Windows</option>
-                                                        <option value="Linux">Linux</option>
                                                         <option value="macOS">macOS</option>
+                                                        <option value="Linux">Linux</option>
                                                         <option value="Unix">Unix</option>
                                                         <option value="FreeBSD">FreeBSD</option>
                                                         <option value="Otro">Otro</option>
@@ -803,16 +803,16 @@ export default function EquiposComputo({ formData, handleInputChange, cancelForm
                                                                 value="Si"
                                                                 checked={formData.licenciaSistema === "Si"}
                                                                 onChange={handleInputChange}
-                                                                className="mr-2 w-4 h-4 accent-blue-600"/>
-                                                            <label htmlFor="licenciaSistemaSi">SI</label>
+                                                                className="mr-2 w-4 h-4 accent-blue-600 cursor-pointer"/>
+                                                            <label htmlFor="licenciaSistemaSi" className="text-sm md:text-base">SI</label>
                                                         </div>
                                                         <div className="flex items-center">
                                                             <input type="radio" name="licenciaSistema" id="licenciaSistemaNo" required 
                                                                 value="No"
                                                                 checked={formData.licenciaSistema === "No"}
                                                                 onChange={handleInputChange}
-                                                                className="mr-2 w-4 h-4 accent-blue-600"/>
-                                                            <label htmlFor="licenciaSistemaNo">NO</label>
+                                                                className="mr-2 w-4 h-4 accent-blue-600 cursor-pointer"/>
+                                                            <label htmlFor="licenciaSistemaNo" className="text-sm md:text-base">NO</label>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -833,8 +833,8 @@ export default function EquiposComputo({ formData, handleInputChange, cancelForm
                                                     <select name="añoSoftware" id="añoSoftware" required
                                                         value={formData.añoSoftware}
                                                         onChange={handleInputChange}
-                                                        className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4">
-                                                        <option selected hidden>Seleccione una opción</option>
+                                                        className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4 truncate">
+                                                        <option selected hidden>Seleccione año del software</option>
                                                         <option value="2025">2025</option>
                                                         <option value="2024">2024</option>
                                                         <option value="2023">2023</option>
@@ -857,48 +857,48 @@ export default function EquiposComputo({ formData, handleInputChange, cancelForm
                                                             value="Si"
                                                             checked={formData.licenciaSoftware === "Si"}
                                                             onChange={handleInputChange}
-                                                            className="mr-2 w-4 h-4 accent-blue-600"/>
-                                                        <label htmlFor="licenciaSoftwareSi">SI</label>
+                                                            className="mr-2 w-4 h-4 accent-blue-600 cursor-pointer"/>
+                                                        <label htmlFor="licenciaSoftwareSi" className="text-sm md:text-base">SI</label>
                                                     </div>
                                                     <div className="flex items-center">
                                                         <input type="radio" name="licenciaSoftware" id="licenciaSoftwareNo" required 
                                                             value="No"
                                                             checked={formData.licenciaSoftware === "No"}
                                                             onChange={handleInputChange}
-                                                            className="mr-2 w-4 h-4 accent-blue-600"/>
-                                                        <label htmlFor="licenciaSoftwareNo">NO</label>
+                                                            className="mr-2 w-4 h-4 accent-blue-600 cursor-pointer"/>
+                                                        <label htmlFor="licenciaSoftwareNo" className="text-sm md:text-base">NO</label>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-4">
                                                 <div className="flex flex-col lg:flex-row lg:items-center">
-                                                    <label htmlFor="fechInicioSoftware" className="text-sm md:text-base font-medium mb-1 lg:mb-0 lg:mr-3 whitespace-normal sm:whitespace-nowrap">Fecha de Inicio</label>
-                                                    <input type="date" id="fechInicioSoftware" name="fechInicioSoftware" required
-                                                        value={formData.fechInicioSoftware}
+                                                    <label htmlFor="fechaInicioSoftware" className="text-sm md:text-base font-medium mb-1 lg:mb-0 lg:mr-3 whitespace-normal sm:whitespace-nowrap">Fecha de Inicio</label>
+                                                    <input type="date" id="fechaInicioSoftware" name="fechaInicioSoftware" required
+                                                        value={formData.fechaInicioSoftware}
                                                         onChange={handleInputChange}
                                                         className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4" />
                                                 </div>
                                                 <div className="flex flex-col lg:flex-row lg:items-center">
-                                                    <label htmlFor="fechFinSoftware" className="text-sm md:text-base font-medium mb-1 lg:mb-0 lg:mr-3 whitespace-normal sm:whitespace-nowrap">Fecha de Fin</label>
-                                                    <input type="date" id="fechFinSoftware" name="fechFinSoftware" required
-                                                        value={formData.fechFinSoftware}
+                                                    <label htmlFor="fechaFinSoftware" className="text-sm md:text-base font-medium mb-1 lg:mb-0 lg:mr-3 whitespace-normal sm:whitespace-nowrap">Fecha de Fin</label>
+                                                    <input type="date" id="fechaFinSoftware" name="fechaFinSoftware" required
+                                                        value={formData.fechaFinSoftware}
                                                         onChange={handleInputChange}
                                                         className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4" />
                                                 </div>
                                             </div>
-                                            <div className="font-semibold">
-                                            +  Añadir otra unidad extraible
-                                            </div>
+                                            <button type="button" className="flex items-center gap-3 text-sm md:text-base font-semibold">
+                                                <PlusCircle size={20} /> <span>Añadir otra unidad extraible</span>
+                                            </button>
                                         </fieldset>
                                     <div className="flex justify-center md:justify-end gap-4 pt-6">
                                         <button type="button" onClick={() => cancelForm()}
-                                            className="bg-gray-300 hover:bg-gray-200 font-semibold p-3 rounded-md text-sm md:text-base">
+                                            className="bg-gray-300 hover:bg-gray-200 font-semibold p-3 rounded-md text-sm md:text-base transition duration-200 ease-in-out">
                                             Cancelar
                                         </button>
-                                        <button type="button" onClick={() => setSeccionActiva("general")} className="bg-gray-900 hover:bg-gray-700 px-6 text-white font-semibold p-3 rounded-md text-sm md:text-base">
+                                        <button type="button" onClick={() => setSeccionActiva("general")} className="bg-gray-900 hover:bg-gray-700 px-6 text-white font-semibold p-3 rounded-md text-sm md:text-base transition duration-200 ease-in-out">
                                             Atrás
                                         </button>
-                                        <button type="submit" className="bg-primary hover:bg-primary text-white font-semibold p-3 rounded-md text-sm md:text-base">
+                                        <button type="submit" className="bg-primary hover:bg-primary/80 text-white font-semibold p-3 rounded-md text-sm md:text-base transition duration-200 ease-in-out">
                                             Guardar
                                         </button>
                                     </div>
