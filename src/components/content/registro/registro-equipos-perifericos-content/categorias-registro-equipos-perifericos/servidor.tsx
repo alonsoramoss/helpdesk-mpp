@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
-import { Search } from "lucide-react";
+import { Search,PlusCircle } from "lucide-react";
 import { RegistroServidor } from "@/types/registroEquiposPerifericos";
 
 interface ServidorProps {
@@ -23,7 +23,7 @@ export default function Servidor({ formData, handleInputChange, cancelForm, remo
         "nomOficina",
 
         // Equipo
-        "codPatrimonialEquipo", "tipoEquipo", "fabricanteEquipo", "modeloEquipo", "numSerieEquipo", "fechAdquisicionEquipo", 
+        "codPatrimonialEquipo", "tipoEquipo", "fabricanteEquipo", "modeloEquipo", "numSerieEquipo", "fechaAdquisicionEquipo", 
         "estadoEquipo", "hostnameEquipo", "ipEquipo", "factorFormaEquipo", "numFacturaEquipo"
     ];
 
@@ -82,7 +82,7 @@ export default function Servidor({ formData, handleInputChange, cancelForm, remo
 
     return (
         <>
-            <h1 className="text-lg md:text-2xl font-bold text-center mb-6"> Registro Equipo Físico y Lógico de Servidor de MPP</h1>
+            <h1 className="text-lg md:text-2xl font-bold text-center mb-6">Registro Físico y Lógico de Servidores de MPP</h1>
             <Card className="border shadow-2xl rounded-none">
                 <CardContent className="p-0">
                     <form onSubmit={handleSubmit}>
@@ -209,9 +209,9 @@ export default function Servidor({ formData, handleInputChange, cancelForm, remo
                                     </div>
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                         <div className="flex flex-col lg:flex-row lg:items-center">
-                                            <label htmlFor="fechAdquisicionEquipo" className="text-sm md:text-base font-medium mb-1 lg:mb-0 lg:mr-3 whitespace-normal sm:whitespace-nowrap">Fecha de Adquisición</label>
-                                            <input type="date" id="fechAdquisicionEquipo" name="fechAdquisicionEquipo" required
-                                                value={formData.fechAdquisicionEquipo}
+                                            <label htmlFor="fechaAdquisicionEquipo" className="text-sm md:text-base font-medium mb-1 lg:mb-0 lg:mr-3">Fecha de Adquisición</label>
+                                            <input type="date" id="fechaAdquisicionEquipo" name="fechaAdquisicionEquipo" required
+                                                value={formData.fechaAdquisicionEquipo}
                                                 onChange={handleInputChange}
                                                 className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4" />
                                         </div>
@@ -242,7 +242,7 @@ export default function Servidor({ formData, handleInputChange, cancelForm, remo
                                                 className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4" />
                                         </div>
                                         <div className="flex flex-col lg:flex-row lg:items-center">
-                                            <label htmlFor="factorFormaEquipo" className="text-sm md:text-base font-medium mb-1 lg:mb-0 lg:mr-3 whitespace-normal sm:whitespace-nowrap">Factor de forma</label>
+                                            <label htmlFor="factorFormaEquipo" className="text-sm md:text-base font-medium mb-1 lg:mb-0 lg:mr-3 whitespace-normal sm:whitespace-nowrap">Factor de Forma</label>
                                             <select name="factorFormaEquipo" id="factorFormaEquipo" required 
                                                 value={formData.factorFormaEquipo}
                                                 onChange={handleInputChange}
@@ -263,15 +263,15 @@ export default function Servidor({ formData, handleInputChange, cancelForm, remo
                                             <input type="file" id="imagenEquipo" name="imagenEquipo"
                                                 value={formData.imagenEquipo}
                                                 onChange={handleInputChange}
-                                                className="w-full border border-gray-300 rounded-md file:mr-4 file:py-2 file:px-4 file:border-0 
+                                                className="text-sm md:text-base w-full border border-gray-300 rounded-md file:mr-4 file:py-2 file:px-4 file:border-0 
                                                 file:text-sm file:md:text-base file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100" />
                                         </div>
                                         <div className="flex flex-col lg:flex-row lg:items-center">
                                             <label htmlFor="garantiaEquipo" className="text-sm md:text-base font-medium mb-1 lg:mb-0 lg:mr-3 whitespace-normal sm:whitespace-nowrap">Garantía</label>
                                             <input type="checkbox" id="garantiaEquipo" name="garantiaEquipo"
-                                                value={formData.garantiaEquipo}
+                                                checked={formData.garantiaEquipo}
                                                 onChange={handleInputChange}
-                                                className="w-4 h-4 ml-2 accent-blue-600" />
+                                                className="w-4 h-4 ml-2 accent-blue-600 cursor-pointer" />
                                         </div>
                                         <div className="flex flex-col lg:flex-row lg:items-center">
                                             <label htmlFor="numFacturaEquipo" className="text-sm md:text-base font-medium mb-1 lg:mb-0 lg:mr-3 whitespace-normal sm:whitespace-nowrap">N° de Factura</label>
@@ -284,11 +284,11 @@ export default function Servidor({ formData, handleInputChange, cancelForm, remo
                                 </fieldset>
                                 <div className="flex justify-center md:justify-end gap-4 pt-6">
                                     <button type="button" onClick={() => cancelForm()}
-                                        className="bg-gray-300 hover:bg-gray-200 font-semibold p-3 rounded-md text-sm md:text-base">
+                                        className="bg-gray-300 hover:bg-gray-200 font-semibold p-3 rounded-md text-sm md:text-base transition duration-200 ease-in-out">
                                         Cancelar
                                     </button>
                                     <button type="button"  onClick={handleNextSection}
-                                        className="bg-gray-900 hover:bg-gray-700 text-white font-semibold p-3 rounded-md text-sm md:text-base">
+                                        className="bg-gray-900 hover:bg-gray-700 text-white font-semibold p-3 rounded-md text-sm md:text-base transition duration-200 ease-in-out">
                                         Siguiente
                                     </button>
                                 </div>
@@ -337,7 +337,7 @@ export default function Servidor({ formData, handleInputChange, cancelForm, remo
                                         </div>
                                         <div className="flex flex-col lg:flex-row lg:items-center">
                                             <label htmlFor="numNucleos" className="text-sm md:text-base font-medium mb-1 lg:mb-0 lg:mr-3 whitespace-normal sm:whitespace-nowrap">N° de Núcleos</label>
-                                            <input type="text" id="numNucleos" name="numNucleos" required
+                                            <input type="number" id="numNucleos" name="numNucleos" required
                                                 value={formData.numNucleos}
                                                 onChange={handleInputChange}
                                                 className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4" />
@@ -381,6 +381,30 @@ export default function Servidor({ formData, handleInputChange, cancelForm, remo
                                             </select>
                                         </div>
                                         <div className="flex flex-col lg:flex-row lg:items-center">
+                                            <label htmlFor="numDiscos" className="text-sm md:text-base font-medium mb-1 lg:mb-0 lg:mr-3 whitespace-normal sm:whitespace-nowrap">N° de Discos</label>
+                                            <input type="number" id="numDiscos" name="numDiscos" required
+                                                value={formData.numDiscos}
+                                                onChange={handleInputChange}
+                                                className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4" />
+                                        </div>
+                                        <div className="flex flex-col lg:flex-row lg:items-center">
+                                            <label htmlFor="interfazAlmacenamiento" className="text-sm md:text-base font-medium mb-1 lg:mb-0 lg:mr-3">Interfaz de Almacenamiento</label>
+                                            <select name="interfazAlmacenamiento" id="interfazAlmacenamiento" required 
+                                                value={formData.interfazAlmacenamiento}
+                                                onChange={handleInputChange}
+                                                className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4 truncate">
+                                                <option selected hidden>Seleccione interfaz de almacenamiento</option>
+                                                <option value="SATA">SATA</option>
+                                                <option value="SAS">SAS</option>
+                                                <option value="NVMe">NVMe</option>
+                                                <option value="PCIe">PCIe</option>
+                                                <option value="M.2">M.2</option>
+                                                <option value="U.2">U.2</option>
+                                                <option value="USB">USB (para discos externos)</option>
+                                                <option value="Thunderbolt">Thunderbolt</option>
+                                            </select>
+                                        </div>
+                                        <div className="flex flex-col lg:flex-row lg:items-center">
                                             <label htmlFor="fuentePoder" className="text-sm md:text-base font-medium mb-1 lg:mb-0 lg:mr-3 whitespace-normal sm:whitespace-nowrap">Fuente de Poder</label>
                                             <input type="text" id="fuentePoder" name="fuentePoder" required
                                                 value={formData.fuentePoder}
@@ -388,21 +412,28 @@ export default function Servidor({ formData, handleInputChange, cancelForm, remo
                                                 className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4" />
                                         </div>
                                         <div className="flex flex-col lg:flex-row lg:items-center">
-                                            <label htmlFor="tarjetaRed" className="text-sm md:text-base font-medium mb-1 lg:mb-0 lg:mr-3 whitespace-normal sm:whitespace-nowrap">Tarjeta de Red</label>
-                                            <select name="tarjetaRed" id="tarjetaRed" required 
+                                            <label htmlFor="tarjetaRed" className="text-sm md:text-base font-medium mb-1 lg:mb-0 lg:mr-3">Tarjeta de Red</label>
+                                            <input type="text" id="tarjetaRed" name="tarjetaRed" required
                                                 value={formData.tarjetaRed}
                                                 onChange={handleInputChange}
-                                                className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4 truncate">
-                                                <option selected hidden>Seleccione tipo de tarjeta de red</option>
-                                                <option value="Ethernet 1 Gbps">Ethernet 1 Gbps</option>
-                                                <option value="Ethernet 10 Gbps">Ethernet 10 Gbps</option>
-                                                <option value="Wi-Fi 5 (802.11ac)">Wi-Fi 5 (802.11ac)</option>
-                                                <option value="Wi-Fi 6 (802.11ax)">Wi-Fi 6 (802.11ax)</option>
-                                                <option value="Wi-Fi 6E / 7">Wi-Fi 6E / 7</option>
-                                            </select>
+                                                className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4" />
                                         </div>
                                         <div className="flex flex-col lg:flex-row lg:items-center">
-                                            <label htmlFor="sistemaRefrigeracion" className="text-sm md:text-base font-medium mb-1 lg:mb-0 lg:mr-3 whitespace-normal sm:whitespace-nowrap">Sistema de Refrigeración</label>
+                                            <label htmlFor="puertosUsb" className="text-sm md:text-base font-medium mb-1 lg:mb-0 lg:mr-3 whitespace-normal sm:whitespace-nowrap">Puertos USB</label>
+                                            <input type="number" id="puertosUsb" name="puertosUsb" required
+                                                value={formData.puertosUsb}
+                                                onChange={handleInputChange}
+                                                className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4" />
+                                        </div>
+                                        <div className="flex flex-col lg:flex-row lg:items-center">
+                                            <label htmlFor="fuenteAlimentacion" className="text-sm md:text-base font-medium mb-1 lg:mb-0 lg:mr-3">Fuente de Alimentación</label>
+                                            <input type="text" id="fuenteAlimentacion" name="fuenteAlimentacion" required
+                                                value={formData.fuenteAlimentacion}
+                                                onChange={handleInputChange}
+                                                className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4" />
+                                        </div>
+                                        <div className="flex flex-col lg:flex-row lg:items-center">
+                                            <label htmlFor="sistemaRefrigeracion" className="text-sm md:text-base font-medium mb-1 lg:mb-0 lg:mr-3">Sistema de Refrigeración</label>
                                             <select name="sistemaRefrigeracion" id="sistemaRefrigeracion" required 
                                                 value={formData.sistemaRefrigeracion}
                                                 onChange={handleInputChange}
@@ -416,18 +447,11 @@ export default function Servidor({ formData, handleInputChange, cancelForm, remo
                                             </select>
                                         </div>
                                         <div className="flex flex-col lg:flex-row lg:items-center">
-                                            <label htmlFor="numVentiladores" className="text-sm md:text-base font-medium mb-1 lg:mb-0 lg:mr-3 whitespace-normal sm:whitespace-nowrap">N° de Ventiladores</label>
-                                            <select name="numVentiladores" id="numVentiladores" required 
+                                            <label htmlFor="numVentiladores" className="text-sm md:text-base font-medium mb-1 lg:mb-0 lg:mr-3">N° de Ventiladores</label>
+                                            <input type="number" id="numVentiladores" name="numVentiladores" required
                                                 value={formData.numVentiladores}
                                                 onChange={handleInputChange}
-                                                className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4 truncate">
-                                                <option selected hidden>Seleccione número de ventiladores</option>
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                                <option value="4">4</option>
-                                                <option value="5 o más">5 o más</option>
-                                            </select>
+                                                className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4" />
                                         </div>
                                     </div>
                                     <div>
@@ -473,7 +497,7 @@ export default function Servidor({ formData, handleInputChange, cancelForm, remo
                                                 value={formData.versionSo}
                                                 onChange={handleInputChange}
                                                 className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4 truncate">
-                                                <option selected hidden>Seleccione versión del SO</option>
+                                                <option selected hidden>Seleccione versión del sistema operativo</option>
                                                 <option value="Windows Server 2016">Windows Server 2016</option>
                                                 <option value="Windows Server 2019">Windows Server 2019</option>
                                                 <option value="Windows Server 2022">Windows Server 2022</option>
@@ -491,7 +515,7 @@ export default function Servidor({ formData, handleInputChange, cancelForm, remo
                                                         value="Si"
                                                         checked={formData.licenciaSoftware === "Si"}
                                                         onChange={handleInputChange}
-                                                        className="mr-2 w-4 h-4 accent-blue-600"/>
+                                                        className="mr-2 w-4 h-4 accent-blue-600 cursor-pointer"/>
                                                     <label htmlFor="licenciaSoftwareSi">SI</label>
                                                 </div>
                                                 <div className="flex items-center">
@@ -499,7 +523,7 @@ export default function Servidor({ formData, handleInputChange, cancelForm, remo
                                                         value="No"
                                                         checked={formData.licenciaSoftware === "No"}
                                                         onChange={handleInputChange}
-                                                        className="mr-2 w-4 h-4 accent-blue-600"/>
+                                                        className="mr-2 w-4 h-4 accent-blue-600 cursor-pointer"/>
                                                     <label htmlFor="licenciaSoftwareNo">NO</label>
                                                 </div>
                                             </div>
@@ -521,11 +545,13 @@ export default function Servidor({ formData, handleInputChange, cancelForm, remo
                                             </select>
                                         </div>
                                     </div>
-                                    <div className="flex justify-end mt-4">
-                                        + Añadir otro servicio
+                                    <div className="flex justify-end text-sm md:text-base font-semibold mt-4">
+                                        <button type="button" className="flex items-center gap-3">
+                                            <PlusCircle size={20} /> <span>Añadir otra unidad extraible</span>
+                                        </button>
                                     </div>
                                 </div>
-                                <div className="mb-10">
+                                <div className="mb-6">
                                     <h1 className="text-base md:text-lg font-semibold">Seguridad y Respaldo</h1>
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-1">
                                         <div className="flex flex-col lg:flex-row lg:items-center">
@@ -574,13 +600,13 @@ export default function Servidor({ formData, handleInputChange, cancelForm, remo
                                 </div>
                                 <div className="flex justify-center md:justify-end gap-4">
                                     <button type="button" onClick={() => cancelForm()}
-                                        className="bg-gray-300 hover:bg-gray-200 font-semibold p-3 rounded-md text-sm md:text-base">
+                                        className="bg-gray-300 hover:bg-gray-200 font-semibold p-3 rounded-md text-sm md:text-base transition duration-200 ease-in-out">
                                         Cancelar
                                     </button>
-                                    <button type="button" onClick={() => setSeccionActiva("general")} className="bg-gray-900 hover:bg-gray-700 px-6 text-white font-semibold p-3 rounded-md text-sm md:text-base">
+                                    <button type="button" onClick={() => setSeccionActiva("general")} className="bg-gray-900 hover:bg-gray-700 px-6 text-white font-semibold p-3 rounded-md text-sm md:text-base transition duration-200 ease-in-out">
                                         Atrás
                                     </button>
-                                    <button type="submit" className="bg-primary hover:bg-primary text-white font-semibold p-3 rounded-md text-sm md:text-base">
+                                    <button type="submit" className="bg-primary hover:bg-primary/80 text-white font-semibold p-3 rounded-md text-sm md:text-base transition duration-200 ease-in-out">
                                         Guardar
                                     </button>
                                 </div>
