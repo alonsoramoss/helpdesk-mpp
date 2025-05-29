@@ -1,10 +1,11 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useFetchUsuario } from "@/hooks/use-usuarios";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Usuario } from "@/services/usuariosService";
 import { toast } from "sonner";
+import { Eye, EyeOff } from "lucide-react"; 
 
 const UsuarioTable = () => {
     const { usuarios, loading, error, addUsuario, editUsuario, removeUsuario } = useFetchUsuario();
@@ -12,7 +13,9 @@ const UsuarioTable = () => {
     const [openCreate, setOpenCreate] = useState(false);
     const [openEdit, setOpenEdit] = useState(false);
     const [selectedUsuario, setSelectedUsuario] = useState<Usuario | null>(null);
-
+    const [mostrarContraseña, setMostrarContraseña] = useState<{ [key: number]: boolean }>({});
+    const contraseñaTimers = useRef<{ [key: number]: NodeJS.Timeout }>({});
+    
     const [nuevoUsuario, setNuevoUsuario] = useState<Omit<Usuario, "int_idUsuario">>({
         vch_nombre: "",
         vch_email: "",
@@ -20,6 +23,23 @@ const UsuarioTable = () => {
         vch_cargo: "",
         chr_estado: 1,
     });
+    
+    const handleTogglePassword = (id: number) => {
+        setMostrarContraseña((prev) => {
+            const shownContraseña = prev[id];
+
+            if (shownContraseña) {
+                clearTimeout(contraseñaTimers.current[id]);
+                return { ...prev, [id]: false };
+            } else {
+                const timer = setTimeout(() => {
+                    setMostrarContraseña((p) => ({ ...p, [id]: false }));
+                }, 3000);
+                contraseñaTimers.current[id] = timer;
+                return { ...prev, [id]: true };
+            }
+        });
+    };
     
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
@@ -122,7 +142,21 @@ const UsuarioTable = () => {
                             <td className="p-2 text-center border text-sm">{usuario.int_idUsuario}</td>
                             <td className="p-2 border text-sm">{usuario.vch_nombre}</td>
                             <td className="p-2 border text-sm">{usuario.vch_email}</td>
-                            <td className="p-2 border text-sm">********</td>
+                            <td className="p-2 border text-sm">
+                                <div className="min-w-[5rem] flex items-center justify-between">
+                                    <span>{mostrarContraseña[usuario.int_idUsuario] ? usuario.vch_contrasena : "********"}</span>
+                                    <button
+                                        onClick={() => handleTogglePassword(usuario.int_idUsuario)}
+                                        className="text-neutral-950 hover:text-neutral-700 transition-colors duration-200 ease-in-out"
+                                    >
+                                        {mostrarContraseña[usuario.int_idUsuario] ? (
+                                            <EyeOff className="w-4 h-4" />
+                                        ) : (
+                                            <Eye className="w-4 h-4" />
+                                        )}
+                                    </button>
+                                </div>
+                            </td>
                             <td className="p-2 border text-sm">{usuario.vch_cargo}</td>
                             <td className="p-2 text-center border text-sm">{usuario.chr_estado}</td>
                             <td className="p-2 text-center border text-sm">
