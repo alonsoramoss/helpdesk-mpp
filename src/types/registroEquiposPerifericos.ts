@@ -9,13 +9,13 @@ export interface RegistroEquiposPerifericosGeneral {
     fabricanteEquipo: string;
     modeloEquipo: string;
     numSerieEquipo: string;
-    fechAdquisicionEquipo: string;
+    fechaAdquisicionEquipo: string;
     estadoEquipo: string;
     hostnameEquipo: string;
     ipEquipo: string;
     factorFormaEquipo: string;
     imagenEquipo: string;
-    garantiaEquipo: string;
+    garantiaEquipo: boolean;
     numFacturaEquipo: string;
 }
 
@@ -167,13 +167,13 @@ export interface RegistroPantalla extends RegistroEquiposPerifericosGeneral {
     soporteMontaje: string;
 
     // Accesorios
-    pantallaTactil: string;
-    controlRemotoIncluido: string;
-    conectividadInalambrica: string;
-    camara: string;
-    altavocesIntegrados: string;
-    funcionSmart: string;
-    wifi: string;
+    pantallaTactil: boolean;
+    controlRemotoIncluido: boolean;
+    camara: boolean;
+    altavocesIntegrados: boolean;
+    funcionSmart: boolean;
+    wifi: boolean;
+    conectividadInalambrica: boolean;
 }
 
 export interface RegistroEquipoBiometrico extends RegistroEquiposPerifericosGeneral {
@@ -182,10 +182,18 @@ export interface RegistroEquipoBiometrico extends RegistroEquiposPerifericosGene
     capacidadHuellas: number;
     capacidadRostros: number;
     capacidadTarjetas: number;
+    capacidadEventos: number;
     pantalla: string;
-    comunicacion: string;
+    tcpIpComunicacion: boolean;
+    usbComunicacion: boolean;
+    rs232Comunicacion: boolean
     fuenteAlimentacion: string;
-    interfazAcceso: string;
+
+    //Interfaz de Acceso
+    cerraduraElectrica: boolean;
+    sensorPuerta: boolean;
+    botonSalida: boolean;
+    alarma: boolean;
 }
 
 
@@ -195,9 +203,10 @@ export interface RegistroContadorBilletes extends RegistroEquiposPerifericosGene
     capacidadTolbo: number;
     capacidadApisador: number;
     capacidadRechazo: number;
-    comunicacion: string;
+    fcpIpComunicacion: boolean;
+    usbComunicacion: boolean;
     pantalla: string;
-    velocidad: string;
+    velocidadConteo: string;
     fuenteAlimentacion: string;
 }
 
