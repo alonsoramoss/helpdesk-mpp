@@ -15,7 +15,7 @@ export interface RegistroInventarioGeneral {
     fabricantEquipo: string;
     modeloEquipo: string;
     numSerieEquipo: string;
-    fechAdquisicionEquipo: string;
+    fechaAdquisicionEquipo: string;
     estadoEquipo: string;
     hostnameEquipo: string;
     ipEquipo: string;
@@ -28,8 +28,8 @@ export interface RegistroEquiposComputo extends RegistroInventarioGeneral {
     numSeriePlaca: string;
     modeloPlaca: string;
     estadoPlaca: string;
-    fechInstalacionPlaca: string;
-    fechDesinstalacionPlaca: string;
+    fechaInstalacionPlaca: string;
+    fechaDesinstalacionPlaca: string;
     procesador: string;
     estadoProcesador: string;
     discoDuro: string;
@@ -94,8 +94,8 @@ export interface RegistroEquiposComputo extends RegistroInventarioGeneral {
     nomSoftware: string;
     añoSoftware: string;
     licenciaSoftware: string;
-    fechInicioSoftware: string;
-    fechFinSoftware: string;
+    fechaInicioSoftware: string;
+    fechaFinSoftware: string;
 }
 
 export type RegistroInventario = RegistroEquiposComputo;
