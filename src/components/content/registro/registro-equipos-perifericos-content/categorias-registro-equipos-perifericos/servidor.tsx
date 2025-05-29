@@ -547,7 +547,7 @@ export default function Servidor({ formData, handleInputChange, cancelForm, remo
                                     </div>
                                     <div className="flex justify-end text-sm md:text-base font-semibold mt-4">
                                         <button type="button" className="flex items-center gap-3">
-                                            <PlusCircle size={20} /> <span>Añadir otra unidad extraible</span>
+                                            <PlusCircle size={20} /> <span>Añadir otro servicio</span>
                                         </button>
                                     </div>
                                 </div>
