@@ -73,7 +73,7 @@ const Login = () => {
         </div>
       </form>
       <div className="mt-5">
-        Correo: <strong>admin@muni.com</strong> <br />
+        Correo: <strong>admin@mpp.com</strong> <br />
         Contraseña: <strong>admin</strong> <br />
       </div>
     </div>
