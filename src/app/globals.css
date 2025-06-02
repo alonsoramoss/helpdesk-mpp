@@ -83,3 +83,16 @@
   color: #000;
   background-color: #0e82ff63
 }
+
+input[type="password"]::-ms-reveal {
+    display: none;
+}
+
+input[type="password"]::-webkit-credentials-auto-fill-button,
+input[type="password"]::-webkit-contacts-auto-fill-button {
+    display: none;
+}
+
+input[type="password"] {
+    -webkit-text-security: disc;
+}
