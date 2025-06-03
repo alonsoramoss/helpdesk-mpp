@@ -87,7 +87,7 @@ export interface RegistroEquiposComputo extends RegistroInventarioGeneral {
     estadoTarjeta: string;
 
     // Sistema Operativo
-    tipoSO: string;
+    tipoSo: string;
     licenciaSistema: string;
 
     // Software

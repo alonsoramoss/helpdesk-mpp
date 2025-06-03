@@ -107,7 +107,7 @@ export interface RegistroEquiposComputo extends RegistroEquiposPerifericosGenera
     estadoTarjeta: string;
 
     // Sistema Operativo
-    tipoSO: string;
+    tipoSo: string;
     licenciaSistema: "Si" | "No";
 }
 
