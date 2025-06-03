@@ -93,7 +93,7 @@ export default function EquipoBiometrico({ formData, handleInputChange, cancelFo
                                                 value={formData.sede}
                                                 onChange={handleInputChange}
                                                 className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4 truncate">
-                                                <option selected hidden>Seleccione sede</option>
+                                                <option value="" selected hidden>Seleccione sede</option>
                                                 <option value="Palacio Municipal">Palacio Municipal</option>
                                                 <option value="Oficina de Transportes">Oficina de Transportes</option>
                                                 <option value="Planta de Serenazgo">Planta de Serenazgo</option>
@@ -109,7 +109,7 @@ export default function EquipoBiometrico({ formData, handleInputChange, cancelFo
                                                 value={formData.nomOficina}
                                                 onChange={handleInputChange}
                                                 className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4 truncate">
-                                                <option selected hidden>Seleccione oficina</option>
+                                                <option value="" selected hidden>Seleccione oficina</option>
                                                 <option value="Alcaldía">Alcaldía</option>
                                                 <option value="Gerencia Municipal">Gerencia Municipal</option>
                                                 <option value="Oficina de Recursos Humanos">Oficina de Recursos Humanos</option>
@@ -145,7 +145,7 @@ export default function EquipoBiometrico({ formData, handleInputChange, cancelFo
                                                 value={formData.tipoEquipo}
                                                 onChange={handleInputChange}
                                                 className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4 truncate">
-                                                <option selected hidden>Seleccione tipo de equipo</option>
+                                                <option value="" selected hidden>Seleccione tipo de equipo</option>
                                                 <option value="Equipos de Cómputo">Equipos de Cómputo</option>
                                                 <option value="Impresora y Fotocopiadora">Impresora y Fotocopiadora</option>
                                                 <option value="Servidor">Servidor</option>
@@ -165,7 +165,7 @@ export default function EquipoBiometrico({ formData, handleInputChange, cancelFo
                                                 value={formData.fabricanteEquipo}
                                                 onChange={handleInputChange}
                                                 className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4 truncate">
-                                                <option selected hidden>Seleccione fabricante de equipo</option>
+                                                <option value="" selected hidden>Seleccione fabricante de equipo</option>
                                                 <option value="Dell">Dell</option>
                                                 <option value="HP">HP</option>
                                                 <option value="Lenovo">Lenovo</option>
@@ -206,7 +206,7 @@ export default function EquipoBiometrico({ formData, handleInputChange, cancelFo
                                                 value={formData.estadoEquipo}
                                                 onChange={handleInputChange}
                                                 className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4 truncate">
-                                                <option selected hidden>Seleccione estado de equipo</option>
+                                                <option value="" selected hidden>Seleccione estado de equipo</option>
                                                 <option value="Bueno">Bueno</option>
                                                 <option value="Regular">Regular</option>
                                                 <option value="Malo">Malo</option>
@@ -232,7 +232,7 @@ export default function EquipoBiometrico({ formData, handleInputChange, cancelFo
                                                 value={formData.factorFormaEquipo}
                                                 onChange={handleInputChange}
                                                 className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4 truncate">
-                                                <option selected hidden>Seleccione factor de forma</option>
+                                                <option value="" selected hidden>Seleccione factor de forma</option>
                                                 <option value="Tower">Tower (Torre)</option>
                                                 <option value="Rackmount 1U">Rackmount 1U</option>
                                                 <option value="Rackmount 2U">Rackmount 2U</option>
