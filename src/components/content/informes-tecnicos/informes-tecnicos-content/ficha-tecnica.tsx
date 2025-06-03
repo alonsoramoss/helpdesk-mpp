@@ -5,6 +5,43 @@ const FichaTecnica = () => {
     const [checkboxes, setCheckboxes] = useState<Record<string, boolean>>({});
     const [inputs, setInputs] = useState<Record<string, string>>({});
 
+    const handleSubmit = (e: React.FormEvent) => {
+        e.preventDefault();
+        const formData = new FormData(e.currentTarget as HTMLFormElement);
+        const dni = formData.get("dni") as string;
+        const unidOrganica = formData.get("unidOrganica") as string;
+        const encargado = formData.get("encargado") as string;
+        const cargo = formData.get("cargo") as string;
+        const nomTecnico = formData.get("nomTecnico") as string;
+
+        if (!/^\d{8}$/.test(dni)) {
+            alert("El DNI debe tener exactamente 8 dígitos numéricos.");
+            return;
+        }
+
+        const campoText = [
+            { name: "UNIDAD ORGÁNICA", value: unidOrganica},
+            { name: "ENCARGADO", value: encargado },
+            { name: "CARGO", value: cargo },
+            { name: "NOMBRE DEL TÉCNICO", value: nomTecnico }
+        ];
+
+        const validText = /^[\p{L} ]+$/u;
+
+        for (const campo of campoText) {
+            if (campo.value.trim() === "") {
+                alert(`El campo ${campo.name} no puede estar vacío ni contener solo espacios.`);
+                return;
+            }
+            if (!validText.test(campo.value)) {
+                alert(`El campo ${campo.name} solo puede contener letras.`);
+                return;
+            }
+        }
+
+        (e.currentTarget as HTMLFormElement).submit();
+    };
+
     const handleCheckboxChange = (id: string) => (e: React.ChangeEvent<HTMLInputElement>) => {
         const isChecked = e.target.checked;
         setCheckboxes((prev) => ({ ...prev, [id]: isChecked }));
@@ -12,18 +49,18 @@ const FichaTecnica = () => {
         if (!isChecked) {
             setInputs((prev) => ({ ...prev, [id]: '' }));
         }
-    };      
-    
+    };
+
     return(
-        <form className="p-0 sm:p-4" action="#" method="POST" id="formFichaTecnica">
+        <form className="p-0 sm:p-4" id="formFichaTecnica" onSubmit={handleSubmit}>
             <div className="flex flex-col md:flex-row justify-center items-center mb-5">
                 <div className="w-full md:w-1/3 flex justify-center md:justify-start mr-0 md:mr-5 pointer-events-none">
                     <img src="/assets/municipalidad-pisco.webp" alt="Municipalidad de Pisco" style={{width: "19rem"}}/>
                 </div>
                 <div className="w-full md:w-2/3 mt-5 md:mt-0">
                     <label htmlFor="nomFicha" className="block font-semibold text-base md:text-lg">FICHA TÉCNICA</label>
-                    <select id="nomFicha" name="nomFicha" required className="w-full mt-1 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-4">
-                        <option disabled selected>Seleccione una opción</option>
+                    <select id="nomFicha" name="nomFicha" className="w-full mt-1 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-4" required>
+                        <option value="" selected hidden>Seleccione una opción</option>
                         <option value="SOPORTE TÉCNICO">SOPORTE TÉCNICO</option>
                         <option value="MANTENIMIENTO / SOPORTE TÉCNICO">MANTENIMIENTO / SOPORTE TÉCNICO</option>
                         <option value="INSTALACION DE EQUIPO DE COMPUTO Y/O PERIFÉRICO">INSTALACIÓN DE EQUIPO DE CÓMPUTO Y/O PERIFÉRICO</option>
@@ -31,7 +68,6 @@ const FichaTecnica = () => {
                     </select>
                 </div>
             </div>
-            
             <h5 className="text-center md:text-start font-semibold text-base md:text-lg mb-3">INFORMACIÓN GENERAL</h5>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-3">
                 <div>
@@ -41,7 +77,7 @@ const FichaTecnica = () => {
                 </div>
                 <div>
                     <label htmlFor="fecha" className="block font-medium">FECHA</label>
-                    <input type="date" id="fecha" name="fecha" required 
+                    <input type="date" id="fecha" name="fecha" required max={new Date().toISOString().split("T")[0]} 
                         className="w-full mt-1 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-4"/>
                 </div>
             </div>
@@ -58,7 +94,7 @@ const FichaTecnica = () => {
                 </div>
                 <div>
                     <label htmlFor="dni" className="block font-medium">DNI</label>
-                    <input type="number" id="dni" name="dni" required 
+                    <input type="text" id="dni" name="dni" required pattern="\d{8}" maxLength={8} title="Ingrese exactamente 8 dígitos numéricos" 
                         className="w-full mt-1 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-4"/>
                 </div>
             </div>
