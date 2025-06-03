@@ -15,6 +15,8 @@ const UsuarioTable = () => {
     const [selectedUsuario, setSelectedUsuario] = useState<Usuario | null>(null);
     const [mostrarContraseña, setMostrarContraseña] = useState<{ [key: number]: boolean }>({});
     const contraseñaTimers = useRef<{ [key: number]: NodeJS.Timeout }>({});
+    const [mostrarContraseñaCrear, setMostrarContraseñaCrear] = useState(false);
+    const [mostrarContraseñaEditar, setMostrarContraseñaEditar] = useState(false);
     
     const [nuevoUsuario, setNuevoUsuario] = useState<Omit<Usuario, "int_idUsuario">>({
         vch_nombre: "",
@@ -24,6 +26,26 @@ const UsuarioTable = () => {
         chr_estado: 1,
     });
     
+    useEffect(() => {
+        if (!openCreate) {
+            setMostrarContraseñaCrear(false);
+            setNuevoUsuario({
+                vch_nombre: "",
+                vch_email: "",
+                vch_contrasena: "",
+                vch_cargo: "",
+                chr_estado: 1,
+            });
+        }
+    }, [openCreate]);
+
+
+    useEffect (() => {
+        if (!openEdit) {
+            setMostrarContraseñaEditar(false)
+        }
+    }, [openEdit]);
+
     const handleTogglePassword = (id: number) => {
         setMostrarContraseña((prev) => {
             const shownContraseña = prev[id];
@@ -66,19 +88,7 @@ const UsuarioTable = () => {
 
         setOpenCreate(false);
     };
-
-    useEffect(() => {
-        if (!openCreate) {
-            setNuevoUsuario({
-                vch_nombre: "",
-                vch_email: "",
-                vch_contrasena: "",
-                vch_cargo: "",
-                chr_estado: 1,
-            });
-        }
-    }, [openCreate]);
-
+    
     if (loading) return <p className="text-center text-neutral-600">Cargando...</p>;
     if (error) return <p className="text-center text-red-500">Error: {error}</p>;
 
@@ -175,8 +185,16 @@ const UsuarioTable = () => {
                     </DialogHeader>
                     <form className="space-y-4" onSubmit={handleCreate}>
                         <Input name="vch_nombre" placeholder="Nombre" value={nuevoUsuario.vch_nombre} onChange={handleChange} required />
-                        <Input name="vch_email" placeholder="Email" value={nuevoUsuario.vch_email} onChange={handleChange} required />
-                        <Input name="vch_contrasena" placeholder="Contraseña" value={nuevoUsuario.vch_contrasena} onChange={handleChange} required />
+                        <Input name="vch_email" type="email" placeholder="Email" value={nuevoUsuario.vch_email} onChange={handleChange} required />
+                        <div className="relative w-full">
+                            <Input name="vch_contrasena" type={mostrarContraseñaCrear ? "text" : "password"} id="password" placeholder="Contraseña" value={nuevoUsuario.vch_contrasena} onChange={handleChange} required />
+                            <button type="button" 
+                                onClick={() => setMostrarContraseñaCrear((prev) => !prev)}
+                                className="absolute top-1/2 right-4 transform -translate-y-1/2 text-neutral-950 hover:text-neutral-700 transition-colors duration-200 ease-in-out"
+                            >
+                                {mostrarContraseñaCrear ? <EyeOff size={20} /> : <Eye size={20} />}
+                            </button>
+                        </div>
                         <Input name="vch_cargo" placeholder="Cargo" value={nuevoUsuario.vch_cargo} onChange={handleChange} required />
                         <Input name="chr_estado" placeholder="Estado" value={nuevoUsuario.chr_estado} onChange={handleChange} required />
                         <Button type="submit" className="w-full bg-blue-600 hover:bg-blue-500 text-white">Crear</Button>
@@ -198,13 +216,20 @@ const UsuarioTable = () => {
                             }
                         }}>
                             <Input name="vch_nombre" value={selectedUsuario?.vch_nombre || ""} onChange={handleEditChange} required />
-                            <Input name="vch_email" value={selectedUsuario?.vch_email || ""} onChange={handleEditChange} required />
-                            <Input name="vch_contrasena" value={selectedUsuario?.vch_contrasena || ""} onChange={handleEditChange} required />
+                            <Input name="vch_email" type="email" value={selectedUsuario?.vch_email || ""} onChange={handleEditChange} required />
+                            <div className="relative w-full">
+                                <Input name="vch_contrasena" type={mostrarContraseñaEditar ? "text" : "password"} id="password" placeholder="Contraseña" value={selectedUsuario?.vch_contrasena} onChange={handleEditChange} required />
+                                <button type="button" 
+                                    onClick={() => setMostrarContraseñaEditar((prev) => !prev)}
+                                    className="absolute top-1/2 right-4 transform -translate-y-1/2 text-neutral-950 hover:text-neutral-700 transition-colors duration-200 ease-in-out"
+                                >
+                                    {mostrarContraseñaEditar ? <EyeOff size={20} /> : <Eye size={20} />}
+                                </button>
+                            </div>
                             <Input name="vch_cargo" value={selectedUsuario?.vch_cargo || ""} onChange={handleEditChange} required />
                             <Input name="chr_estado" value={selectedUsuario?.chr_estado || ""} onChange={handleEditChange} required />
                             <Button type="submit" className="w-full bg-amber-500 hover:bg-amber-400 text-white">Actualizar</Button>
                         </form>
-
                     </DialogContent>
                 </Dialog>
             )}
