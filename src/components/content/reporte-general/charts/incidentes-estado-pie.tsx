@@ -32,7 +32,7 @@ const IncidentesEstadoPie = () => {
     return (
         <Card className="max-w-lg mx-auto my-6 shadow-lg">
             <CardContent>
-                <h2 className="text-xl font-bold mb-4 text-center">Estado de Incidentes</h2>
+                <h2 className="text-xl font-bold mb-4 text-center">Estado de incidentes</h2>
                 <ResponsiveContainer width="100%" height={300}>
                     <PieChart>
                         <Pie data={data} dataKey="cantidad" nameKey="estado" cx="50%" cy="50%" outerRadius={100} fill="#8884d8" label>

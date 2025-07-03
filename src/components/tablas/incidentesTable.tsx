@@ -137,7 +137,7 @@ const IncidentesTable = () => {
                 <div className="flex justify-between items-center ml-1">
                     <Input type="text" placeholder="Buscar incidentes..." value={search} onChange={handleSearch} className="truncate mr-2 p-2 rounded-md"/>
                     <Button onClick={() => setOpenCreate(true)} className="bg-blue-600 hover:bg-blue-500 text-white px-4 py-5 rounded-md">
-                        Crear Incidente
+                        Crear incidente
                     </Button>
                 </div>
             </div>

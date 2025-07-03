@@ -43,7 +43,7 @@ const IncidentesAreaChart = () => {
   return (
     <Card className="max-w-lg mx-auto my-6 shadow-lg">
       <CardContent>
-        <h2 className="text-xl font-bold mb-4 text-center">Cantidad de Incidentes Mensuales</h2>
+        <h2 className="text-xl font-bold mb-4 text-center">Cantidad de incidentes mensuales</h2>
         <ResponsiveContainer width="100%" height={300}>
           <AreaChart data={data}>
             <defs>

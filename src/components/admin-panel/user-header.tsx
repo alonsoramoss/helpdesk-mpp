@@ -53,7 +53,7 @@ export function UserHeader() {
         <MenuDesplegableSeparator />
         <MenuDesplegableItem className="hover:cursor-pointer" onClick={handleLogout}>
           <LogOut className="w-4 h-4 mr-3 text-muted-foreground" />
-            Cerrar Sesión
+            Cerrar sesión
         </MenuDesplegableItem>
       </MenuDesplegableContent>
     </MenuDesplegable>

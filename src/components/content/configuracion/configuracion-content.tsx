@@ -21,7 +21,7 @@ export default function ConfiguracionContent() {
             onCheckedChange={(x) => setSettings({ isHoverOpen: x })}
             checked={settings.isHoverOpen}
           />
-          <Label htmlFor="is-hover-open">Sidebar Automático</Label>
+          <Label htmlFor="is-hover-open">Sidebar automático</Label>
         </div>
         <div className="flex justify-center">
           {/* <PersonasContent/> */}

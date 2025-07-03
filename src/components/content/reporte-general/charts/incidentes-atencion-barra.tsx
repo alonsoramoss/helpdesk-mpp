@@ -36,7 +36,7 @@ const IncidentesAtencionBarra = () => {
     return (
         <Card className="max-w-4xl mx-auto my-6 shadow-lg">
             <CardContent>
-                <h2 className="text-xl font-bold mb-4 text-center">Estado de Atención de Incidentes</h2>
+                <h2 className="text-xl font-bold mb-4 text-center">Estado de atención de incidentes</h2>
                 <ResponsiveContainer width="100%" height={300}>
                     <BarChart data={data}>
                         <CartesianGrid strokeDasharray="3 3" />
