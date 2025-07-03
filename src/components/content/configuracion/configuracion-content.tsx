@@ -5,7 +5,6 @@ import { useSidebar } from "@/hooks/use-sidebar";
 import { Card, CardContent } from "@/components/ui/card";
 import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
-// import PersonasContent from "./configuracion-content/personasContent";
 import UsuariosTable from "@/components/tablas/usuariosTable";
 
 export default function ConfiguracionContent() {
@@ -24,7 +23,6 @@ export default function ConfiguracionContent() {
           <Label htmlFor="is-hover-open">Sidebar automático</Label>
         </div>
         <div className="flex justify-center">
-          {/* <PersonasContent/> */}
           <UsuariosTable/>
         </div>
       </CardContent>
