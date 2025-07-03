@@ -42,7 +42,7 @@ const IncidentesAlertas = () => {
 
       <div className="shadow p-5 md:p-10 flex flex-col text-center items-center bg-[#005eff]">
         <Calendar className="w-10 h-10 mx-auto my-2" />
-        <h3 className="text-xl my-2">Total incidentes hoy</h3>
+        <h3 className="text-xl my-2">Incidentes de hoy</h3>
         <p className="font-medium text-5xl">{totalHoy}</p>
       </div>
 
