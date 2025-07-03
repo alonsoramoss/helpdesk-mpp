@@ -130,7 +130,7 @@ export default function EquiposComputo({ formData, handleInputChange, cancelForm
                                                 className="w-full p-2 border border-gray-300 text-sm md:text-base rounded-md focus:outline-none focus:ring-4 truncate">
                                                 <option value="" selected hidden>Seleccione tipo de documento</option>
                                                 <option value="DNI">DNI</option>
-                                                <option value="Carnet de Extranjería">Carnet de Extranjería</option>
+                                                <option value="Carnet de extranjería">Carnet de extranjería</option>
                                             </select>
                                         </div>
                                         <div className="flex flex-col lg:flex-row lg:items-center">

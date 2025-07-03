@@ -185,7 +185,7 @@ const IncidentesTable = () => {
             <Dialog open={openCreate} onOpenChange={setOpenCreate}>
                 <DialogContent>
                     <DialogHeader>
-                        <DialogTitle>Crear Nuevo Incidente</DialogTitle>
+                        <DialogTitle>Crear nuevo incidente</DialogTitle>
                     </DialogHeader>
                     <form className="space-y-4" onSubmit={handleCreate}>
                         <Input name="int_idUsuario" placeholder="ID Usuario" type="number" value={nuevoIncidente.int_idUsuario} onChange={handleChange} required />
@@ -207,7 +207,7 @@ const IncidentesTable = () => {
                 <Dialog open={openEdit} onOpenChange={setOpenEdit}>
                     <DialogContent>
                         <DialogHeader>
-                            <DialogTitle>Editar Incidente</DialogTitle>
+                            <DialogTitle>Editar incidente</DialogTitle>
                         </DialogHeader>
                         <form className="space-y-4" onSubmit={(e) => { 
                             e.preventDefault(); 

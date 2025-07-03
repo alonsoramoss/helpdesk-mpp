@@ -181,7 +181,7 @@ const UsuarioTable = () => {
             <Dialog open={openCreate} onOpenChange={setOpenCreate}>
                 <DialogContent>
                     <DialogHeader>
-                        <DialogTitle>Crear Nuevo Usuario</DialogTitle>
+                        <DialogTitle>Crear nuevo usuario</DialogTitle>
                     </DialogHeader>
                     <form className="space-y-4" onSubmit={handleCreate}>
                         <Input name="vch_nombre" placeholder="Nombre" value={nuevoUsuario.vch_nombre} onChange={handleChange} required />
@@ -206,7 +206,7 @@ const UsuarioTable = () => {
                 <Dialog open={openEdit} onOpenChange={setOpenEdit}>
                     <DialogContent>
                         <DialogHeader>
-                            <DialogTitle>Editar Usuario</DialogTitle>
+                            <DialogTitle>Editar usuario</DialogTitle>
                         </DialogHeader>
                         <form className="space-y-4" onSubmit={(e) => {
                             e.preventDefault();
