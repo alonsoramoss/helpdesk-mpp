@@ -67,13 +67,13 @@ const Login = () => {
 
         <div className={styles.btn_container}>
           <button className={styles.btn} type="submit" disabled={loading}>
-            <span>{loading ? "Cargando..." : "Iniciar Sesión"}</span>
+            <span>{loading ? "Cargando..." : "Iniciar sesión"}</span>
             <LogIn />
           </button>
         </div>
       </form>
       <div className="mt-5">
-        Correo: <strong>admin@mpp.com</strong> <br />
+        Correo: <strong>admin@munipisco.com</strong> <br />
         Contraseña: <strong>admin</strong> <br />
       </div>
     </div>
