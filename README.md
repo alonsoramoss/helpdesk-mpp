@@ -5,6 +5,7 @@ Este proyecto es un sistema que permite gestionar reportes de incidentes, regist
 ![helpdesk](https://github.com/user-attachments/assets/c48d65a1-2611-4d85-9507-a9f143af6992)
 
 ## Tecnologías
+
 - ![Next.js](https://img.shields.io/badge/Next.js-black?style=for-the-badge&logo=next.js&logoColor=white)
 - ![React](https://img.shields.io/badge/react-61DAFB.svg?style=for-the-badge&logo=react&logoColor=black)
 - ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
@@ -13,14 +14,25 @@ Este proyecto es un sistema que permite gestionar reportes de incidentes, regist
 ## Instalación
 
 #### 1. Clona el repositorio
-    git clone https://github.com/alonsoramoss/helpdesk-mpp.git
+
+```bash
+git clone https://github.com/alonsoramoss/helpdesk-mpp.git
+```
 
 #### 2. Entra al directorio del proyecto
-    cd helpdesk-mpp
+
+```bash
+cd helpdesk-mpp
+```
 
 #### 3. Instala dependencias
-    pnpm install
+
+```bash
+pnpm install
+```
 
 #### 4. Inicia el servidor de desarrollo
-    pnpm run dev
 
+```bash
+pnpm run dev
+```
