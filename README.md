@@ -1,6 +1,8 @@
 # Sistema de Help Desk y Registro US
 
-Este sistema permite gestionar reportes de incidentes, registrar equipos de cómputo y periféricos, controlar el inventario, generar informes técnicos, visualizar reportes generales, administrar usuarios, entre otras funcionalidades.
+Este proyecto es un sistema que permite gestionar reportes de incidentes, registrar equipos de cómputo y periféricos, controlar el inventario, generar informes técnicos, visualizar reportes generales, administrar usuarios, entre otras funcionalidades.
+
+![helpdesk](https://github.com/user-attachments/assets/c48d65a1-2611-4d85-9507-a9f143af6992)
 
 ## Tecnologías
 - ![Next.js](https://img.shields.io/badge/Next.js-black?style=for-the-badge&logo=next.js&logoColor=white)
@@ -13,8 +15,12 @@ Este sistema permite gestionar reportes de incidentes, registrar equipos de cóm
 #### 1. Clona el repositorio
     git clone https://github.com/alonsoramoss/helpdesk-mpp.git
 
-#### 2. Instala dependencias
+#### 2. Entra al directorio del proyecto
+    cd helpdesk-mpp
+
+#### 3. Instala dependencias
     pnpm install
 
-#### 3. Inicia el servidor de desarrollo
+#### 4. Inicia el servidor de desarrollo
     pnpm run dev
+
