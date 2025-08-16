@@ -2,6 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+*::selection {
+  color: #000000;
+  background-color: #0e82ff63
+}
+
+*::-moz-selection {
+  color: #000000;
+  background-color: #0e82ff63
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -72,27 +82,23 @@
     scrollbar-color: #000000 #ffffff;
     scrollbar-width: thin;
   }
-}
 
-*::selection {
-  color: #000;
-  background-color: #0e82ff63
-}
+  input[type="password"] {
+    -webkit-appearance: none;
+    appearance: none;
+  }
 
-*::-moz-selection {
-  color: #000;
-  background-color: #0e82ff63
-}
-
-input[type="password"]::-ms-reveal {
+  input[type="password"]::-ms-reveal,
+  input[type="password"]::-ms-clear {
     display: none;
-}
+  }
 
-input[type="password"]::-webkit-credentials-auto-fill-button,
-input[type="password"]::-webkit-contacts-auto-fill-button {
+  input[type="password"]::-webkit-password-toggle,
+  input[type="password"]::-webkit-clear-button,
+  input[type="password"]::-webkit-credentials-auto-fill-button,
+  input[type="password"]::-webkit-contacts-auto-fill-button,
+  input[type="password"]::-webkit-textfield-decoration-container {
     display: none;
-}
-
-input[type="password"] {
-    -webkit-text-security: disc;
+    appearance: none;
+  }
 }
