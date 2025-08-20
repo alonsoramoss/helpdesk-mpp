@@ -39,42 +39,40 @@ const Login = () => {
   return (
     <div className={styles.container}>
       <div className="w-full flex justify-center mb-6 sm:mb-10">
-        <img src="/assets/municipalidad-pisco.webp" alt="Municipalidad de Pisco" className="w-full max-w-[430px] object-contain pointer-events-none"/>
+        <img src="/assets/municipalidad-pisco.webp" alt="Municipalidad de Pisco" className="w-full max-w-[430px] object-contain"/>
       </div>
       <form className={styles.form} onSubmit={handleSubmit}>
         <div className={styles.input_field}>
-          <input type="email" id="email" value={vch_email} onChange={(e) => setEmail(e.target.value)} required/>
+          <input id="email" name="email" type="email" value={vch_email} onChange={(e) => setEmail(e.target.value)} required/>
           <label htmlFor="email">Correo electrónico</label>
         </div>
         
         <div className={styles.input_field}>
-            <div className="relative w-full">
-                <input type={mostrarContraseña ? "text" : "password"} id="password" value={vch_contrasena} required
-                    onChange={(e) => setContraseña(e.target.value)}
-                    className="pr-10 w-full"
-                />
-                <label htmlFor="password">Contraseña</label>
-                <button type="button" 
-                    onClick={() => setMostrarContraseña((prev) => !prev)}
-                    className="absolute top-1/2 right-4 transform -translate-y-1/2 text-neutral-950 hover:text-neutral-700 transition-colors duration-200 ease-in-out"
-                >
-                    {mostrarContraseña ? <EyeOff size={20} /> : <Eye size={20} />}
-                </button>
-            </div>
+          <input id="password" name="password" type={mostrarContraseña ? "text" : "password"} value={vch_contrasena} onChange={(e) => setContraseña(e.target.value)} required />
+          <label htmlFor="password">Contraseña</label>
+          <button
+            type="button"
+            onClick={() => setMostrarContraseña((prev) => !prev)}
+            title={mostrarContraseña ? "Ocultar contraseña" : "Mostrar contraseña"}
+            aria-label={mostrarContraseña ? "Ocultar contraseña" : "Mostrar contraseña"}
+            className="absolute right-0 top-0 h-full px-4 text-gray-500 hover:text-gray-700 transition-colors duration-300 ease-in-out"
+          >
+            {mostrarContraseña ? <EyeOff size={20} /> : <Eye size={20} />}
+          </button>
         </div>
 
         {error && <p className="text-red-500 text-sm">{error}</p>}
 
         <div className={styles.btn_container}>
           <button className={styles.btn} type="submit" disabled={loading}>
-            <span>{loading ? "Cargando..." : "Iniciar sesión"}</span>
             <LogIn />
+            <span>{loading ? "Cargando..." : "Iniciar sesión"}</span>
           </button>
         </div>
       </form>
-      <div className="mt-5">
-        Correo: <strong>admin@munipisco.com</strong> <br />
-        Contraseña: <strong>admin</strong> <br />
+      <div className="mt-5 p-4 bg-gray-100 rounded-lg text-sm text-gray-700">
+        <span className="font-semibold">Correo electrónico:</span> admin@munipisco.com <br />
+        <span className="font-semibold">Contraseña:</span> admin <br />
       </div>
     </div>
   );
