@@ -39,7 +39,6 @@ const UsuarioTable = () => {
         }
     }, [openCreate]);
 
-
     useEffect (() => {
         if (!openEdit) {
             setMostrarContraseñaEditar(false)
@@ -156,8 +155,11 @@ const UsuarioTable = () => {
                                 <div className="min-w-[5rem] flex items-center justify-between">
                                     <span>{mostrarContraseña[usuario.int_idUsuario] ? usuario.vch_contrasena : "********"}</span>
                                     <button
+                                        type="button"
                                         onClick={() => handleTogglePassword(usuario.int_idUsuario)}
-                                        className="text-neutral-950 hover:text-neutral-700 transition-colors duration-200 ease-in-out"
+                                        title={mostrarContraseña[usuario.int_idUsuario] ? "Ocultar contraseña" : "Mostrar contraseña"}
+                                        aria-label={mostrarContraseña[usuario.int_idUsuario] ? "Ocultar contraseña" : "Mostrar contraseña"}
+                                        className="text-neutral-950 hover:text-neutral-700 transition-colors duration-300 ease-in-out"
                                     >
                                         {mostrarContraseña[usuario.int_idUsuario] ? (
                                             <EyeOff className="w-4 h-4" />
@@ -170,8 +172,8 @@ const UsuarioTable = () => {
                             <td className="p-2 border text-sm">{usuario.vch_cargo}</td>
                             <td className="p-2 text-center border text-sm">{usuario.chr_estado}</td>
                             <td className="p-2 text-center border text-sm">
-                                <Button className="w-full bg-amber-500 hover:bg-amber-400 text-white px-1 py-1 rounded-md mb-2" onClick={() => handleEdit(usuario)}>Editar</Button>
-                                <Button className="w-full bg-red-500 hover:bg-red-400 text-white px-1 py-1 rounded-md" onClick={() => handleDelete(usuario.int_idUsuario)}>Eliminar</Button>
+                                <Button onClick={() => handleEdit(usuario)} className="w-full bg-amber-500 hover:bg-amber-400 text-white px-1 py-1 rounded-md mb-2">Editar</Button>
+                                <Button onClick={() => handleDelete(usuario.int_idUsuario)} className="w-full bg-red-500 hover:bg-red-400 text-white px-1 py-1 rounded-md">Eliminar</Button>
                             </td>
                         </tr>
                     ))}
@@ -184,19 +186,22 @@ const UsuarioTable = () => {
                         <DialogTitle>Crear nuevo usuario</DialogTitle>
                     </DialogHeader>
                     <form className="space-y-4" onSubmit={handleCreate}>
-                        <Input name="vch_nombre" placeholder="Nombre" value={nuevoUsuario.vch_nombre} onChange={handleChange} required />
-                        <Input name="vch_email" type="email" placeholder="Email" value={nuevoUsuario.vch_email} onChange={handleChange} required />
+                        <Input id="nombre" name="vch_nombre" type="text" value={nuevoUsuario.vch_nombre} onChange={handleChange} placeholder="Nombre" required aria-label="Nombre" />
+                        <Input id="email" name="vch_email" type="email" value={nuevoUsuario.vch_email} onChange={handleChange} placeholder="Email" required aria-label="Email" />
                         <div className="relative w-full">
-                            <Input name="vch_contrasena" type={mostrarContraseñaCrear ? "text" : "password"} id="password" placeholder="Contraseña" value={nuevoUsuario.vch_contrasena} onChange={handleChange} required />
-                            <button type="button" 
+                            <Input id="password" name="vch_contrasena" type={mostrarContraseñaCrear ? "text" : "password"} value={nuevoUsuario.vch_contrasena} onChange={handleChange} placeholder="Contraseña" required className="pr-10" aria-label="Contraseña" />
+                            <button
+                                type="button"
                                 onClick={() => setMostrarContraseñaCrear((prev) => !prev)}
-                                className="absolute top-1/2 right-4 transform -translate-y-1/2 text-neutral-950 hover:text-neutral-700 transition-colors duration-200 ease-in-out"
+                                title={mostrarContraseñaCrear ? "Ocultar contraseña" : "Mostrar contraseña"}
+                                aria-label={mostrarContraseñaCrear ? "Ocultar contraseña" : "Mostrar contraseña"}
+                                className="absolute right-0 top-0 h-full px-3 text-gray-400 hover:text-gray-600 transition-colors duration-300 ease-in-out"
                             >
-                                {mostrarContraseñaCrear ? <EyeOff size={20} /> : <Eye size={20} />}
+                                {mostrarContraseñaCrear ? <EyeOff size={16} /> : <Eye size={16} />}
                             </button>
                         </div>
-                        <Input name="vch_cargo" placeholder="Cargo" value={nuevoUsuario.vch_cargo} onChange={handleChange} required />
-                        <Input name="chr_estado" placeholder="Estado" value={nuevoUsuario.chr_estado} onChange={handleChange} required />
+                        <Input id="cargo" name="vch_cargo" type="text" value={nuevoUsuario.vch_cargo} onChange={handleChange} placeholder="Cargo" required aria-label="Cargo" />
+                        <Input id="estado" name="chr_estado" value={nuevoUsuario.chr_estado} onChange={handleChange} placeholder="Estado" required aria-label="Estado" />
                         <Button type="submit" className="w-full bg-blue-600 hover:bg-blue-500 text-white">Crear</Button>
                     </form>
                 </DialogContent>
@@ -215,19 +220,22 @@ const UsuarioTable = () => {
                                 setOpenEdit(false);
                             }
                         }}>
-                            <Input name="vch_nombre" value={selectedUsuario?.vch_nombre || ""} onChange={handleEditChange} required />
-                            <Input name="vch_email" type="email" value={selectedUsuario?.vch_email || ""} onChange={handleEditChange} required />
+                            <Input id="nombre" name="vch_nombre" type="text" value={selectedUsuario?.vch_nombre || ""} onChange={handleEditChange} placeholder="Nombre" required aria-label="Nombre" />
+                            <Input id="email" name="vch_email" type="email" value={selectedUsuario?.vch_email || ""} onChange={handleEditChange} placeholder="Email" required aria-label="Email" />
                             <div className="relative w-full">
-                                <Input name="vch_contrasena" type={mostrarContraseñaEditar ? "text" : "password"} id="password" placeholder="Contraseña" value={selectedUsuario?.vch_contrasena} onChange={handleEditChange} required />
-                                <button type="button" 
+                                <Input id="password" name="vch_contrasena" type={mostrarContraseñaEditar ? "text" : "password"} value={selectedUsuario?.vch_contrasena} onChange={handleEditChange} placeholder="Contraseña" required className="pr-10" aria-label="Contraseña" />
+                                <button
+                                    type="button"
                                     onClick={() => setMostrarContraseñaEditar((prev) => !prev)}
-                                    className="absolute top-1/2 right-4 transform -translate-y-1/2 text-neutral-950 hover:text-neutral-700 transition-colors duration-200 ease-in-out"
+                                    title={mostrarContraseñaEditar ? "Ocultar contraseña" : "Mostrar contraseña"}
+                                    aria-label={mostrarContraseñaEditar ? "Ocultar contraseña" : "Mostrar contraseña"}
+                                    className="absolute right-0 top-0 h-full px-3 text-gray-400 hover:text-gray-600 transition-colors duration-300 ease-in-out"
                                 >
-                                    {mostrarContraseñaEditar ? <EyeOff size={20} /> : <Eye size={20} />}
+                                    {mostrarContraseñaEditar ? <EyeOff size={16} /> : <Eye size={16} />}
                                 </button>
                             </div>
-                            <Input name="vch_cargo" value={selectedUsuario?.vch_cargo || ""} onChange={handleEditChange} required />
-                            <Input name="chr_estado" value={selectedUsuario?.chr_estado || ""} onChange={handleEditChange} required />
+                            <Input id="cargo" name="vch_cargo" type="text" value={selectedUsuario?.vch_cargo || ""} onChange={handleEditChange} placeholder="Cargo" required aria-label="Cargo" />
+                            <Input id="estado" name="chr_estado" value={selectedUsuario?.chr_estado || ""} onChange={handleEditChange} placeholder="Estado" required aria-label="Estado" />
                             <Button type="submit" className="w-full bg-amber-500 hover:bg-amber-400 text-white">Actualizar</Button>
                         </form>
                     </DialogContent>
