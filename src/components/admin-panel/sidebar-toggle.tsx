@@ -12,9 +12,12 @@ export function SidebarToggle({ isOpen, setIsOpen }: SidebarToggleProps) {
     <div className="invisible lg:visible absolute top-[12px] -right-[16px] z-20">
       <Button
         onClick={() => setIsOpen?.()}
-        className="rounded-md w-8 h-8"
         variant="outline"
         size="icon"
+        title={isOpen ? "Colapsar" : "Expandir"}
+        aria-label={isOpen ? "Colapsar barra lateral" : "Expandir barra lateral"}
+        aria-expanded={isOpen}
+        className="rounded-md w-8 h-8"
       >
         <ChevronLeft
           className={cn(
