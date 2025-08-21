@@ -42,17 +42,17 @@ export function UserHeader() {
       <MenuDesplegableContent className="w-56" align="end" forceMount>
         <MenuDesplegableLabel className="font-normal">
           <div className="flex flex-col space-y-1">
-            <p className="text-sm font-medium leading-4">
+            <p className="text-sm font-medium leading-none">
               {user?.vch_nombre ?? "Usuario"}
             </p>
-            <p className="text-xs leading-4 text-muted-foreground">
+            <p className="text-xs leading-none text-muted-foreground">
               {user?.vch_email ?? "correo@correo.com"}
             </p>
           </div>
         </MenuDesplegableLabel>
         <MenuDesplegableSeparator />
-        <MenuDesplegableItem className="hover:cursor-pointer" onClick={handleLogout}>
-          <LogOut className="w-4 h-4 mr-3 text-muted-foreground" />
+        <MenuDesplegableItem className="font-medium hover:cursor-pointer" onClick={handleLogout}>
+          <LogOut className="w-4 h-4 mr-3" />
             Cerrar sesión
         </MenuDesplegableItem>
       </MenuDesplegableContent>
