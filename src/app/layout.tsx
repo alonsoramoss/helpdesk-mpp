@@ -2,6 +2,7 @@ import { Montserrat } from "next/font/google";
 import type { Metadata } from "next";
 import { AuthProvider } from "@/context/authContext";
 import QueryProvider from "@/providers/QueryProvider";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 const montserrat = Montserrat({ subsets: ["latin"], weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"] });
@@ -65,6 +66,7 @@ export default function RootLayout({
         <html lang="es" suppressHydrationWarning>
           <body className={montserrat.className}>
             {children}
+            <Analytics />
           </body>
         </html>
       </QueryProvider>
