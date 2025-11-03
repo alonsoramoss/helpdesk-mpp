@@ -10,8 +10,8 @@ const montserrat = Montserrat({ subsets: ["latin"], weight: ["100", "200", "300"
 export const metadata: Metadata = {
   title: "Sistema de Help Desk y Registro US",
   description: "Sistema para gestionar reportes de incidentes, registrar equipos de cómputo y periféricos, controlar el inventario, generar informes técnicos, visualizar reportes generales, administrar usuarios, entre otras funcionalidades.",
-  authors: [{ name: "Alonso Ramos" }],
-	creator: "Alonso Ramos",
+  authors: [{ name: "Alonso Ramos", url: "https://alonsoramos.netlify.app" }],
+  creator: "Alonso Ramos",
   icons:{
     icon: [
       { url: "/favicon.ico" },
