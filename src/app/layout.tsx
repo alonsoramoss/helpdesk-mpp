@@ -5,7 +5,7 @@ import QueryProvider from "@/providers/QueryProvider";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
-const montserrat = Montserrat({ subsets: ["latin"], weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"] });
+const montserrat = Montserrat({ subsets: ["latin"], weight: ["400", "500", "600", "700", "900"], display: "swap" });
 
 export const metadata: Metadata = {
   title: "Sistema de Help Desk y Registro US",
