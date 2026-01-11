@@ -5,6 +5,12 @@ const FichaTecnica = () => {
     const [checkboxes, setCheckboxes] = useState<Record<string, boolean>>({});
     const [inputs, setInputs] = useState<Record<string, string>>({});
 
+    function getFechaHoy() {
+        const d = new Date();
+        d.setMinutes(d.getMinutes() - d.getTimezoneOffset());
+        return d.toISOString().split("T")[0];
+    }
+
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         const formData = new FormData(e.currentTarget as HTMLFormElement);
@@ -58,7 +64,7 @@ const FichaTecnica = () => {
                     <img src="/assets/municipalidad-pisco.webp" alt="Municipalidad de Pisco" style={{width: "19rem"}}/>
                 </div>
                 <div className="w-full md:w-2/3 mt-5 md:mt-0">
-                    <label htmlFor="nomFicha" className="block font-semibold text-base md:text-lg">FICHA TÉCNICA</label>
+                    <label htmlFor="nomFicha" className="block font-medium">FICHA TÉCNICA</label>
                     <select id="nomFicha" name="nomFicha" className="w-full mt-1 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-4" required>
                         <option value="" selected hidden>Seleccione una opción</option>
                         <option value="SOPORTE TÉCNICO">SOPORTE TÉCNICO</option>
@@ -77,7 +83,7 @@ const FichaTecnica = () => {
                 </div>
                 <div>
                     <label htmlFor="fecha" className="block font-medium">FECHA</label>
-                    <input type="date" id="fecha" name="fecha" required max={new Date().toISOString().split("T")[0]} 
+                    <input type="date" id="fecha" name="fecha" required max={getFechaHoy()}
                         className="w-full mt-1 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-4"/>
                 </div>
             </div>
